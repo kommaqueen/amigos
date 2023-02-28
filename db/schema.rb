@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_184029) do
     t.float "latitude"
     t.float "longitude"
     t.text "description"
-    t.boolean "published"
+    t.boolean "published", default: true
     t.string "age_range"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
