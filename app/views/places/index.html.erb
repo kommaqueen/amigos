@@ -1,0 +1,9 @@
+<h1>Here are all our playareas!</h1>
+
+<% @places.each do |place| %>
+<h2><%= place.name %></h2>
+<li><%= place.address %></li>
+<li>Rating</li>
+<li>Age range: <%= place.age_range %></li>
+<li><%= link_to "View more details", place_path(place) %></li>
+<% end %>
