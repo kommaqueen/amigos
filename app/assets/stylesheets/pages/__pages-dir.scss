@@ -1,0 +1,10 @@
+// Import page-specific CSS files here.
+// Elements used on a single page. these styles are
+// often needed to help put finishing touches on a
+// page where modules didn't quite line up perfectly,
+// or where a page has completely unique elements.
+// these styles could often be abstracted to modules
+// but lack a reason to do so. keeping them here helps
+// explain their singular usage.
+
+@import "home";

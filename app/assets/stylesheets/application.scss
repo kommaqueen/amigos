@@ -1,12 +1,33 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+// // Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
 
-// External libraries
+// // Your CSS partials
+// @import "components/index";
+
+// Ignore everything above
+
+// Matthew Welsom Simple Scss Playbook
+@charset 'utf-8';
+
+// Vendor
+@import "vendor/__vendor-dir";
+// -- External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 
-// Your CSS partials
-@import "components/index";
-@import "pages/index";
+//Abstracts
+@import "abstracts/__abstracts-dir";
+
+//Base Styles
+@import "base/__base-dir";
+
+//Components
+@import "components/__components-dir";
+
+// Pages
+@import "pages/__pages-dir";
+
+// Layouts
+@import "layouts/__layouts-dir";
