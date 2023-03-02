@@ -1,2 +1,18 @@
-<h1>Amigos! A playplace anywhere you go</h1>
-<p>What font is this?</p>
+<h1>Amigos!</h1>
+<h2>A place to play wherever you go!</h2>
+
+<h3>Today's top rated playareas</h3>
+<% @places.sample(3).each do |place| %>
+<li><%= link_to place.name, place_path(place) %></li>
+<% end %>
+
+<h3>Browse other categories for ultimate fun!</h3>
+<p><%= link_to "View all playareas", places_path %><p>
+
+
+<p><%= link_to "Become an Amigo!", new_user_registration_path %><p>
+
+<p>Meet families in your neighbourhood!</p>
+<p>Set up playdates and parties!</p>
+<p>Find fun playareas year round!</p>
+<p>...and more!</p>
