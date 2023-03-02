@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:destroy]
+
+  get "sandbox", to: "pages#sandbox"
 end
