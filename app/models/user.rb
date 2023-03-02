@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :places
+  has_one_attached :photo
+  validates :first_name, :last_name, :username, :photo, :bio, :location, presence: true
+  validates :username, uniqueness: true
+  validates :bio, length: { minimum: 200 }
 end
