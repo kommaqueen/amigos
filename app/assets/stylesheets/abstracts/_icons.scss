@@ -1,0 +1,21 @@
+.icon {
+  width: 100px;
+  height: 70px;
+}
+
+.navbar-icon .icon {
+  height: 40px;
+  fill: $color-pinks-pink-4;
+}
+
+.navbar-icon.active {
+  border: 4px solid $color-black-greys-main-black;
+  border-radius: 50px;
+  padding: 2px 0.8em;
+  background: $color-pinks-pink-4;
+}
+
+.navbar-icon.active .icon {
+  fill: $color-pinks-main-pink;
+  height: 35px;
+}

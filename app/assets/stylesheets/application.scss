@@ -31,3 +31,9 @@
 
 // Layouts
 @import "layouts/__layouts-dir";
+
+// Map
+@import "components/_map";
+
+//thats for the search
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";

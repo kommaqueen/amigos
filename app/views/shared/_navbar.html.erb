@@ -1,39 +1,35 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-bottom">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Search", places_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Search", places_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+<nav class="navbar-styled fixed-bottom" data-controller="navbar">
+  <div class="navbar-icons">
+    <div class="navbar-icon">
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:home) %>
+      <% end %>
+    </div>
+    <div class="navbar-icon">
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:search) %>
+      <% end %>
+    </div>
+    <div class="navbar-icon" data-opens="add-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
+      <%= render "shared/icon", id: Icon.library(:add_circle) %>
+    </div>
+    <div class="navbar-icon" data-opens="user-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
+      <%= render "shared/icon", id: Icon.library(:avatar_circle) %>
     </div>
   </div>
-</div>
+
+  <div class="add navbar-dropdown d-none" data-navbar-target="box" id="add-box">
+    <ul class="submenu">
+      <li><%= link_to "Add Place", new_place_path %> </li>
+      <li><%= link_to "Find Amigo", new_user_registration_path %></li>
+    </ul>
+  </div>
+
+  <div class="user navbar-dropdown d-none" data-navbar-target="box" id="user-box">
+    <ul class="submenu">
+      <li><%= link_to "Login", new_user_session_path %> </li>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    </ul>
+  </div>
+
+</nav>

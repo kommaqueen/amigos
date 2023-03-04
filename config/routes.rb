@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :destroy]
 
   get "sandbox", to: "pages#sandbox"
+  get "search", to: "pages#search"
 end
