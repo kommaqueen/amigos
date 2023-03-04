@@ -3,15 +3,9 @@
   height: 70px;
 }
 
-.navbar-icon a .icon {
+.navbar-icon .icon {
   height: 40px;
   fill: $color-pinks-pink-4;
-}
-
-.navbar-icon a .icon .search {
-  fill: rgb(58, 58, 146);
-  stroke: black;
-  stroke-width: 2;
 }
 
 .navbar-icon.active {
@@ -21,7 +15,7 @@
   background: $color-pinks-pink-4;
 }
 
-.navbar-icon.active a.active .icon {
+.navbar-icon.active .icon {
   fill: $color-pinks-main-pink;
   height: 35px;
 }
