@@ -1,18 +1,35 @@
-<div class="navbar-styled fixed-bottom">
-  <div class="container navbar-icons">
+<nav class="navbar-styled fixed-bottom" data-controller="navbar">
+  <div class="navbar-icons">
     <div class="navbar-icon">
-      <i class="fa-solid fa-house-chimney">
-        <%= link_to root_path %>
-      </i>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:home) %>
+      <% end %>
     </div>
     <div class="navbar-icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:search) %>
+      <% end %>
     </div>
-    <div class="navbar-icon">
-      <i class="fa-solid fa-plus"></i>
+    <div class="navbar-icon" data-opens="add-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
+      <%= render "shared/icon", id: Icon.library(:add_circle) %>
     </div>
-    <div class="navbar-icon">
-      <i class="fa-solid fa-circle-user"></i>
+    <div class="navbar-icon" data-opens="user-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
+      <%= render "shared/icon", id: Icon.library(:avatar_circle) %>
     </div>
   </div>
-</div>
+
+  <div class="add navbar-dropdown d-none" data-navbar-target="box" id="add-box">
+    <ul class="submenu">
+      <li><%= link_to "Add Place", new_place_path %> </li>
+      <li><%= link_to "Find Amigo", new_user_registration_path %></li>
+    </ul>
+  </div>
+
+  <div class="user navbar-dropdown d-none" data-navbar-target="box" id="user-box">
+    <ul class="submenu">
+      <li><%= link_to "Login", new_user_session_path %> </li>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    </ul>
+  </div>
+
+</nav>
