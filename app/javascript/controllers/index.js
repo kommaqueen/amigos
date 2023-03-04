@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)

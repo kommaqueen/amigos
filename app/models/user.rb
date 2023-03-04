@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :first_name, :last_name, :username, :bio, :location, presence: true
   validates :username, uniqueness: true
-  validates :bio, length: { minimum: 200 }
+  
 end
