@@ -56,6 +56,7 @@
   background-color: $color-pinks-pink-4;
   border: 4px solid $color-black-greys-main-black;
   border-radius: 20px;
+  width: 120px;
 }
 
 .navbar-dropdown .submenu {
@@ -65,9 +66,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 1em;
-  padding: 1em 1.5em;
   margin-bottom: 0;
+  height: 100%;
+  padding: 1em;
+  gap: 1em;
 }
 
 .submenu li a {
@@ -75,4 +77,9 @@
   text-decoration: none;
   color: $color-black-greys-main-black;
   text-decoration: underline;
+}
+
+.add.navbar-dropdown {
+  right: 22%;
+  width: 160px;
 }
