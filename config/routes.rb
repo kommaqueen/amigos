@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :places do
-    resources :events
+    resources :events, only: [:new, :create]
   end
 
-  resources :events, only: [:destroy]
+  resources :events, only: [:show, :destroy]
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"

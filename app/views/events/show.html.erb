@@ -1,0 +1,18 @@
+<%= link_to "Back to #{@event.place.name}", place_path(@event.place) %>
+
+<h1><%= @event.title %></h1>
+
+<p><%= @event.place.address %></p>
+<p>When: <%= @event.start_time.strftime("%A, %b %d") %></p>
+
+<p>From: <%= @event.start_time.strftime("%l:%M") %></p>
+<p>Until: <%= @event.end_time.strftime("%l:%M") %></p>
+<p>Hosted by: <%= @event.user.username %></p>
+<% if @event.public? %>
+<p>This is a public event.</p>
+<% else %>
+<p>This is a private event.</p>
+<% end %>
+<p><%= @event.description %></p>
+
+<h2>Attendees:</h2>
