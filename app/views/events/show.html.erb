@@ -1,0 +1,12 @@
+<%= link_to "Back to #{@event.place.name}", place_path(@event.place) %>
+
+<h1><%= @event.title %></h1>
+
+<p><%= @event.place.address %></p>
+<p>When: <%= @event.date %></p>
+<p>From: <%= @event.start_time.hour %>:00</p>
+<p>Until: <%= @event.end_time.hour %>:00</p>
+<p>Hosted by: <%= @event.user.username %></p>
+<p><%= @event.description %></p>
+
+<h2>Attendees:</h2>

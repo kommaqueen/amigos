@@ -12,3 +12,8 @@
 <p>Age range: <%= @place.age_range %></p>
 
 <h3>Wall/Events/Reviews</h3>
+
+<h4>Events:</h4>
+<% @place.events.each do |event| %>
+  <%= link_to event.title, event_path(event) %>
+<% end %>
