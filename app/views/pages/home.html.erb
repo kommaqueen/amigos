@@ -1,18 +1,46 @@
-<h1>Amigos!</h1>
-<h2>A place to play wherever you go!</h2>
+<div class="logo-banner">
+  <%= image_tag "staggered_logo" %>
+  <div class="logo-tagline">
+    <h2>A place to play wherever you go!</h2>
+  </div>
+</div>
 
-<h3>Today's top rated playareas</h3>
-<% @places.sample(3).each do |place| %>
-<li><%= link_to place.name, place_path(place) %></li>
-<% end %>
+<div class="search-box">
+  <div class="search-input">
+    <p class="input-text":>Find a place near you...</p>
+  </div>
+  <div class="search-icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
 
-<h3>Browse other categories for ultimate fun!</h3>
-<p><%= link_to "View all playareas", places_path %><p>
+<div class="category-box">
+  <h1>Newest Playplaces</h1>
+  <div class="category-cards">
+    <div class="category-card">
+      <% @places.sample(3).each do |place| %>
+      <li><%= link_to place.name, place_path(place) %></li>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<div class="attention">
+  <h1>Browse other categories for ultimate fun!</h1>
+  <div class="button-box">
+    <p><%= link_to "View all playareas", places_path %><p>
+  </div>
+</div>
 
-<p><%= link_to "Become an Amigo!", new_user_registration_path %><p>
+<div class="btn cta cta-big">
+  <p><%= link_to "Become an Amigo!", new_user_registration_path %><p>
+</div>
 
-<p>Meet families in your neighbourhood!</p>
-<p>Set up playdates and parties!</p>
-<p>Find fun playareas year round!</p>
-<p>...and more!</p>
+<div class="perks">
+  <p>Meet families in your neighbourhood!</p>
+  <p>Set up playdates and parties!</p>
+  <p>Find fun playareas year round!</p>
+  <p>...and more!</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et nemo rerum, ut quas dicta molestiae repudiandae temporibus voluptas. Consectetur blanditiis excepturi mollitia, deleniti iusto maxime quasi vitae minus nisi nesciunt?</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam mollitia saepe, autem molestiae ipsam eos provident quam est, ipsum unde nihil doloremque quos! Cumque, nam. Hic inventore harum labore corporis!</p>
+</div>
