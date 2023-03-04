@@ -1,0 +1,15 @@
+.cta-basic {
+  background: $color-yellows-yellow-3;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 12px;
+  border: 2px $color-black-greys-main-black solid;
+  font-family: $headers-font;
+  color: black;
+}
+
+.cta-basic a {
+  text-decoration: none;
+color: $color-oranges-orange-2;
+font-weight: bold;
+}
