@@ -8,14 +8,45 @@
 
 
 # wipe everything
+puts "destroying all event..."
+Event.destroy_all
 puts "destroying all places..."
 Place.destroy_all
 puts "destroying all users..."
 User.destroy_all
 
-user1 = User.create!(first_name: "Deanna", last_name: "Wright", username: "kommaqueen", email: "deanna@gmail.com", password: "123456", bio: "I am super super cool and like kids.", location: "Reinickendorf", avatar: Faker::Avatar.image)
-user2 = User.create!(first_name: "Lucy", last_name: "Treganna", username: "coolmom", email: "lucy@gmail.com", password: "123456", bio: "I am a super super cool mom and like kids.", location: "Kreuzberg", avatar: Faker::Avatar.image)
-user3 = User.create!(first_name: "Caio", last_name: "Zimbardi", username: "oldpappa", email: "caio@gmail.com", password: "123456", bio: "I am a super super cool old dad and like kids.", location: "Charlottenburg", avatar: Faker::Avatar.image)
+user1 = User.create!(
+  first_name: "Deanna",
+  last_name: "Wright",
+  username: "kommaqueen",
+  email: "deanna@gmail.com",
+  password: "123456",
+  bio: "I am super super cool and like kids." * 6,
+  location: "Reinickendorf",
+  avatar: Faker::Avatar.image
+)
+
+user2 = User.create!(
+  first_name: "Lucy",
+  last_name: "Treganna",
+  username: "coolmom",
+  email: "lucy@gmail.com",
+  password: "123456",
+  bio: "I am a super super cool mom and like kids." * 6,
+  location: "Kreuzberg",
+  avatar: Faker::Avatar.image
+)
+
+user3 = User.create!(
+  first_name: "Caio",
+  last_name: "Zimbardi",
+  username: "oldpappa",
+  email: "caio@gmail.com",
+  password: "123456",
+  bio: "I am a super super cool old dad and like kids." * 6,
+  location: "Charlottenburg",
+  avatar: Faker::Avatar.image
+)
 
 users = [user1, user2, user3]
 adjectives = ["Pirate", "Castle", "Kingdom", "Wonder", "Bounce"]
@@ -24,6 +55,8 @@ ages = ["1-3", "4-7", "7-10", "all"]
 
 # create some places
 puts "creating new places"
+
+places = []
 
 12.times do
   random = Faker::Food.unique.fruits
@@ -38,4 +71,29 @@ puts "creating new places"
     )
   place.save
   puts "added new place named #{place.name}"
+  places << place
+end
+
+# places.sample.id
+
+#create some events
+puts "creating new events"
+
+event_categories = ["birthday", "picnic", "social", "playdate", "other"]
+time = Time.now + rand(5).day + rand(5).hour
+
+5.times do
+  category = event_categories.sample
+  event = Event.create(
+    user: User.all.sample,
+    place: Place.all.sample,
+    date: Faker::Date.in_date_period,
+    start_time: time,
+    end_time: time + rand(3).hour,
+    category: category,
+    title: "#{Faker::FunnyName.name}'s #{category.capitalize}",
+    description: Faker::Hipster.sentence * 5,
+    public: true
+  )
+  puts "added new event named #{event.title}"
 end
