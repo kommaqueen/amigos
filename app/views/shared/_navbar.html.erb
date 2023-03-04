@@ -1,18 +1,24 @@
-<div class="navbar-styled fixed-bottom">
-  <div class="container navbar-icons">
+<nav class="navbar-styled fixed-bottom">
+  <div class="navbar-icons">
     <div class="navbar-icon">
-      <i class="fa-solid fa-house-chimney">
-        <%= link_to root_path %>
-      </i>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:home) %>
+      <% end %>
     </div>
     <div class="navbar-icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:search) %>
+      <% end %>
     </div>
     <div class="navbar-icon">
-      <i class="fa-solid fa-plus"></i>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:add_circle) %>
+      <% end %>
     </div>
-    <div class="navbar-icon">
-      <i class="fa-solid fa-circle-user"></i>
+    <div class="navbar-icon active">
+      <%= link_to root_path, class: "active" do %>
+        <%= render "shared/icon", id: Icon.library(:avatar_circle) %>
+      <% end %>
     </div>
   </div>
-</div>
+</nav>

@@ -26,10 +26,9 @@
   padding: 1em 1.5em;
 
   position: sticky;
-  width: 100%;
   height: 8%;
 
-  background: #CA78B0;
+  background: $color-pinks-main-pink;
   border: 4px solid #000000;
   border-radius: 30px;
   width: 97%;
@@ -42,6 +41,8 @@
   align-items: center;
   padding: 0px;
   gap: 48px;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar-icon i {
