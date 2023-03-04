@@ -7,12 +7,19 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :places do
+<<<<<<< HEAD
     resources :events
     resources :reviews, except: [:destroy, :edit, :update]
   end
 
   resources :events, only: [:destroy]
   resources :reviews, only: [:destroy]
+=======
+    resources :events, only: [:new, :create]
+  end
+
+  resources :events, only: [:show, :destroy]
+>>>>>>> d078dee59fb50bcd3f5c145759a2b8c1f11a2b80
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_03_04_125913) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_143905) do
+>>>>>>> d078dee59fb50bcd3f5c145759a2b8c1f11a2b80
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_125913) do
     t.text "description"
     t.boolean "public"
     t.string "category"
-    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_events_on_place_id"

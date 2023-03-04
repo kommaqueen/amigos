@@ -24,3 +24,13 @@
         <%= f.submit "Send your review", class: "btn btn-primary mt-2" %>
       <% end %>
 </div>
+
+<% if user_signed_in? %>
+<h4>Events:</h4>
+<% @place.events.each do |event| %>
+  <p><%= link_to event.title, event_path(event) %></p>
+<% end %>
+<% else %>
+<p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
+<% end %>
+<p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
