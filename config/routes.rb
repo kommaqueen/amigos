@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   resources :places do
     resources :events
+    resources :reviews, except: [:destroy, :edit, :update]
   end
 
   resources :events, only: [:destroy]
+  resources :reviews, only: [:destroy]
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"
