@@ -8,6 +8,8 @@
 
 
 # wipe everything
+puts "destroying all event..."
+Event.destroy_all
 puts "destroying all places..."
 Place.destroy_all
 puts "destroying all users..."
@@ -77,6 +79,21 @@ end
 #create some events
 puts "creating new events"
 
-5.times do
+event_categories = ["birthday", "picnic", "social", "playdate", "other"]
+time = Time.now + rand(5).day + rand(5).hour
 
+5.times do
+  category = event_categories.sample
+  event = Event.create(
+    user: User.all.sample,
+    place: Place.all.sample,
+    date: Faker::Date.in_date_period,
+    start_time: time,
+    end_time: time + rand(3).hour,
+    category: category,
+    title: "#{Faker::FunnyName.name}'s #{category.capitalize}",
+    description: Faker::Hipster.sentence * 5,
+    public: true
+  )
+  puts "added new event named #{event.title}"
 end
