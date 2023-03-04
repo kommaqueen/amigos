@@ -17,3 +17,5 @@
 <% @place.events.each do |event| %>
   <%= link_to event.title, event_path(event) %>
 <% end %>
+
+<p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>

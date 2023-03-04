@@ -87,7 +87,6 @@ time = Time.now + rand(5).day + rand(5).hour
   event = Event.create(
     user: User.all.sample,
     place: Place.all.sample,
-    date: Faker::Date.in_date_period,
     start_time: time,
     end_time: time + rand(3).hour,
     category: category,
