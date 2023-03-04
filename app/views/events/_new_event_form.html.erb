@@ -12,5 +12,6 @@
         <%= f.input :end_time, as: :string, input_html: {data: {controller: "flatpickr"}} %>
       </div>
     </div>
+    <%= f.input :public, as: :boolean, label: "Make event public?" %>
     <%= f.button :submit, "Create event" %>
   <% end %>

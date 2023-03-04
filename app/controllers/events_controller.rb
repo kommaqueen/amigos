@@ -17,7 +17,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      render "places/show", status: :unprocessable_entity
+      render "events/new", status: :unprocessable_entity
+      flash[:alert] = "Something went wrong."
     end
   end
 
@@ -33,7 +34,8 @@ class EventsController < ApplicationController
       :description,
       :category,
       :start_time,
-      :end_time
+      :end_time,
+      :public
     )
   end
 end
