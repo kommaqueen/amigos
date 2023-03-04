@@ -10,22 +10,22 @@
         <%= render "shared/icon", id: Icon.library(:search) %>
       <% end %>
     </div>
-    <div class="navbar-icon" data-opens="banana" data-action="click->navbar#handleClick" data-navbar-target="icon">
+    <div class="navbar-icon" data-opens="add-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
       <%= render "shared/icon", id: Icon.library(:add_circle) %>
     </div>
-    <div class="navbar-icon" data-opens="mango" data-action="click->navbar#handleClick" data-navbar-target="icon">
+    <div class="navbar-icon" data-opens="user-box" data-action="click->navbar#handleClick" data-navbar-target="icon">
       <%= render "shared/icon", id: Icon.library(:avatar_circle) %>
     </div>
   </div>
 
-  <div class="add navbar-dropdown d-none" data-navbar-target="box" id="banana">
+  <div class="add navbar-dropdown d-none" data-navbar-target="box" id="add-box">
     <ul class="submenu">
       <li><%= link_to "Add Place", new_place_path %> </li>
       <li><%= link_to "Find Amigo", new_user_registration_path %></li>
     </ul>
   </div>
 
-  <div class="user navbar-dropdown d-none" data-navbar-target="box" id="mango">
+  <div class="user navbar-dropdown d-none" data-navbar-target="box" id="user-box">
     <ul class="submenu">
       <li><%= link_to "Login", new_user_session_path %> </li>
       <li><%= link_to "Sign Up", new_user_registration_path %></li>
