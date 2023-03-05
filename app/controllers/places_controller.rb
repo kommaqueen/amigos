@@ -7,6 +7,9 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = Review.all
+    @place_avg_rating = place_avg_rating
   end
 
   def new
@@ -25,5 +28,13 @@ class PlacesController < ApplicationController
 
   def set_place
     @place = Place.find(params[:id])
+  end
+
+  def place_avg_rating
+    avg = 0.00
+    @place.reviews.each do |r|
+      avg += r.rating
+    end
+    avg / @place.reviews.length
   end
 end

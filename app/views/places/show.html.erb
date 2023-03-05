@@ -4,6 +4,16 @@
 <p><%= @place.category.capitalize %></p>
 <p><%= @place.address %></p>
 <p>Rating: TBA</p>
+
+
+<%# Average rating calculation for place is in the places controller %>
+<%= @place_avg_rating  %>
+<div class="stars">
+  <% @place_avg_rating.to_i.times do %>
+    <i class="fa-solid fa-star"></i>
+  <% end %>
+</div>
+
 <p>Read all reviews</p>
 
 <h3>Check in button!</h3>
@@ -12,6 +22,19 @@
 <p>Age range: <%= @place.age_range %></p>
 
 <h3>Wall/Events/Reviews</h3>
+
+<%# Reviews partials with no restrictions %>
+
+<div class="container">
+  <div class="row">
+    <div class="reviews-display col-12 col-lg-6">
+      <%= render partial: "places/display_reviews", locals: {place: @place } %>
+    </div>
+    <div class="form-review col-12 col-lg-6">
+      <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
+    </div>
+  </div>
+</div>
 
 <% if user_signed_in? %>
 <h4>Events:</h4>

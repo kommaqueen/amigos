@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :places do
+
     resources :events, only: [:new, :create]
+    resources :reviews, except: [:destroy, :edit, :update]
   end
+
+  resources :reviews, only: [:destroy]
+
 
   resources :events, only: [:show, :destroy]
 
