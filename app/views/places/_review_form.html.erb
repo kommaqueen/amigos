@@ -1,0 +1,9 @@
+<h2>Leave a review!</h2>
+<%= simple_form_for [@place, @review] do |f| %>
+        <%= f.input :cleanliness, collection: (1..5).to_a, label: "Rate the cleanliness?", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :condition, collection: (1..5).to_a, label: "The conditions were good?", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :age_appropriate, collection: (1..5).to_a, label: "Age appropriated?", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :fun_factor, collection: (1..5).to_a, label: "Fun factor?", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :comment, label: "Leave your comments!" %>
+        <%= f.submit "Send your review", class: "btn btn-primary mt-2" %>
+<% end %>

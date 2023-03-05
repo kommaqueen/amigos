@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.place = @place
+    @review.rating = avg_rating
     if @review.save
-      redirect_to place_path
+      redirect_to place_path(@place)
     else
       render "places/show", status: :unprocessable_entity
       flash[:alert] = "Something went wrong."
@@ -34,6 +35,11 @@ class ReviewsController < ApplicationController
       :age_appropriate,
       :fun_factor
     )
+  end
+
+  def avg_rating
+    all_ratings = [@review.cleanliness, @review.condition, @review.age_appropriate, @review.fun_factor]
+    all_ratings.sum.to_f / all_ratings.length
   end
 
 end
