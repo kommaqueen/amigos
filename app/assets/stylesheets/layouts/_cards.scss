@@ -1,4 +1,43 @@
 // Place Category Cards (ie Home Page & User Dashboard/Profile)
+.category-cards {
+  gap: 1.5em;
+  display: inline-flex;
+  overflow-y: scroll;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 2px solid #000000;
+  border-radius: 16px;
+}
+
+.category-card img {
+  height: 336px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.category-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.category-card-info p:first-of-type {
+  font-weight: 800;
+  font-size: 1.5em;
+}
+
+.category-card-info p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: $font-dosis;
+}
 
 // Search Cards (ie Search Page / Place Index)
 
