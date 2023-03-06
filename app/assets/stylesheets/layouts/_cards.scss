@@ -25,8 +25,10 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: $font-dosis;
-  height: 30%;
   padding: 0.8em 1em;
+  height: fit-content;
+  padding: 0.8em 1em;
+  width: 90%;
 }
 
 .category-card-info p:first-of-type {
@@ -41,6 +43,14 @@
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 0;
+}
+
+.wrapper {
+  /* Yellows/yellow-4 */
+  background: #FEEB89;
+  /* Black&Greys/main-black */
+  border: 2px solid #000000;
+  border-radius: 15px;
 }
 
 // Search Cards (ie Search Page / Place Index)

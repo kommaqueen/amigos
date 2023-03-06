@@ -18,12 +18,14 @@
   <h1>Newest Playplaces</h1>
   <div class="category-cards">
     <% @places.sample(3).each do |place| %>
-    <div class="category-card">
-      <img src="https://images.unsplash.com/photo-1596997000103-e597b3ca50df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="playground">
-      <div class="category-card-info">
-        <%# link_to place.name, place_path(place) %>
-        <p><%= place.name %></p>
-        <p><%= place.address %></p>
+    <div class="wrapper">
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1596997000103-e597b3ca50df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="playground">
+        <div class="category-card-info">
+          <%# link_to place.name, place_path(place) %>
+          <p><%= place.name %></p>
+          <p><%= place.address %></p>
+        </div>
       </div>
     </div>
     <% end %>
