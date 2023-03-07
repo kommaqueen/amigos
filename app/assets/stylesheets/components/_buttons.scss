@@ -1,4 +1,4 @@
-.button-basic {
+.button-basic-blue {
   background: $color-blues-blue-5;
   border-radius: 50px;
   border: 2px solid black;
@@ -10,13 +10,95 @@
   font-weight: bolder;
 }
 
-.front {
+.button-basic-yellow {
+  background: $color-yellows-main-yellow;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 2px;
+  border: 2px $color-black-greys-main-black solid;
+  font-family: Dosis;
+  font-weight: bolder;
+}
+
+.button-basic-orange {
+  background: $color-oranges-main-orange;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 2px;
+  border: 2px $color-black-greys-main-black solid;
+  font-family: Dosis;
+  font-weight: bolder;
+}
+
+.button-basic-purple {
+  background: $color-purples-main-purple;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 2px;
+  border: 2px $color-black-greys-main-black solid;
+  font-family: Dosis;
+  font-weight: bolder;
+}
+
+.button-basic-green {
+  background: $color-greens-green-6;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 2px;
+  border: 2px $color-black-greys-main-black solid;
+  font-family: Dosis;
+  font-weight: bolder;
+}
+
+
+.front-blue {
   display: block;
   padding: 12px 42px;
   border-radius: 50px;
   border: 2px solid black;
   font-size: 1.25rem;
-  background: $color-blues-blue-2;
+  background: $color-blues-blue-5;
+  color: $color-black-greys-main-black;
+  transform: translate(-2px, -3px);
+}
+
+.front-yellow {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 50px;
+  border: 2px solid black;
+  font-size: 1.25rem;
+  background: $color-yellows-yellow-5;
+  color: $color-black-greys-main-black;
+  transform: translate(-2px, -3px);
+}
+
+.front-orange {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 50px;
+  border: 2px solid black;
+  font-size: 1.25rem;
+  background: $color-oranges-orange-5;
+  color: $color-black-greys-main-black;
+  transform: translate(-2px, -3px);
+}
+
+.front-purple {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 50px;
+  border: 2px solid black;
+  font-size: 1.25rem;
+  background: $color-purples-purple-5;
   color: $color-black-greys-main-black;
   transform: translate(-2px, -3px);
 }
@@ -27,8 +109,12 @@
 
 .button-box {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .cta-big {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
