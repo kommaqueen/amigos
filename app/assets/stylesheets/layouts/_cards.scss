@@ -1,57 +1,57 @@
 // Place Category Cards (ie Home Page & User Dashboard/Profile)
-.category-cards {
-  gap: 1.5em;
-  display: inline-flex;
-  overflow-x: scroll;
-}
+// .category-cards {
+//   gap: 1.5em;
+//   display: inline-flex;
+//   overflow-x: scroll;
+// }
 
-.category-card {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 410px;
-  border: 2px solid #000000;
-  border-radius: 16px;
-}
+// .category-card {
+//   display: flex;
+//   flex-direction: column;
+//   width: 300px;
+//   height: 410px;
+//   border: 2px solid #000000;
+//   border-radius: 16px;
+// }
 
-.category-card img {
-  object-fit: cover;
-  border-radius: 16px 16px 0 0;
-  height: 100%;
-}
+// .category-card img {
+//   object-fit: cover;
+//   border-radius: 16px 16px 0 0;
+//   height: 100%;
+// }
 
-.category-card-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: $font-dosis;
-  padding: 0.8em 1em;
-  height: fit-content;
-  padding: 0.8em 1em;
-  width: 90%;
-}
+// .category-card-info {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   font-family: $font-dosis;
+//   padding: 0.8em 1em;
+//   height: fit-content;
+//   padding: 0.8em 1em;
+//   width: 90%;
+// }
 
-.category-card-info p:first-of-type {
-  font-weight: 800;
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-}
+// .category-card-info p:first-of-type {
+//   font-weight: 800;
+//   font-size: 1.5em;
+//   margin-bottom: 0.5em;
+// }
 
-.category-card-info p {
-  font-family: $font-dosis;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 20px;
-  margin-bottom: 0;
-}
+// .category-card-info p {
+//   font-family: $font-dosis;
+//   font-weight: 300;
+//   font-size: 16px;
+//   line-height: 20px;
+//   margin-bottom: 0;
+// }
 
-.wrapper {
-  /* Yellows/yellow-4 */
-  background: #FEEB89;
-  /* Black&Greys/main-black */
-  border: 2px solid #000000;
-  border-radius: 15px;
-}
+// .wrapper {
+//   /* Yellows/yellow-4 */
+//   background: #FEEB89;
+//   /* Black&Greys/main-black */
+//   border: 2px solid #000000;
+//   border-radius: 15px;
+// }
 
 // Search Cards (ie Search Page / Place Index)
 
