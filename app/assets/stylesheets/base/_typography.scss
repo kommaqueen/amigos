@@ -1,5 +1,13 @@
 // we should review how these work, also rename them
 
+.header {
+  padding-bottom: 0.2em;
+}
+
+.header.big {
+  padding-bottom: .5em;
+}
+
 h1 {
   font-size: 1.75rem;
   font-family: "Paytone One";
@@ -7,6 +15,15 @@ h1 {
   font-style: normal;
   text-decoration: none;
   text-transform: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+	font-family: "Paytone One";
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
 }
 
 p {

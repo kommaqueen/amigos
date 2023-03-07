@@ -1,4 +1,79 @@
 // Place Category Cards (ie Home Page & User Dashboard/Profile)
+.category-cards {
+  display: inline-flex;
+  overflow-x: scroll;
+  width: 100vw;
+  gap: 1em;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000000;
+  border-radius: 1em;
+  width: 300px;
+  height: 350px;
+  flex-shrink: 0;
+}
+
+.img-box {
+  flex: 3;
+}
+
+.img-box img {
+  object-fit: cover;
+  border-radius: 1em 1em 0 0;
+  height: 100%;
+}
+
+.category-card-info {
+  flex: 1;
+}
+
+// .category-card img {
+//   object-fit: cover;
+//   border-radius: 16px 16px 0 0;
+//   height: 100%;
+// }
+
+.category-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: $font-dosis;
+  padding: 0.8em 1em;
+}
+
+// .category-card-info p:first-of-type {
+//   font-weight: 800;
+//   font-size: 1.5em;
+//   margin-bottom: 0.5em;
+// }
+
+.category-card-info a {
+  font-family: $font-dosis;
+  font-weight: 800;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  text-decoration: none;
+  color: $color-black-greys-main-black;
+}
+
+// .category-card-info p {
+//   font-family: $font-dosis;
+//   font-weight: 300;
+//   font-size: 16px;
+//   line-height: 20px;
+//   margin-bottom: 0;
+// }
+
+// .wrapper {
+//   /* Yellows/yellow-4 */
+//   background: #FEEB89;
+//   /* Black&Greys/main-black */
+//   border: 2px solid #000000;
+//   border-radius: 15px;
+// }
 
 // Search Cards (ie Search Page / Place Index)
 

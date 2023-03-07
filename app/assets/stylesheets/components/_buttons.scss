@@ -119,9 +119,12 @@
 }
 
 .button-box {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: space-evenly;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
 }
 
 .cta-big {

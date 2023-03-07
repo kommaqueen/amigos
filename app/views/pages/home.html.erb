@@ -14,20 +14,27 @@
   </div>
 </div>
 
-<div class="category-box">
-  <h1>Newest Playplaces</h1>
+<div class="category-box bottom-space big">
+  <h1 class="header">Newest Playplaces</h1>
   <div class="category-cards">
-    <div class="category-card">
-      <% @places.sample(3).each do |place| %>
-      <li><%= link_to place.name, place_path(place) %></li>
-      <% end %>
-    </div>
+    <% @places.sample(3).each do |place| %>
+      <div class="category-card card">
+        <div class="img-box">
+          <%= cl_image_tag place.photos[0].key, crop: :fill %>
+        </div>
+        <%# <img src="https://images.unsplash.com/photo-1596997000103-e597b3ca50df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="playground"> %>
+        <div class="category-card-info">
+          <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
+          <p><%= place.address %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
-<div class="categories">
-  <h1>Browse categories:</h1>
-  <div class="button-box">
+<div class="categories bottom-space">
+  <h2 class="header big text-center">Browse Categories</h2>
+  <div class="button-box bottom-space upper-gap">
     <button class="button-basic-blue">
       <span class="front-blue">
         big slides
@@ -47,7 +54,7 @@
       </span>
     </button>
   </div>
-  <p><%= link_to "View all playareas", places_path %><p>
+  <p class="text-center"><%= link_to "View all playareas", places_path %><p>
 </div>
 
 <div class="btn cta cta-big">
@@ -57,6 +64,7 @@
 </div>
 
 <div class="perks">
+  <%= render "shared/icon", id: Icon.library(:bubbles) %>
   <p>Meet families in your neighbourhood!</p>
   <p>Set up playdates and parties!</p>
   <p>Find fun playareas year round!</p>
