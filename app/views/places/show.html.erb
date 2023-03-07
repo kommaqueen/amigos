@@ -21,6 +21,7 @@
 <p><%= @place.description %></p>
 <p>Age range: <%= @place.age_range %></p>
 
+<p>Current check-ins: <%= @check_ins.count %></p>
 <%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
 
 <h3>Wall/Events/Reviews</h3>
