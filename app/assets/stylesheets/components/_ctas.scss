@@ -1,15 +1,39 @@
+// .cta-basic {
+//   background: $color-oranges-main-orange;
+//   border-radius: 10px;
+//   border: 2px solid black;
+//   padding: 12px;
+//   border: 2px $color-black-greys-main-black solid;
+//   font-family: $headers-font;
+//   color: black;
+// }
+
+// .cta-basic a {
+//   text-decoration: none;
+// color:
+// font-weight: bold;
+// }
+
+
 .cta-basic {
-  background: $color-yellows-yellow-3;
+  background: #f9c69a;
   border-radius: 10px;
   border: 2px solid black;
-  padding: 12px;
-  border: 2px $color-black-greys-main-black solid;
-  font-family: $headers-font;
-  color: black;
+  padding: 0px;
+  cursor: pointer;
+  outline-offset: 0px;
+  border: 2px black solid;
+  font-family: "Paytone One", "Nunito", "Helvetica", "sans-serif";
 }
 
-.cta-basic a {
+.cta-basic-front {
+  display: block;
+  padding: 10px 50px;
+  border-radius: 7px;
+  border: 2px solid black;
+  font-size: 1.25rem;
+  background: #fef3b7;
+  color: #F17D18;
+  transform: translate(-2px, -3px);
   text-decoration: none;
-color: $color-oranges-orange-2;
-font-weight: bold;
 }
