@@ -1,6 +1,6 @@
 
   <% @place.reviews.each do |r| %>
-    <%= r.user.username %>
+    <%= r.user.username.capitalize %>
     <%= r.rating %>
     <%= r.comment %>
     <% if r.user == current_user %>
