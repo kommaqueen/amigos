@@ -16,3 +16,6 @@
 <p><%= @event.description %></p>
 
 <h2>Attendees:</h2>
+
+<p><%= link_to "Edit event", edit_event_path %></p>
+<p><%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>

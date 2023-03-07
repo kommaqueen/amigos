@@ -35,6 +35,6 @@ class PlacesController < ApplicationController
     @place.reviews.each do |r|
       avg += r.rating
     end
-    avg / @place.reviews.length
+    @place.reviews.empty? ? 0 : avg / @place.reviews.length
   end
 end
