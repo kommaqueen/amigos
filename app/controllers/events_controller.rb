@@ -31,9 +31,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @place = @event.place
     @event.destroy
-    @place = Place.find(params[:place_id])
-    redirect_to places_path(@place), status: :see_other
+    redirect_to place_path(@place), status: :see_other
   end
 
   private
