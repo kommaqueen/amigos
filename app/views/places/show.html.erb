@@ -5,14 +5,21 @@
 <p><%= @place.address %></p>
 <p>Rating: TBA</p>
 
+<%= cl_image_tag @place.photos[0].key, height: 300, width: 400, crop: :fill %>
+
 
 <%# Average rating calculation for place is in the places controller %>
 <%= @place_avg_rating  %>
-<div class="stars">
-  <% @place_avg_rating.to_i.times do %>
-    <i class="fa-solid fa-star"></i>
-  <% end %>
-</div>
+<% if @place_avg_rating == 0 %>
+    <p>No rating</p>
+  <% else %>
+    <div class="stars">
+      <% @place_avg_rating.to_i.times do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %>
+    </div>
+<% end %>
+
 
 <p>Read all reviews</p>
 

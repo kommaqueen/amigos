@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :description, :age_range, photos: [])
+    params.require(:place).permit(:name, :category, :address, :description, :age_range, :photo)
   end
 
   def set_place
@@ -35,6 +35,6 @@ class PlacesController < ApplicationController
     @place.reviews.each do |r|
       avg += r.rating
     end
-    avg / @place.reviews.length
+    @place.reviews.empty? ? 0 : avg / @place.reviews.length
   end
 end
