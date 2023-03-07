@@ -10,6 +10,8 @@ class PlacesController < ApplicationController
     @review = Review.new
     @reviews = Review.all
     @place_avg_rating = place_avg_rating
+    @check_in = CheckIn.new
+    @check_ins = CheckIn.all
   end
 
   def new

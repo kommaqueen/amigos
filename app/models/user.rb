@@ -6,8 +6,9 @@ class User < ApplicationRecord
 
   has_many :places, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :check_ins, dependent: :destroy
   has_one_attached :photo
   validates :first_name, :last_name, :username, :bio, :location, presence: true
   validates :username, uniqueness: true
-  
+
 end
