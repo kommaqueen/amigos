@@ -43,6 +43,8 @@
   </div>
 </div>
 
+<%# TODO: add logic to display public events to all and private events to those invited %>
+
 <% if user_signed_in? %>
 <h4>Events:</h4>
 <% @place.events.each do |event| %>
@@ -51,4 +53,5 @@
 <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
 <% else %>
 <p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
+<p><%= link_to "Become an Amigo!", new_user_registration_path %></p>
 <% end %>
