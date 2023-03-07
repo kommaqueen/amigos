@@ -53,4 +53,5 @@
 <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
 <% else %>
 <p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
+<p><%= link_to "Become an Amigo!", new_user_registration_path %></p>
 <% end %>
