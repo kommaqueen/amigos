@@ -8,6 +8,11 @@
 
 
 # wipe everything
+require "json"
+require "rest-client"
+require 'open-uri'
+
+
 puts "destroying all event..."
 Event.destroy_all
 puts "destroying all places..."
@@ -49,32 +54,68 @@ user3 = User.create!(
 )
 
 users = [user1, user2, user3]
-adjectives = ["Pirate", "Castle", "Kingdom", "Wonder", "Bounce"]
-categories = ["spielplatz", "kindercafe", "museum"]
-ages = ["1-3", "4-7", "7-10", "all"]
+# adjectives = ["Pirate", "Castle", "Kingdom", "Wonder", "Bounce"]
+# categories = ["spielplatz", "kindercafe", "museum"]
+# ages = ["1-3", "4-7", "7-10", "all"]
+# # address = ["Weinbergsweg 20, 10119 Berlin",
+# #   "Weinbergsweg 14, 10119 Berlin",
+# #   "Invalidenstraße 20, 10115 Berlin",
+# #   "Caroline-Michaelis-Straße 8, 10115 Berlin",
+# #   "Kollwitzstraße 35, 10405 Berlin"
+# #   ]
 
 # create some places
 puts "creating new places"
 
-places = []
+# places = []
 
-12.times do
-  random = Faker::Food.unique.fruits
-  place = Place.create!(
-      name: "#{adjectives.sample.capitalize} #{random} #{categories.sample.capitalize}",
-      category: categories.sample,
-      address: Faker::Address.full_address,
-      description: Faker::Hipster.sentences(number: 4),
-      published: true,
-      age_range: ages.sample,
-      user: users.sample
-    )
-  place.save
-  puts "added new place named #{place.name}"
-  places << place
-end
+# 5.times do
+#   random = Faker::Food.unique.fruits
+#   place = Place.create!(
+#       name: "#{adjectives.sample.capitalize} #{random} #{categories.sample.capitalize}",
+#       category: categories.sample,
+#       address: address.pop,
+#       description: Faker::Lorem.paragraph,
+#       published: true,
+#       age_range: ages.sample,
+#       user: users.sample
+#     )
+
+#   place.save
+#   puts "added new place named #{place.name}"
+#   places << place
+# end
 
 # places.sample.id
+
+
+weinbergpark = Place.create!(
+  name: "Weinbergpark playground",
+  category: "spielplatz",
+  address: "Weinbergsweg 14, 10119 Berlin",
+  description: "Great playground on top of Weinbergpark, with trampolines, rope pyramid and ping-pong, soccer and basketball court.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678186980/playground/weinberg_q48nb9.jpg")
+weinbergpark.photos.attach(io: file, filename: "weinberg_q48nb9.jpg", content_type: "image/jpg")
+weinbergpark.save!
+
+watertower = Place.create!(
+  name: "Watertower playground",
+  category: "spielplatz",
+  address: "Weinbergsweg 20, 10119 Berlin",
+  description: "Big playground at the foot of this water tower. One highlight are the 2 big trampolines. And you can also climb the little hill to get sunshine and a view.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678186993/playground/watertower_zy5gdq.jpg")
+watertower.photos.attach(io: file, filename: "watertower_zy5gdq.jpg", content_type: "image/jpg")
+watertower.save!
 
 #create some events
 puts "creating new events"
