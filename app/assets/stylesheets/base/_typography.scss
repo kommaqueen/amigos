@@ -1,5 +1,9 @@
 // we should review how these work, also rename them
 
+h1, h2, h3, p, a {
+  color: $color-black-greys-main-black;
+}
+
 .header {
   padding-bottom: 0.2em;
 }

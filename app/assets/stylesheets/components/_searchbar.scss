@@ -1,0 +1,13 @@
+.search-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 2px $color-black-greys-main-black solid;
+
+  p {
+    margin-bottom: 0;
+  }
+}

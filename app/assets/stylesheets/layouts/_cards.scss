@@ -12,7 +12,7 @@
   border: 2px solid #000000;
   border-radius: 1em;
   width: 300px;
-  height: 350px;
+  height: 400px;
   flex-shrink: 0;
 }
 
@@ -26,29 +26,16 @@
   height: 100%;
 }
 
-.category-card-info {
-  flex: 1;
+.category-card-info p {
+  margin-bottom: 0;
 }
-
-// .category-card img {
-//   object-fit: cover;
-//   border-radius: 16px 16px 0 0;
-//   height: 100%;
-// }
 
 .category-card-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-family: $font-dosis;
   padding: 0.8em 1em;
 }
-
-// .category-card-info p:first-of-type {
-//   font-weight: 800;
-//   font-size: 1.5em;
-//   margin-bottom: 0.5em;
-// }
 
 .category-card-info a {
   font-family: $font-dosis;
