@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="search-box">
+<div class="search-box bottom-space big">
   <div class="search-input">
     <p class="input-text":>Find a place near you...</p>
   </div>
@@ -14,9 +14,33 @@
   </div>
 </div>
 
+<div class="categories bottom-space big">
+  <h2 class="header big text-center">Browse Categories</h2>
+  <div class="button-box bottom-space upper-gap">
+    <button class="button-basic-blue">
+      <span class="front-blue">
+        Newest
+      </span>
+    </button>
+    <button class="button-basic-yellow">
+      <span class="front-yellow">
+        Popular</span>
+    </button>
+    <button class="button-basic-purple">
+      <span class="front-purple">
+        All Ages</span>
+    </button>
+    <button class="button-basic-orange">
+      <span class="front-orange">
+        Kindercafe
+      </span>
+    </button>
+  </div>
+</div>
+
 <div class="category-box bottom-space big">
-  <h1 class="header">Newest Playplaces</h1>
-  <div class="category-cards">
+  <h2 class="header">Newest Playplaces</h2>
+  <div class="category-cards bottom-space">
     <% @places.sample(3).each do |place| %>
       <div class="category-card card">
         <div class="img-box">
@@ -30,36 +54,12 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<div class="categories bottom-space">
-  <h2 class="header big text-center">Browse Categories</h2>
-  <div class="button-box bottom-space upper-gap">
-    <button class="button-basic-blue">
-      <span class="front-blue">
-        big slides
-      </span>
-    </button>
-    <button class="button-basic-yellow">
-      <span class="front-yellow">
-        1-5 years</span>
-    </button>
-    <button class="button-basic-purple">
-      <span class="front-purple">
-        6-10 years</span>
-    </button>
-    <button class="button-basic-orange">
-      <span class="front-orange">
-        popular
-      </span>
-    </button>
-  </div>
   <p class="text-center"><%= link_to "View all playareas", places_path %><p>
 </div>
 
-<div class="btn cta cta-big">
-  <div class="cta-basic">
-    <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front" %>
+<div class="cta cta-big">
+  <div class="cta-basic w-100">
+    <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front resize-text" %>
   </div>
 </div>
 

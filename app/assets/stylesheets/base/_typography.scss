@@ -1,11 +1,25 @@
 // we should review how these work, also rename them
 
+h1, h2, h3, p, a {
+  color: $color-black-greys-main-black;
+}
+
 .header {
   padding-bottom: 0.2em;
 }
 
 .header.big {
   padding-bottom: .5em;
+}
+
+p, a {
+  font-family: $body-font;
+}
+
+.byline {
+  font-family: $body-font;
+  font-weight: 700;
+  font-size: .9em;
 }
 
 h1 {
@@ -28,6 +42,20 @@ h2 {
 
 p {
   font-family: "Mulish";
+}
+
+.bigger-font {
+  font-size: 1.2rem;
+}
+
+.white {
+  color: white;
+}
+
+.resize-text {
+  white-space: nowrap; /* Prevents text from breaking into a new line */
+  font-size: calc(12px + 1vw); /* Resizes font size based on viewport width */
+  max-width: 100%; /* Ensures text stays within parent container */
 }
 
 @mixin text-style-h-1() {

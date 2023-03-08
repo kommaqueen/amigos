@@ -1,11 +1,69 @@
 <%= link_to "Back to search", places_path %>
 
-<h1><%= @place.name %></h1>
-<p><%= @place.category.capitalize %></p>
-<p><%= @place.address %></p>
+<div class="place-data bottom-space big">
+  <h1><%= @place.name %></h1>
+  <div class="place-category pill">
+    <p><%= @place.category.capitalize %></p>
+  </div>
+  <div class="place-address">
+    <p class="bigger-font"><%= @place.address %></p>
+    <%= render "shared/icon", id: Icon.library(:map) %>
+  </div>
+  <div class="place-rating">
+    <%# @place_avg_rating  %>
+    <% if @place_avg_rating == 0 %>
+        <p>No Rating Yet</p>
+      <% else %>
+        <div class="stars">
+          <% @place_avg_rating.to_i.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+        </div>
+    <% end %>
+    <%# Average rating calculation for place is in the places controller %>
+    <a href="/">Read all Reviews</a>
+  </div>
+  <div class="place-activity">
+    <strong class="byline">Last Updated: <%= Date.today %> by <span><%= @place.user.username %></span></strong>
+  </div>
+</div>
 
-<%= cl_image_tag @place.photos[0].key, height: 300, width: 400, crop: :fill %>
+<div class="place-image-carousel bottom-space">
+  <div class="place-image-box">
+    <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+  </div>
+  <div class="pill detail">
+    <p class="white">10 Check-Ins!</p>
+  </div>
+</div>
 
+<<<<<<< HEAD
+<div class="cta cta-big bottom-space">
+  <div class="cta-basic w-100">
+    <%= link_to "Check In", new_user_registration_path, class: "cta-basic-front resize-text" %>
+  </div>
+</div>
+
+<%# <h3>Check in button!</h3> %>
+
+<div class="place-description">
+  <p class="text-justify"><%= @place.description %></p>
+</div>
+
+<div class="place-icons two-row-grid">
+  <div class="div1">
+    <%= render "shared/icon", id: Icon.library(:child) %>
+    <p>Ages: <%= @place.age_range.capitalize %></p>
+  </div>
+  <div class="div2">
+    <p>Clean</p>
+  </div>
+  <div class="div3">
+    <p>Super Fun!</p>
+  </div>
+</div>
+
+=======
 <%# Average rating calculation for place is in the places controller %>
 <%= @place_avg_rating  %>
 <% if @place_avg_rating == 0 %>
@@ -20,6 +78,7 @@
 
 <p><%= @place.description %></p>
 <p>Age range: <%= @place.age_range %></p>
+>>>>>>> 53bed114a9ce3c5a8fdb10ba78f714904e2c7a1f
 
 <p>Current check-ins: <%= @check_ins.count %></p>
 <%= render("check_ins_form", {check_in: @check_in, place: @place}) %>

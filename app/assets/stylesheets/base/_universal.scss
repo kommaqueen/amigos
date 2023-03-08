@@ -10,3 +10,32 @@
 .bottom-space.big {
   margin-bottom: 2em;
 }
+
+.two-row-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 12px;
+  justify-items: center;
+}
+
+.two-row-grid > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.two-row-grid > div .icon {
+  height: 45px;
+}
+
+.two-row-grid > div p {
+  margin-bottom: 0;
+}
+
+.two-row-grid .div1 { grid-area: 1 / 1 / 2 / 2; }
+.two-row-grid .div2 { grid-area: 1 / 2 / 2 / 3; }
+.two-row-grid .div3 { grid-area: 2 / 1 / 3 / 2; }
+.two-row-grid .div4 { grid-area: 2 / 2 / 3 / 3; }

@@ -28,7 +28,7 @@
 
 .cta-basic-front {
   display: block;
-  padding: 10px 50px;
+  padding: 10px;
   border-radius: 7px;
   border: 2px solid black;
   font-size: 1.25rem;
@@ -36,4 +36,11 @@
   color: #F17D18;
   transform: translate(-2px, -3px);
   text-decoration: none;
+  text-align: center;
+  font-size: 1.75rem;
+	font-family: "Paytone One";
+	font-weight: 400;
+	font-style: normal;
+	text-decoration: none;
+	text-transform: none;
 }
