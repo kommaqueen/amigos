@@ -1,6 +1,8 @@
 .full-wrapper {
   height: 100vh;
   overflow: scroll;
+  position: relative;
+  width: 100%;
 }
 
 .bottom-space {
@@ -11,12 +13,26 @@
   margin-bottom: 2em;
 }
 
+.bottom-space-small {
+  margin-bottom: .5em;
+}
+
+.upper-space {
+  margin-top: 1.2em;
+}
+
+.flex-b-s-g-default {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
 .two-row-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 8px;
-  grid-row-gap: 12px;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 1em;
   justify-items: center;
 }
 
@@ -29,10 +45,12 @@
 
 .two-row-grid > div .icon {
   height: 45px;
+  flex: 1;
 }
 
 .two-row-grid > div p {
   margin-bottom: 0;
+  flex: 2;
 }
 
 .two-row-grid .div1 { grid-area: 1 / 1 / 2 / 2; }

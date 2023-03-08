@@ -1,13 +1,13 @@
 <%= link_to "Back to search", places_path %>
 
-<div class="place-data bottom-space big">
+<div class="place-data upper-space bottom-space big">
   <h1><%= @place.name %></h1>
-  <div class="place-category pill">
+  <div class="place-category pill bottom-space-small">
     <p><%= @place.category.capitalize %></p>
   </div>
   <div class="place-address">
     <p class="bigger-font"><%= @place.address %></p>
-    <%= render "shared/icon", id: Icon.library(:map) %>
+    <%= render "shared/icon", id: Icon.library(:map), myclass: 'flex-b-s-g-default' %>
   </div>
   <div class="place-rating">
     <%# @place_avg_rating  %>
@@ -32,7 +32,7 @@
   <div class="place-image-box">
     <%= cl_image_tag @place.photos[0].key, crop: :fill %>
   </div>
-  <div class="pill detail">
+  <div class="pill detail pink">
     <p class="white">10 Check-Ins!</p>
   </div>
 </div>
@@ -43,27 +43,27 @@
   </div>
 </div>
 
-<%# <h3>Check in button!</h3> %>
+<p class="text-center">Current check-ins: <%= @check_ins.count %></p>
 
 <div class="place-description">
   <p class="text-justify"><%= @place.description %></p>
 </div>
 
-<div class="place-icons two-row-grid">
+<div class="place-icons two-row-grid bottom-space">
   <div class="div1">
-    <%= render "shared/icon", id: Icon.library(:child) %>
+    <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
     <p>Ages: <%= @place.age_range.capitalize %></p>
   </div>
   <div class="div2">
+      <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:broom) %>
     <p>Clean</p>
   </div>
   <div class="div3">
+    <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
     <p>Super Fun!</p>
   </div>
 </div>
 
-
-<p>Current check-ins: <%= @check_ins.count %></p>
 <%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
 
 <h3>Wall/Events/Reviews</h3>
