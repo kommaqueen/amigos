@@ -37,6 +37,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <div class="cta cta-big bottom-space">
   <div class="cta-basic w-100">
     <%= link_to "Check In", new_user_registration_path, class: "cta-basic-front resize-text" %>
@@ -62,31 +63,47 @@
   </div>
 </div>
 
+=======
+<%# Average rating calculation for place is in the places controller %>
+<%= @place_avg_rating  %>
+<% if @place_avg_rating == 0 %>
+    <p>No rating</p>
+  <% else %>
+    <div class="stars">
+      <% @place_avg_rating.to_i.times do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %>
+    </div>
+<% end %>
+
+<p><%= @place.description %></p>
+<p>Age range: <%= @place.age_range %></p>
+>>>>>>> 53bed114a9ce3c5a8fdb10ba78f714904e2c7a1f
+
+<p>Current check-ins: <%= @check_ins.count %></p>
+<%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
 
 <h3>Wall/Events/Reviews</h3>
-
-<%# Reviews partials with no restrictions %>
-
-<div class="container">
-  <div class="row">
-    <div class="reviews-display col-12 col-lg-6">
-      <%= render partial: "places/display_reviews", locals: {place: @place } %>
-    </div>
-    <div class="form-review col-12 col-lg-6">
-      <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
-    </div>
-  </div>
-</div>
 
 <%# TODO: add logic to display public events to all and private events to those invited %>
 
 <% if user_signed_in? %>
-<h4>Events:</h4>
-<% @place.events.each do |event| %>
-  <p><%= link_to event.title, event_path(event) %></p>
-<% end %>
-<p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
+  <div class="container">
+    <div class="row">
+      <div class="reviews-display col-12 col-lg-6">
+        <%= render partial: "places/display_reviews", locals: {place: @place } %>
+      </div>
+      <div class="form-review col-12 col-lg-6">
+        <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
+      </div>
+    </div>
+  </div>
+  <h4>Events:</h4>
+    <% @place.events.each do |event| %>
+      <p><%= link_to event.title, event_path(event) %></p>
+    <% end %>
+    <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
 <% else %>
-<p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
-<p><%= link_to "Become an Amigo!", new_user_registration_path %></p>
+    <p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
+    <p><%= link_to "Become an Amigo!", new_user_registration_path %></p>
 <% end %>

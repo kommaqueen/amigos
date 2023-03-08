@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :places do
     resources :events, only: [:new, :create]
     resources :reviews, except: [:destroy, :edit, :update]
+    resources :check_ins, only: [:new, :create]
   end
 
   resources :reviews, only: [:destroy]

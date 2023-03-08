@@ -10,6 +10,8 @@ class PlacesController < ApplicationController
     @review = Review.new
     @reviews = Review.all
     @place_avg_rating = place_avg_rating
+    @check_in = CheckIn.new
+    check_ins_today
   end
 
   def new
@@ -36,5 +38,9 @@ class PlacesController < ApplicationController
       avg += r.rating
     end
     @place.reviews.empty? ? 0 : avg / @place.reviews.length
+  end
+
+  def check_ins_today
+    @check_ins = CheckIn.where(place: @place).where("created_at > ?", 1.day.ago)
   end
 end
