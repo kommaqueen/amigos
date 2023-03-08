@@ -52,6 +52,12 @@ p {
   color: white;
 }
 
+.resize-text {
+  white-space: nowrap; /* Prevents text from breaking into a new line */
+  font-size: calc(12px + 1vw); /* Resizes font size based on viewport width */
+  max-width: 100%; /* Ensures text stays within parent container */
+}
+
 @mixin text-style-h-1() {
 	font-size: 1.75rem;
 	font-family: "Paytone One";

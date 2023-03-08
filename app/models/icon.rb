@@ -9,6 +9,7 @@ class Icon
     sliders: "sliders",
     bubbles: "bubbles",
     map: "map",
+    child: "child",
   }
 
   def self.library(key)
