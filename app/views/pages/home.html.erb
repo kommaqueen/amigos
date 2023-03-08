@@ -46,7 +46,6 @@
         <div class="img-box">
           <%= cl_image_tag place.photos[0].key, crop: :fill %>
         </div>
-        <%# <img src="https://images.unsplash.com/photo-1596997000103-e597b3ca50df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="playground"> %>
         <div class="category-card-info">
           <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
           <p><%= place.address %></p>
@@ -57,15 +56,23 @@
   <p class="text-center"><%= link_to "View all playareas", places_path %><p>
 </div>
 
-<div class="cta cta-big">
+<div class="cta cta-big bottom-space big">
   <div class="cta-basic w-100">
     <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front resize-text" %>
   </div>
 </div>
 
-<div class="perks">
-  <%= render "shared/icon", id: Icon.library(:bubbles) %>
-  <p>Meet families in your neighbourhood!</p>
-  <p>Set up playdates and parties!</p>
-  <p>Find fun playareas year round!</p>
+<div class="perks bottom-space big">
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:bubbles) %>
+    <p>Meet families in your neighbourhood!</p>
+  </div>
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:balloons) %>
+    <p>Set up playdates and parties!</p>
+  </div>
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
+    <p>Find fun playareas year round!</p>
+  </div>
 </div>

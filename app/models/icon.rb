@@ -13,6 +13,8 @@ class Icon
     broom: "broom",
     laughing: "laughing",
     sadface: "sadface",
+    balloons: "balloons",
+    tearcalendar: "tearcalendar",
   }
 
   def self.library(key)
