@@ -66,7 +66,7 @@
   border-radius: 50px;
   border: 2px solid black;
   font-size: 1.25rem;
-  background: $color-blues-blue-5;
+  background: $color-blues-blue-4;
   color: $color-black-greys-main-black;
   transform: translate(-2px, -3px);
 }
@@ -123,25 +123,3 @@
   justify-content: center;
 }
 
-//  Wall/Event?Reviews Toggler...
-.nav-item {
-  background: $color-yellows-yellow-5;
-  font-family: $headers-font;
-  color: $color-yellows-yellow-3;
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  background-color: $color-oranges-main-orange ;
-  color: $color-yellows-yellow-5;
-  border: #000000;
-}
-.nav-pills .nav-link {
-  color: #000000;
-  border: none;
-  width: 100%;
-}
-
-.tab-content {
-  font-family: $body-font;
-}

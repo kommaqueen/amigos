@@ -1,0 +1,52 @@
+<div class="mx-auto justify-content-center">
+  <div class="show-box-wrapper">
+    <ul class="nav wall nav-pills justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Wall</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Events</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="show-wall">
+    <% if user_signed_in? %>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <h2>Wall</h2>
+        <p>This is the comments section.</p>
+      </div>
+
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <h2>Events</h2>
+        <% @place.events.each do |event| %>
+          <p><%= link_to event.title, event_path(event) %></p>
+        <% end %>
+        <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
+      </div>
+
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="reviews-display col-12 col-lg-6">
+          <%= render partial: "places/display_reviews", locals: {place: @place } %>
+        </div>
+        <div class="form-review col-12 col-lg-6">
+          <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
+        </div>
+      </div>
+
+    </div>
+    <% else %>
+        <div class="not-signed-in">
+          <%= render "shared/icon", myclass: 'icon--black', id: Icon.library(:sadface) %>
+          <p>Uh-oh! This content is only viewable by an AMIGO!</p>
+          <%= link_to "Login", new_user_session_path %>
+          <%= link_to "Become an Amigo!", new_user_registration_path %>
+        </div>
+    <% end %>
+  </div>
+</div>
