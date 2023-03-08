@@ -21,6 +21,12 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
+    @place.user = current_user
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -29,7 +35,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :description, :age_range, :photo)
+    params.require(:place).permit(:name, :category, :address, :description, :age_range, photos: [])
   end
 
   def set_place

@@ -29,9 +29,11 @@
 </div>
 
 <div class="place-image-carousel bottom-space">
-  <div class="place-image-box">
-    <%= cl_image_tag @place.photos[0].key, crop: :fill %>
-  </div>
+  <% if @place.photos.present? %>
+    <div class="place-image-box">
+      <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+    </div>
+  <% end %>
   <div class="pill detail pink">
     <p class="white">10 Check-Ins!</p>
   </div>
