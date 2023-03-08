@@ -33,7 +33,7 @@
     <%= cl_image_tag @place.photos[0].key, crop: :fill %>
   </div>
   <div class="pill detail">
-    <p class="white">10 Check-Ins!</p>
+    <p class="white"><%= "#{@check_ins.count} #{'Check-In'.pluralize(@check_ins.count)}!" %></p>
   </div>
 </div>
 
@@ -62,8 +62,6 @@
   </div>
 </div>
 
-
-<p>Current check-ins: <%= @check_ins.count %></p>
 <%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
 
 <h3>Wall/Events/Reviews</h3>
