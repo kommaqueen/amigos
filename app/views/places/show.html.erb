@@ -1,27 +1,41 @@
 <%= link_to "Back to search", places_path %>
 
-<h1><%= @place.name %></h1>
-<p><%= @place.category.capitalize %></p>
-<p><%= @place.address %></p>
-<p>Rating: TBA</p>
+<div class="place-data bottom-space big">
+  <h1><%= @place.name %></h1>
+  <div class="place-category pill">
+    <p><%= @place.category.capitalize %></p>
+  </div>
+  <div class="place-address">
+    <p class="bigger-font"><%= @place.address %></p>
+    <%= render "shared/icon", id: Icon.library(:map) %>
+  </div>
+  <div class="place-rating">
+    <%# @place_avg_rating  %>
+    <% if @place_avg_rating == 0 %>
+        <p>No Rating Yet</p>
+      <% else %>
+        <div class="stars">
+          <% @place_avg_rating.to_i.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+        </div>
+    <% end %>
+    <%# Average rating calculation for place is in the places controller %>
+    <a href="/">Read all Reviews</a>
+  </div>
+  <div class="place-activity">
+    <strong class="byline">Last Updated: <%= Date.today %> by <span><%= @place.user.username %></span></strong>
+  </div>
+</div>
 
-<%= cl_image_tag @place.photos[0].key, height: 300, width: 400, crop: :fill %>
-
-
-<%# Average rating calculation for place is in the places controller %>
-<%= @place_avg_rating  %>
-<% if @place_avg_rating == 0 %>
-    <p>No rating</p>
-  <% else %>
-    <div class="stars">
-      <% @place_avg_rating.to_i.times do %>
-        <i class="fa-solid fa-star"></i>
-      <% end %>
-    </div>
-<% end %>
-
-
-<p>Read all reviews</p>
+<div class="place-image-carousel">
+  <div class="place-image-box">
+    <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+  </div>
+  <div class="pill detail">
+    <p class="white">10 Check-Ins!</p>
+  </div>
+</div>
 
 <h3>Check in button!</h3>
 
