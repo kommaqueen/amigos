@@ -123,25 +123,3 @@
   justify-content: center;
 }
 
-//  Wall/Event?Reviews Toggler...
-.nav-item {
-  background: $color-yellows-yellow-5;
-  font-family: $headers-font;
-  color: $color-yellows-yellow-3;
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  background-color: $color-oranges-main-orange ;
-  color: $color-yellows-yellow-5;
-  border: #000000;
-}
-.nav-pills .nav-link {
-  color: #000000;
-  border: none;
-  width: 100%;
-}
-
-.tab-content {
-  font-family: $body-font;
-}
