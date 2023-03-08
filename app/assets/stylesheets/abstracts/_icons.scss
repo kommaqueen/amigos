@@ -55,6 +55,10 @@
   fill: $color-greens-main-green;
 }
 
+.icon--black {
+  fill: $color-black-greys-main-black;
+}
+
 .icon--stroke {
   stroke: $color-black-greys-main-black;
   @include icon($stroke: $color-black-greys-main-black);
