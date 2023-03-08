@@ -21,7 +21,6 @@
 }
 
 @mixin icon($fill: null, $stroke: null) {
-  height: 40px;
 
   &.icon--fill {
     fill: $fill;

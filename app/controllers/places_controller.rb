@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    # @latest = Place.order(created_at: :desc).limit(5)
   end
 
   def show
@@ -23,6 +24,9 @@ class PlacesController < ApplicationController
   end
 
   private
+
+  def latest_places
+  end
 
   def place_params
     params.require(:place).permit(:name, :category, :address, :description, :age_range, :photo)
