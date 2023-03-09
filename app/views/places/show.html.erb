@@ -1,10 +1,10 @@
 <%= link_to "Back to search", places_path %>
 
 <div class="place-data upper-space bottom-space big">
-  <h1><%= @place.name %></h1>
   <div class="place-category pill bottom-space-small">
     <p><%= @place.category.capitalize %></p>
   </div>
+  <h1><%= @place.name %></h1>
   <div class="place-address">
     <p class="bigger-font"><%= @place.address %></p>
     <%= render "shared/icon", id: Icon.library(:map), myclass: 'flex-b-s-g-default' %>
@@ -61,7 +61,7 @@
     <p>Ages: <%= @place.age_range.capitalize %></p>
   </div>
   <div class="div2">
-      <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:broom) %>
+      <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:cleanhand) %>
     <p>Clean</p>
   </div>
   <div class="div3">

@@ -13,38 +13,59 @@
   border: 2px solid #000000;
   border-radius: 1em;
   width: 300px;
-  height: 400px;
+  height: 410px;
   flex-shrink: 0;
 }
 
 .img-box {
-  flex: 2;
+  height: 305px;
+  max-height: 100%;
 }
 
 .img-box img {
   object-fit: cover;
   border-radius: 1em 1em 0 0;
   height: 100%;
+  width: 100%;
 }
 
-.category-card-info p {
+.category-card-info p, .category-card-info a {
   margin-bottom: 0;
 }
 
 .category-card-info {
+  // height: 118px;
   display: flex;
   flex-direction: column;
   font-family: $font-dosis;
   padding: 0.8em 1em;
+  overflow: hidden;
+  font-size: clamp(0.9em, 1em, 1em);
+  justify-content: space-around;
+  flex-grow: 1;
 }
 
 .category-card-info a {
   font-family: $font-dosis;
   font-weight: 800;
   font-size: 1.5em;
-  margin-bottom: 0.5em;
   text-decoration: none;
   color: $color-black-greys-main-black;
+}
+
+.category-card::before, .category-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  left: 9px;
+  right: -10px;
+  bottom: -10px;
+  background: #FEEB89;
+  transform: rotateY(0deg) rotateX(12deg);
+  /* transform-origin: 0 0; */
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 // Search Cards (ie Search Page / Place Index)
