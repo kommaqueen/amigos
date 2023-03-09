@@ -28,15 +28,19 @@
   </div>
 </div>
 
+
 <div data-controller="check-in">
   <div class="place-image-carousel bottom-space">
-    <div class="place-image-box">
-      <%= cl_image_tag @place.photos[0].key, crop: :fill %>
-    </div>
+    <% if @place.photos.present? %>
+      <div class="place-image-box">
+        <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+      </div>
+    <% end %>
     <div class="pill detail pink">
       <%= render("check_ins/check_ins_count", {check_ins: @check_ins}) %>
     </div>
   </div>
+
 
   <div class="cta cta-big bottom-space">
     <div class="cta-basic w-100">

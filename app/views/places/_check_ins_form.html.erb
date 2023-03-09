@@ -1,4 +1,4 @@
-<% if CheckIn.where(user: current_user, place: place).exists? %>
+<% if CheckIn.where(user: current_user, place: place).where("created_at > ?", 1.day.ago).exists? %>
   <p>You are checked in!</p>
 <% else %>
   <%= simple_form_for [place, check_in], data: {check_in_target: "form", action: "submit->check-in#send"} do |f| %>
