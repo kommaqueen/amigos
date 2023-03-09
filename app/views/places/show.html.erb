@@ -28,22 +28,28 @@
   </div>
 </div>
 
-<div class="place-image-carousel bottom-space">
-  <div class="place-image-box">
-    <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+
+<div data-controller="check-in">
+  <div class="place-image-carousel bottom-space">
+    <% if @place.photos.present? %>
+      <div class="place-image-box">
+        <%= cl_image_tag @place.photos[0].key, crop: :fill %>
+      </div>
+    <% end %>
+    <div class="pill detail pink">
+      <%= render("check_ins/check_ins_count", {check_ins: @check_ins}) %>
+    </div>
   </div>
-  <div class="pill detail pink">
-    <p class="white">10 Check-Ins!</p>
+
+
+  <div class="cta cta-big bottom-space">
+    <div class="cta-basic w-100">
+      <%= render("places/check_ins_form", {check_in: @check_in, place: @place}) %>
+    </div>
   </div>
 </div>
 
-<div class="cta cta-big bottom-space">
-  <div class="cta-basic w-100">
-    <%= link_to "Check In", new_user_registration_path, class: "cta-basic-front resize-text" %>
-  </div>
-</div>
-
-<p class="text-center">Current check-ins: <%= @check_ins.count %></p>
+<p>There have been <%= @check_ins_all.count %> total check-ins here!</p>
 
 <div class="place-description">
   <p class="text-justify"><%= @place.description %></p>
@@ -64,8 +70,8 @@
   </div>
 </div>
 
-<%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
 
 <%= render "toggler" %>
+
 
 <%# TODO: add logic to display public events to all and private events to those invited %>

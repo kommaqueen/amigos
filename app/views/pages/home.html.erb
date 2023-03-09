@@ -19,21 +19,21 @@
   <div class="categories bottom-space big">
     <h2 class="header big text-center">Browse Categories</h2>
     <div class="button-box bottom-space upper-gap">
-      <button class="button-basic-blue" data-category-filter-target="button" data-action="click->category-filter#filter">
-        <span class="front-blue">
+      <button class="button-basic button-basic-blue" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front front-blue">
           Newest
         </span>
       </button>
-      <button class="button-basic-yellow" data-category-filter-target="button" data-action="click->category-filter#filter">
-        <span class="front-yellow">
+      <button class="button-basic button-basic-yellow" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front front-yellow">
           Popular</span>
       </button>
-      <button class="button-basic-purple" data-category-filter-target="button" data-action="click->category-filter#filter">
-        <span class="front-purple">
+      <button class="button-basic button-basic-purple" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front front-purple">
           All Ages</span>
       </button>
-      <button class="button-basic-orange" data-category-filter-target="button" data-action="click->category-filter#filter">
-        <span class="front-orange">
+      <button class="button-basic button-basic-orange" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front front-orange">
           Kindercafe
         </span>
       </button>
@@ -44,6 +44,7 @@
 
 </div>
 
+<<<<<<< HEAD
 
 <div class="perks bottom-space big">
   <h2 class="text-center">Join our community to ... </h2>
@@ -58,6 +59,24 @@
   <div class="perk">
     <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
     <p>...find fun playareas year round!</p>
+=======
+<div class="category-box bottom-space big">
+  <h2 class="header">Newest Playplaces</h2>
+  <div class="category-cards bottom-space">
+    <% @places.sample(3).each do |place| %>
+      <div class="category-card card">
+        <% if place.photos.present? %>
+          <div class="img-box">
+            <%= cl_image_tag place.photos[0].key, crop: :fill %>
+          </div>
+        <% end %>
+        <div class="category-card-info">
+          <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
+          <p><%= place.address %></p>
+        </div>
+      </div>
+    <% end %>
+>>>>>>> 04e5d76d7adeb6c113fe90b81a08f0a08b8dbad2
   </div>
 </div>
 

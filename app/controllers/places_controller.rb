@@ -29,6 +29,7 @@ class PlacesController < ApplicationController
     @place_avg_rating = place_avg_rating
     @check_in = CheckIn.new
     check_ins_today
+    check_ins_all
   end
 
   def new
@@ -37,6 +38,12 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
+    @place.user = current_user
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -45,7 +52,7 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:name, :category, :address, :description, :age_range, :photo)
+    params.require(:place).permit(:name, :category, :address, :description, :age_range, photos: [])
   end
 
   def set_place
@@ -62,5 +69,9 @@ class PlacesController < ApplicationController
 
   def check_ins_today
     @check_ins = CheckIn.where(place: @place).where("created_at > ?", 1.day.ago)
+  end
+
+  def check_ins_all
+    @check_ins_all = CheckIn.where(place: @place)
   end
 end
