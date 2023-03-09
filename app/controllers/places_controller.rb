@@ -4,7 +4,23 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
-    # @latest = Place.order(created_at: :desc).limit(5)
+    case params[:category].downcase
+    when "newest"
+      @places = Place.order(created_at: :desc).limit(5)
+    when "popular"
+      @places = Place.all.sample(3)
+    when "all ages"
+      @places = Place.all.sample(5)
+    when "kindercafe"
+      @places = Place.where(category: "kindercafe").limit(5)
+    end
+
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: { content: render_to_string(partial: "pages/category_cards", formats: [ :html ], locals: { places: @places }) }
+      end
+    end
   end
 
   def show

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @places = Place.all
+    @latest = Place.order(created_at: :desc).limit(5)
   end
 
   def sandbox

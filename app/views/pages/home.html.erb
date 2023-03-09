@@ -14,47 +14,36 @@
   </div>
 </div>
 
-<div class="categories bottom-space big">
-  <h2 class="header big text-center">Browse Categories</h2>
-  <div class="button-box bottom-space upper-gap">
-    <button class="button-basic-blue">
-      <span class="front-blue">
-        Newest
-      </span>
-    </button>
-    <button class="button-basic-yellow">
-      <span class="front-yellow">
-        Popular</span>
-    </button>
-    <button class="button-basic-purple">
-      <span class="front-purple">
-        All Ages</span>
-    </button>
-    <button class="button-basic-orange">
-      <span class="front-orange">
-        Kindercafe
-      </span>
-    </button>
+<div class="filter-box" data-controller="category-filter" data-category-filter-url-value="<%= places_path %>">
+
+  <div class="categories bottom-space big">
+    <h2 class="header big text-center">Browse Categories</h2>
+    <div class="button-box bottom-space upper-gap">
+      <button class="button-basic-blue" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front-blue">
+          Newest
+        </span>
+      </button>
+      <button class="button-basic-yellow" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front-yellow">
+          Popular</span>
+      </button>
+      <button class="button-basic-purple" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front-purple">
+          All Ages</span>
+      </button>
+      <button class="button-basic-orange" data-category-filter-target="button" data-action="click->category-filter#filter">
+        <span class="front-orange">
+          Kindercafe
+        </span>
+      </button>
+    </div>
   </div>
+
+  <%= render "category_cards", places: @places %>
+
 </div>
 
-<div class="category-box bottom-space big">
-  <h2 class="header">Newest Playplaces</h2>
-  <div class="category-cards bottom-space">
-    <% @places.sample(3).each do |place| %>
-      <div class="category-card card">
-        <div class="img-box">
-          <%= cl_image_tag place.photos[0].key, crop: :fill %>
-        </div>
-        <div class="category-card-info">
-          <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
-          <p><%= place.address %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <p class="text-center"><%= link_to "View all playareas", places_path %><p>
-</div>
 
 <div class="perks bottom-space big">
   <h2 class="text-center">Join our community to ... </h2>
