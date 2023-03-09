@@ -1,13 +1,13 @@
 <%= link_to "Back to search", places_path %>
 
-<div class="place-data bottom-space big">
+<div class="place-data upper-space bottom-space big">
   <h1><%= @place.name %></h1>
-  <div class="place-category pill">
+  <div class="place-category pill bottom-space-small">
     <p><%= @place.category.capitalize %></p>
   </div>
   <div class="place-address">
     <p class="bigger-font"><%= @place.address %></p>
-    <%= render "shared/icon", id: Icon.library(:map) %>
+    <%= render "shared/icon", id: Icon.library(:map), myclass: 'flex-b-s-g-default' %>
   </div>
   <div class="place-rating">
     <%# @place_avg_rating  %>
@@ -33,7 +33,7 @@
     <div class="place-image-box">
       <%= cl_image_tag @place.photos[0].key, crop: :fill %>
     </div>
-    <div class="pill detail">
+    <div class="pill detail pink">
       <%= render("check_ins/check_ins_count", {check_ins: @check_ins}) %>
     </div>
   </div>
@@ -45,51 +45,27 @@
   </div>
 </div>
 
-<%# Original link code: %>
-<%# <%= link_to "Check In", new_user_registration_path, class: "cta-basic-front resize-text" %>
-
-<%# Button_to code: %>
-<%# <%= button_to "Check In", place_check_ins_path(@place), method: :post, class: "cta-basic-front resize-text", data: { check_in_target: "button", action: "click->check-in#send" } %>
-
-
 <div class="place-description">
   <p class="text-justify"><%= @place.description %></p>
 </div>
 
-<div class="place-icons two-row-grid">
+<div class="place-icons two-row-grid bottom-space">
   <div class="div1">
-    <%= render "shared/icon", id: Icon.library(:child) %>
+    <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
     <p>Ages: <%= @place.age_range.capitalize %></p>
   </div>
   <div class="div2">
+      <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:broom) %>
     <p>Clean</p>
   </div>
   <div class="div3">
+    <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
     <p>Super Fun!</p>
   </div>
 </div>
 
-<h3>Wall/Events/Reviews</h3>
+
+<%= render "toggler" %>
+
 
 <%# TODO: add logic to display public events to all and private events to those invited %>
-
-<% if user_signed_in? %>
-  <div class="container">
-    <div class="row">
-      <div class="reviews-display col-12 col-lg-6">
-        <%= render partial: "places/display_reviews", locals: {place: @place } %>
-      </div>
-      <div class="form-review col-12 col-lg-6">
-        <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
-      </div>
-    </div>
-  </div>
-  <h4>Events:</h4>
-    <% @place.events.each do |event| %>
-      <p><%= link_to event.title, event_path(event) %></p>
-    <% end %>
-    <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
-<% else %>
-    <p>Sorry, you must be signed in to view Wall/Events/Reviews.</p>
-    <p><%= link_to "Become an Amigo!", new_user_registration_path %></p>
-<% end %>

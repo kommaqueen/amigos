@@ -13,11 +13,6 @@
 
 // Our navbar
 
-.full-wrapper {
-  position: relative;
-  width: 100%;
-}
-
 .navbar-styled {
   display: flex;
   flex-direction: column;
@@ -33,6 +28,7 @@
   border-radius: 30px;
   width: 97%;
   margin: 0 auto;
+  max-width: 540px;
 }
 
 .navbar-icons {

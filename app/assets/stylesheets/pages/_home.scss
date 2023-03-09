@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+.perks {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perk > * {
+  flex: 1;
+}
+
+.perk p {
+  margin-bottom: 0;
+  flex: 2;
+  font-family: 'Dosis';
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.perks > .perk:nth-child(odd) {
+  flex-direction: row-reverse;
+}

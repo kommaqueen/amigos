@@ -10,6 +10,11 @@ class Icon
     bubbles: "bubbles",
     map: "map",
     child: "child",
+    broom: "broom",
+    laughing: "laughing",
+    sadface: "sadface",
+    balloons: "balloons",
+    tearcalendar: "tearcalendar",
   }
 
   def self.library(key)

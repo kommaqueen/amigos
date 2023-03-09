@@ -4,6 +4,7 @@
   overflow-x: scroll;
   width: 100vw;
   gap: 1em;
+  overflow-y: hidden;
 }
 
 .category-card {
@@ -17,7 +18,7 @@
 }
 
 .img-box {
-  flex: 3;
+  flex: 2;
 }
 
 .img-box img {

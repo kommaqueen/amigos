@@ -19,3 +19,50 @@
   fill: $color-pinks-main-pink;
   height: 35px;
 }
+
+@mixin icon($fill: null, $stroke: null) {
+
+  &.icon--fill {
+    fill: $fill;
+  }
+
+  &.icon--stroke {
+    stroke: $stroke;
+  }
+}
+
+.icon {
+  @include icon();
+}
+
+.icon--purple {
+  fill: $color-purples-main-purple;
+  // @include icon($fill: $color-purples-main-purple);
+  // @debug "color-purples-main-purple: #{$color-purples-main-purple}";
+}
+
+.icon--blue {
+  fill: $color-blues-main-blue;
+  @include icon($fill: $color-blues-main-blue);
+}
+
+.icon--orange {
+  fill: $color-oranges-main-orange;
+}
+
+.icon--green {
+  fill: $color-greens-main-green;
+}
+
+.icon--black {
+  fill: $color-black-greys-main-black;
+}
+
+.icon--stroke {
+  stroke: $color-black-greys-main-black;
+  @include icon($stroke: $color-black-greys-main-black);
+}
+
+// .icon--primary-stroke {
+//   @include icon($color: $primary-color, $stroke: black);
+// }
