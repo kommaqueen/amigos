@@ -44,8 +44,6 @@
 
 </div>
 
-<<<<<<< HEAD
-
 <div class="perks bottom-space big">
   <h2 class="text-center">Join our community to ... </h2>
   <div class="perk">
@@ -59,24 +57,6 @@
   <div class="perk">
     <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
     <p>...find fun playareas year round!</p>
-=======
-<div class="category-box bottom-space big">
-  <h2 class="header">Newest Playplaces</h2>
-  <div class="category-cards bottom-space">
-    <% @places.sample(3).each do |place| %>
-      <div class="category-card card">
-        <% if place.photos.present? %>
-          <div class="img-box">
-            <%= cl_image_tag place.photos[0].key, crop: :fill %>
-          </div>
-        <% end %>
-        <div class="category-card-info">
-          <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
-          <p><%= place.address %></p>
-        </div>
-      </div>
-    <% end %>
->>>>>>> 04e5d76d7adeb6c113fe90b81a08f0a08b8dbad2
   </div>
 </div>
 
