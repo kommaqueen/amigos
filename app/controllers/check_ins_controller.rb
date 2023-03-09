@@ -11,6 +11,7 @@ class CheckInsController < ApplicationController
     @check_in.user = current_user
     respond_to do |format|
       if @check_in.save
+        check_ins_today
         format.html { redirect_to place_path(@place) }
         format.json
       else
@@ -18,5 +19,11 @@ class CheckInsController < ApplicationController
         format.json
       end
     end
+  end
+
+  private
+
+  def check_ins_today
+    @check_ins = CheckIn.where(place: @place).where("created_at > ?", 1.day.ago)
   end
 end

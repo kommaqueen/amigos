@@ -19,7 +19,8 @@ export default class extends Controller {
     fetch(url, options)
     .then(response => response.json())
     .then((data) => {
-      console.log(data)
+      this.pillTarget.outerHTML = data.check_in_counter
+      this.formTarget.outerHTML = data.my_form
     })
   }
 }
