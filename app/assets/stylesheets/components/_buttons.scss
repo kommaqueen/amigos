@@ -60,7 +60,7 @@
 //   filter: saturate(160%);
 // }
 
-.button-basic .pushed .front {
+.button-basic .front.pushed {
   transform: translateY(-1px);
   filter: saturate(160%);
 }
