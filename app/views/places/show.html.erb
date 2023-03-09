@@ -34,13 +34,13 @@
       <%= cl_image_tag @place.photos[0].key, crop: :fill %>
     </div>
     <div class="pill detail">
-      <p class="white" data-check-in-target="pill"><%= "#{@check_ins.count} #{'Check-In'.pluralize(@check_ins.count)}!" %></p>
+      <%= render("check_ins/check_ins_count", {check_ins: @check_ins}) %>
     </div>
   </div>
 
   <div class="cta cta-big bottom-space">
     <div class="cta-basic w-100">
-      <%= render("check_ins_form", {check_in: @check_in, place: @place}) %>
+      <%= render("places/check_ins_form", {check_in: @check_in, place: @place}) %>
     </div>
   </div>
 </div>
