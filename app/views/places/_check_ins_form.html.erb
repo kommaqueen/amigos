@@ -1,5 +1,5 @@
 <% if CheckIn.where(user: current_user, place: place).exists? %>
-  <p>You are checked in!</p>
+  <p class="cta-basic-front resize-text">You are checked in!</p>
 <% else %>
   <%= simple_form_for [place, check_in], data: {check_in_target: "form", action: "submit->check-in#send"} do |f| %>
     <%= f.submit "Check In", class: "cta-basic-front resize-text"%>
