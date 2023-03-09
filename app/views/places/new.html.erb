@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Create a place!</h1>
+  <%= simple_form_for(@place) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category, collection: ["spielplatz", "kindercafe", "museum"] %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :age_range, collection: ["1-3", "4-7", "7-10", "all"] %>
+    <%= f.submit %>
+  <% end %>
+</div>
