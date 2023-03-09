@@ -19,7 +19,7 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <h2>Wall</h2>
-        <p>This is the comments section.</p>
+        <%= render partial: "places/comment_form", locals: {place: @place, comment: @comment } %>
       </div>
 
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
