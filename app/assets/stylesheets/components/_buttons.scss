@@ -55,7 +55,12 @@
   background: $color-purples-purple-5;
 }
 
-.button-basic:active .front {
+// .button-basic:active .front {
+//   transform: translateY(-1px);
+//   filter: saturate(160%);
+// }
+
+.button-basic .pushed .front {
   transform: translateY(-1px);
   filter: saturate(160%);
 }
