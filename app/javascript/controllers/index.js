@@ -10,6 +10,9 @@ application.register("category-filter", CategoryFilterController)
 import CheckInController from "./check_in_controller"
 application.register("check-in", CheckInController)
 
+import CommentsController from "./comments_controller"
+application.register("comments", CommentsController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

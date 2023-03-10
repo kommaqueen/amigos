@@ -5,10 +5,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.place = @place
     @comment.user = current_user
-    if @comment.save
-      redirect_to place_path(@place)
-    else
-      render "places/show", status: :unprocessable_entity
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to place_path(@place) }
+        format.json
+      else
+        format.html { render "places/show", status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 
