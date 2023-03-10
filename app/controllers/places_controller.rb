@@ -28,6 +28,7 @@ class PlacesController < ApplicationController
   def show
     @review = Review.new
     @reviews = Review.all
+    @comment = Comment.new
     @place_avg_rating = place_avg_rating
     @check_in = CheckIn.new
     check_ins_today

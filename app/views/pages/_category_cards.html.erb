@@ -3,9 +3,11 @@
   <div class="category-cards bottom-space">
     <% places.each do |place| %>
       <div class="category-card card">
-        <div class="img-box">
-          <%= cl_image_tag place.photos[0].key, crop: :fill %>
-        </div>
+        <% if place.photos.present? %>
+          <div class="img-box">
+            <%= cl_image_tag place.photos[0].key, crop: :fill %>
+          </div>
+        <% end %>
         <div class="category-card-info">
           <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
           <p><%= place.address %></p>
