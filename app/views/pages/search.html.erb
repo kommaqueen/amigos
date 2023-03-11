@@ -1,7 +1,9 @@
+<div data-controller="search">
 
-<%= render("search_bar") %>
-<%= link_to "Back to search", places_path %>
+  <%= render("search_bar") %>
+  <%= link_to "Back to search", places_path %>
 
   <%= render("map", {markers: @markers}) %>
   <%= render 'pages/search_results', places: @places, events: @events%>
- </div>
+
+</div>
