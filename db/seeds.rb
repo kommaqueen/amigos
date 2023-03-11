@@ -339,7 +339,7 @@ puts "creating new events"
 event_categories = ["birthday", "picnic", "social", "playdate", "other"]
 time = Time.now + rand(5).day + rand(5).hour
 
-5.times do
+20.times do
   category = event_categories.sample
   event = Event.create(
     user: User.all.sample,
@@ -353,3 +353,15 @@ time = Time.now + rand(5).day + rand(5).hour
   )
   puts "added new event named #{event.title}"
 end
+
+event = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'picnic',
+  title: "#{Faker::FunnyName.name}'s Picnic!",
+  description: Faker::Hipster.sentence * 5,
+  public: false
+)
+puts "added new event named #{event.title}"

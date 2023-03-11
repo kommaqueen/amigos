@@ -3,14 +3,33 @@
 
   <%= link_to "Back to search", places_path %>
 
+
+  <%= render("search_bar") %>
+
+  <div class="category-cards bottom-space">
+    <% @places.each do |place| %>
+      <div class="category-card card">
+        <% if place.photos.present? %>
+          <div class="img-box">
+            <%= cl_image_tag place.photos[0].key, crop: :fill %>
+          </div>
+        <% end %>
+        <div class="category-card-info">
+          <%= link_to place.name.capitalize, place_path(place), class: "stretched-link" %>
+          <p><%= place.address %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% @events.each do |event| %>
+    <li><%= event.title %></li>
+    <li><%= event.category %></li>
+  <% end %>
   <div class="map-window">
     <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
-
-
-
-
 </div>

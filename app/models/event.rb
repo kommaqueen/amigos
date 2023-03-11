@@ -5,4 +5,7 @@ class Event < ApplicationRecord
   has_one_attached :photo
   validates :title, :description, :category, :start_time, :end_time, :public, presence: true
   validates :description, length: { minimum: 100 }
+
+  include PgSearch::Model
+  multisearchable against: [:title, :category, :public], if: :public?
 end

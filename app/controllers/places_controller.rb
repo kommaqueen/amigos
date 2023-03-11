@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
     end
   end
 
+
   def show
     @review = Review.new
     @reviews = Review.all
