@@ -19,4 +19,8 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def dashboard
+  end
+  
 end
