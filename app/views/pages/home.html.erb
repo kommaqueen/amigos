@@ -1,7 +1,7 @@
 <div class="logo-banner">
   <%= image_tag "staggered_logo.png" %>
   <div class="logo-tagline">
-    <h2>A place to play wherever you go!</h2>
+    <h2>A place to play wherever we go!</h2>
   </div>
 </div>
 
@@ -16,8 +16,8 @@
 
 <div class="filter-box" data-controller="category-filter" data-category-filter-url-value="<%= places_path %>">
 
-  <div class="categories bottom-space big">
-    <h2 class="header big text-center">Browse Categories</h2>
+  <div class="categories">
+    <%# <h2 class="header big text-center">Browse Categories</h2> %>
     <div class="button-box bottom-space upper-gap">
       <button class="button-basic button-basic-blue" data-action="click->category-filter#filter">
         <span class="front front-blue" data-category-filter-target="button">
@@ -44,7 +44,11 @@
 
 </div>
 
-<div class="perks bottom-space big">
+<div class="container">
+<p class="text-center"><%= link_to "View all playareas", places_path %><p>
+</div>
+
+<div class="perks">
   <h2 class="text-center">Join our community to ... </h2>
   <div class="perk">
     <%= render "shared/icon", id: Icon.library(:bubbles) %>
@@ -54,7 +58,7 @@
     <%= render "shared/icon", id: Icon.library(:balloons) %>
     <p>...set up playdates and parties!</p>
   </div>
-  <div class="perk">
+  <div class="perk bottom-space big">
     <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
     <p>...find fun playareas year round!</p>
   </div>
