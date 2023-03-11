@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :first_name, :last_name, :username, :bio, :location, presence: true
   validates :username, uniqueness: true
-
+  has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id
+  has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
 end

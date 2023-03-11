@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
   resources :events, only: [:show, :edit, :update, :destroy]
 
+  resources :users, only: [:show, :index] do
+    resources :friendships, only: [:create]
+  end
+
+  resources :friendships, only: [:update]
+  
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"
   get "dashboard", to: "pages#dashboard"
