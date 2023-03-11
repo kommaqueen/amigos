@@ -21,6 +21,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @friendship = Friendship.where(status: "pending").where(receiver: current_user)
+    @myfriends = Friendship.where(status: "accepted").where(asker: current_user).or(Friendship.where(status: "accepted").where(receiver: current_user))
   end
-  
+
 end

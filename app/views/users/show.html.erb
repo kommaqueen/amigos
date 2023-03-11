@@ -1,0 +1,5 @@
+<h1>Bio user, <%= @user.username %><h1>
+
+  <%= simple_form_for [@user, @friendship] do |f| %>
+    <%= f.submit "Add as friend", class: "cta-basic-front resize-text w-100"%>
+  <% end %>
