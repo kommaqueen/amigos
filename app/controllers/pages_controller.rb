@@ -24,8 +24,12 @@ class PagesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { place: place })
+        info_window_html: render_to_string(partial: "pages/info_window", locals: { place: place }, formats: :html)
       }
+    end
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 end
