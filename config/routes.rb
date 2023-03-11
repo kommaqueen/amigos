@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"
+  get "dashboard", to: "pages#dashboard"
 end
