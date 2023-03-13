@@ -36,3 +36,33 @@
   <% end %>
 
 <% end %>
+
+<h3>My next Event! </h3>
+
+<% @myevents.each do |e| %>
+  <p><%= e.title %></p>
+  <p><%= e.start_time %></p>
+<% end %>
+
+<% @myacceptedinvites.each do |i| %>
+  <%= i.event.title %>
+  <%= i.event.start_time %>
+<% end %>
+
+
+<h3>My pending Invites</h3>
+<% @invites.each do |invite| %>
+  <p>You got a new invitation for <%= invite.event.title %></p>
+  <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
+
+  <%= simple_form_for invite do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+    <%= f.submit "Accept", class: "btn btn-success"%>
+  <% end %>
+
+  <%= simple_form_for invite do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+    <%= f.submit "Deny", class: "btn btn-danger"%>
+  <% end %>
+
+<% end %>
