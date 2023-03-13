@@ -12,4 +12,12 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id
   has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+  has_many :invites_as_asker, class_name: "Friendship", foreign_key: :asker_id
+  has_many :invites_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+
+  def friends
+    user_ids = friendships_as_asker.pluck(:receiver_id) + friendships_as_receiver.pluck(:asker_id)
+    User.where(id: user_ids)
+  end
+  
 end
