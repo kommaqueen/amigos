@@ -35,11 +35,9 @@
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <h2 class="toggler-header">Events</h2>
         <% @place.events.each do |event| %>
-        <div class="toggler-item">
-            <p><%= link_to event.title, event_path(event) %></p>
+            <%= render "events/event_card", event: event %>
           <% end %>
-        </div>
-        <p><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
+        <p class="submit-button-basic justify-content-center"><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
       </div>
 
       <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" >
