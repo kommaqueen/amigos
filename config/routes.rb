@@ -30,5 +30,9 @@ Rails.application.routes.draw do
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search", as: :search
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 6b2d17c7adbbaa2a6623abc228517c4e19b217da
   get "dashboard", to: "pages#dashboard"
 end
