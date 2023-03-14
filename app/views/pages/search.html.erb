@@ -1,16 +1,9 @@
-<div class="container p-3">
-  <h1>Search</h1>
+<div data-controller="search">
 
+  <%= render("search_bar") %>
   <%= link_to "Back to search", places_path %>
 
-  <div class="map-window">
-    <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
-
-
-
+  <%= render("map", {markers: @markers}) %>
+  <%= render 'pages/search_results', places: @places, events: @events%>
 
 </div>

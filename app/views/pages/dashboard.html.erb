@@ -1,68 +1,91 @@
-<h1>Hello, <%= current_user.username %></h1>
+<div class="dashboard-nav">
+  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:heart) %>
+  <%= render "shared/icon", myclass: 'icon--orange', id: Icon.library(:envelope) %>
+  <%= render "shared/icon", myclass: 'icon--yellow', id: Icon.library(:bell) %>
+</div>
 
-<h2>Favorites</h2>
+<div class="profile-head text-center">
+  <div class="avatar-box">
+    <%= image_tag current_user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
+  </div>
+  <div class="greeting">
+    <h2>Hey, <%= link_to current_user.username, user_path(current_user)%>!</h2>
+  </div>
+  <div class="profile-links">
+    <p><%# current_user.location %></p>
+    <%# link_to "View Profile", user_path(current_user)%>
+  </div>
+</div>
 
+<div class="dashboard-section">
+  <h2>Pending Requests </h2>
 
-<h2>Last check-in</h2>
+  <% @friendship.each do |friend| %>
+    <%= friend.asker.username %>
+    <%= image_tag friend.asker.avatar %>
+    <%= friend.status %>
 
-<h2>Friend list</h2>
+    <%= simple_form_for friend do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+      <%= f.submit "Accept", class: "btn btn-success"%>
+    <% end %>
 
-<% @myfriends.each do |f| %>
-  <% if current_user == f.asker %>
-    <%= f.receiver.username %>
-    <%= image_tag f.receiver.avatar %>
-    <% else %>
-    <%= f.asker.username %>
-    <%= image_tag f.asker.avatar %>
-  <% end %>
-<% end %>
-
-<h3>Pending Requests</h3>
-
-
-<% @friendship.each do |friend| %>
-  <%= friend.asker.username %>
-  <%= image_tag friend.asker.avatar %>
-  <%= friend.status %>
-
-  <%= simple_form_for friend do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-    <%= f.submit "Accept", class: "btn btn-success"%>
-  <% end %>
-
-  <%= simple_form_for friend do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-    <%= f.submit "Deny", class: "btn btn-danger"%>
-  <% end %>
-
-<% end %>
-
-<h3>My next Event! </h3>
-
-<% @myevents.each do |e| %>
-  <p><%= e.title %></p>
-  <p><%= e.start_time %></p>
-<% end %>
-
-<% @myacceptedinvites.each do |i| %>
-  <%= i.event.title %>
-  <%= i.event.start_time %>
-<% end %>
-
-
-<h3>My pending Invites</h3>
-<% @invites.each do |invite| %>
-  <p>You got a new invitation for <%= invite.event.title %></p>
-  <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
-
-  <%= simple_form_for invite do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-    <%= f.submit "Accept", class: "btn btn-success"%>
+    <%= simple_form_for friend do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+      <%= f.submit "Deny", class: "btn btn-danger"%>
+    <% end %>
   <% end %>
 
-  <%= simple_form_for invite do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-    <%= f.submit "Deny", class: "btn btn-danger"%>
+  <% @invites.each do |invite| %>
+    <p>You got a new invitation for <%= invite.event.title %></p>
+    <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
+
+    <%= simple_form_for invite do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+      <%= f.submit "Accept", class: "btn btn-success"%>
+    <% end %>
+
+    <%= simple_form_for invite do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+      <%= f.submit "Deny", class: "btn btn-danger"%>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="dashboard-section">
+  <h2>Favorites</h2>
+</div>
+
+<div class="dashboard-section">
+  <h2>Recent Check-Ins</h2>
+</div>
+
+<div class="dashboard-section">
+  <h2>Upcoming Events</h2>
+  <% @myevents.each do |e| %>
+    <p><%= e.title %></p>
+    <p><%= e.start_time %></p>
   <% end %>
 
-<% end %>
+  <% @myacceptedinvites.each do |i| %>
+    <%= i.event.title %>
+    <%= i.event.start_time %>
+  <% end %>
+</div>
+
+<div class="dashboard-section">
+  <h2>My Amigos</h2>
+  <% @myfriends.each do |f| %>
+    <% if current_user == f.asker %>
+      <div class="amigo-avatar">
+        <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar', style: "width: 60px" %>
+        <%= link_to f.receiver.username, user_path(f.receiver) %>
+      </div>
+      <% else %>
+      <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
+      <%= f.asker.username %>
+    <% end %>
+  <% end %>
+
+  <h3>add searchbar here</h3>
+</div>

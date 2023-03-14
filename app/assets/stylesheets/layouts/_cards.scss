@@ -1,10 +1,10 @@
 // Place Category Cards (ie Home Page & User Dashboard/Profile)
 .category-cards {
   display: inline-flex;
-  // overflow-x: scroll;
+  overflow-x: scroll;
   width: 100vw;
   gap: 1em;
-  // overflow-y: hidden;
+  padding: 0 0.5em 0.5em 0;
 }
 
 .category-card {

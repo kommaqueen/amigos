@@ -20,10 +20,11 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: { content: render_to_string(partial: "pages/category_cards", formats: [ :html ], locals: { places: @places }) }
+        render json: { content: render_to_string(partial: "pages/category_cards", formats: [ :html ], locals: { places: @places, title: params[:category] }) }
       end
     end
   end
+
 
   def show
     @review = Review.new

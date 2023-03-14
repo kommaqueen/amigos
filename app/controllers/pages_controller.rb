@@ -10,13 +10,26 @@ class PagesController < ApplicationController
   end
 
   def search
-    @places = Place.all
-    @markers = @places.geocoded.map do |place|
+    if params[:query].present?
+      @places = PgSearch.multisearch(params[:query]).where(searchable_type: "Place").map { |place| Place.find(place.searchable_id)}
+      @events = PgSearch.multisearch(params[:query]).where(searchable_type: "Event").map { |event| Event.find(event.searchable_id)}
+      @events.each do |event|
+        @places << event.place
+      end
+    else
+      @places = Place.all
+      @events = Event.where(public: true)
+    end
+    @markers = @places.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { place: place })
+        info_window_html: render_to_string(partial: "pages/info_window", locals: { place: place }, formats: :html)
       }
+    end
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 
