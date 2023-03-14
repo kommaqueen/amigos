@@ -17,6 +17,13 @@
   <% end %>
 <% end %>
 
+<%= render("user_search") %>
+
+<% @users.each do |user| %>
+  <p><%= user.username %></p>
+  <%= image_tag user.avatar %>
+<% end %>
+
 <h3>Pending Requests</h3>
 
 

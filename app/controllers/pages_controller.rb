@@ -40,6 +40,13 @@ class PagesController < ApplicationController
     @invites = Invite.where(status: "pending").where(receiver: current_user)
     @myacceptedinvites = Invite.where(status: "accepted").where(receiver: current_user)
     @myevents = Event.where(user: current_user)
-  end
 
+
+    if params[:query].present?
+      @users = User.search_by_name_and_username(params[:query])
+    else
+      @users = User.all
+      @user_infos = @users.map { |user| [user.username, "#{user.first_name} #{user.last_name}"] }
+    end
+  end
 end

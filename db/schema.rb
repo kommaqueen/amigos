@@ -89,10 +89,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_143711) do
   create_table "invites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "place_id", null: false
-    t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.bigint "event_id"
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.index ["asker_id"], name: "index_invites_on_asker_id"
+    t.index ["event_id"], name: "index_invites_on_event_id"
     t.index ["place_id"], name: "index_invites_on_place_id"
+    t.index ["receiver_id"], name: "index_invites_on_receiver_id"
     t.index ["user_id"], name: "index_invites_on_user_id"
   end
 
@@ -103,26 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_143711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
-  create_table "friendships", force: :cascade do |t|
-    t.bigint "asker_id"
-    t.bigint "receiver_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.index ["asker_id"], name: "index_friendships_on_asker_id"
-    t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
-  end
-
-  create_table "invites", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.bigint "event_id"
-    t.bigint "asker_id"
-    t.bigint "receiver_id"
-    t.index ["asker_id"], name: "index_invites_on_asker_id"
-    t.index ["event_id"], name: "index_invites_on_event_id"
-    t.index ["receiver_id"], name: "index_invites_on_receiver_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -181,15 +167,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_143711) do
   add_foreign_key "comments", "users"
   add_foreign_key "events", "places"
   add_foreign_key "events", "users"
-  add_foreign_key "invites", "places"
-  add_foreign_key "invites", "users"
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
   add_foreign_key "invites", "events"
+  add_foreign_key "invites", "places"
+  add_foreign_key "invites", "users"
   add_foreign_key "invites", "users", column: "asker_id"
   add_foreign_key "invites", "users", column: "receiver_id"
   add_foreign_key "places", "users"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
-end
 end
