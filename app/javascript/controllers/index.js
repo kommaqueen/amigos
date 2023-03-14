@@ -13,6 +13,9 @@ application.register("check-in", CheckInController)
 import CommentsController from "./comments_controller"
 application.register("comments", CommentsController)
 
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
