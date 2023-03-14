@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :friendships, only: [:update]
 
   get "sandbox", to: "pages#sandbox"
-  get "search", to: "pages#search"
+  get "search", to: "pages#search", as: :search
+  
   get "dashboard", to: "pages#dashboard"
 end

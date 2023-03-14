@@ -24,13 +24,25 @@ export default class extends Controller {
 
   }
 
+  markersValueChanged() {
+    this.#addMarkersToMap()
+    console.log("Updating markers")
+  }
+
   #addMarkersToMap() {
+    this.markers ||= []
+    this.markers.forEach(marker => marker.remove())
+    this.markers = []
+
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker({"color": "#CA78B0"})
-        .setLngLat([ marker.lng, marker.lat ])
+      const mapboxMarker = new mapboxgl.Marker({"color": "#CA78B0"})
+
+      mapboxMarker.setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
+
+      this.markers.push(mapboxMarker)
     })
   }
 
