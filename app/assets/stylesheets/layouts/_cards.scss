@@ -28,6 +28,20 @@
   flex-shrink: 0;
 }
 
+.show-event-card {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: 2px solid #000000;
+border-radius: 10px;
+margin-bottom: 20px;
+background-color: #FFFFFF;
+color: #000000;
+font-size: 16px;
+font-weight: bold;
+}
+
 .img-box {
   height: 305px;
   max-height: 100%;

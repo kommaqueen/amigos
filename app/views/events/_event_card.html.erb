@@ -1,0 +1,6 @@
+<div class="show-event-card toggler-items">
+  <p><%= link_to event.title, event_path(event) %></p>
+  <p><%= event.place.address %></p>
+  <p>When: <%= event.start_time.strftime("%A, %b %d") %></p>
+  <p>Hosted by: <%= event.user.username %></p>
+</div>
