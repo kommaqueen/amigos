@@ -12,7 +12,7 @@
     <h2>Hey, <%= link_to current_user.username, user_path(current_user)%>!</h2>
   </div>
   <div class="profile-links">
-    <p><%= current_user.location %></p>
+    <p><%# current_user.location %></p>
     <%# link_to "View Profile", user_path(current_user)%>
   </div>
 </div>
@@ -86,4 +86,6 @@
       <%= f.asker.username %>
     <% end %>
   <% end %>
+
+  <h3>add searchbar here</h3>
 </div>
