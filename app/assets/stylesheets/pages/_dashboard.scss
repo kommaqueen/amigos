@@ -1,0 +1,30 @@
+.avatar-box img {
+  margin: 0 auto;
+}
+
+.dashboard-nav {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
+  padding-right: 1em;
+}
+
+.dashboard-nav .icon {
+  width: 25px;
+}
+
+.dashboard-section h2 {
+  margin-bottom: .5em;
+}
+
+.amigo-avatar {
+  width: 100px;
+}
+
+.profile-head {
+  margin-bottom: 2em;
+}
+
+.avatar {
+  border: 2px black solid;
+}
