@@ -16,8 +16,16 @@
 <p><%= @event.description %></p>
 
 <h2>Attendees:</h2>
+<% @attendees.each do |attendee| %>
+  <p><%= attendee.receiver.username %></p>
+  <%= image_tag attendee.receiver.avatar %>
+<% end %>
 
 <% if @event.user == current_user %>
+
+<h3>Pending Invitations</h3>
+
+<p><%= link_to "Invite friends", new_event_invite_path(@event.id) %></p>
 <p><%= link_to "Edit event", edit_event_path %></p>
 <p><%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
 <% end %>

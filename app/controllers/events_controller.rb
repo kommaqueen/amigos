@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   
 
   def show
+    @attendees = Invite.where(event_id: @event).where(status: "accepted")
   end
 
   def new

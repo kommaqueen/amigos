@@ -32,4 +32,14 @@ class PagesController < ApplicationController
       format.json
     end
   end
+
+  def dashboard
+    @friendship = Friendship.where(status: "pending").where(receiver: current_user)
+    @myfriends = Friendship.where(status: "accepted").where(asker: current_user).or(Friendship.where(status: "accepted").where(receiver: current_user))
+
+    @invites = Invite.where(status: "pending").where(receiver: current_user)
+    @myacceptedinvites = Invite.where(status: "accepted").where(receiver: current_user)
+    @myevents = Event.where(user: current_user)
+  end
+
 end

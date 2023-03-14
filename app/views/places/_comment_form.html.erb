@@ -1,4 +1,6 @@
-<%= simple_form_for([place, comment], data: {comments_target: "form", action: "submit->comments#send"}) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
-<% end %>
+<div class="">
+  <%= simple_form_for([place, comment], data: {comments_target: "form", action: "submit->comments#send"}) do |f| %>
+    <%= f.input :content, as: :text, label: false %>
+    <%= f.submit "Submit", class: "submit-button-basic w-100" %>
+  <% end %>
+</div>

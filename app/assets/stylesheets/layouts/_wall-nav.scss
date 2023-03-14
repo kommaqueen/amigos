@@ -27,6 +27,10 @@
 .tab-content > .active {
   min-height: 200px;
   padding: 0.5em;
+  border-radius: 10px;
+  border: 3px solid;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .show-box-wrapper {
@@ -37,4 +41,15 @@
 .nav.wall :not(.active) {
   color: $color-black-greys-muted-black;
   /* Styles for children without the class "active" */
+}
+
+.toggler-header {
+  border-bottom: #000000 1px solid;
+  padding-bottom: 10px;}
+
+.toggler-items {
+  border: 3px solid #000000;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: $color-oranges-orange-5;
 }

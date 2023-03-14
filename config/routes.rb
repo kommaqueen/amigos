@@ -12,10 +12,24 @@ Rails.application.routes.draw do
     resources :comments, except: [:destroy, :edit, :update]
     resources :check_ins, only: [:new, :create]
   end
+
   resources :comments, only: [:destroy]
   resources :reviews, only: [:destroy]
-  resources :events, only: [:show, :edit, :update, :destroy]
+
+  resources :events, only: [:show, :edit, :update, :destroy] do
+    resources :invites, only: [:new, :create]
+  end
+
+  resources :users, only: [:show, :index] do
+    resources :friendships, only: [:create]
+  end
+
+
+  resources :invites, only: [:update]
+  resources :friendships, only: [:update]
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search", as: :search
+  
+  get "dashboard", to: "pages#dashboard"
 end
