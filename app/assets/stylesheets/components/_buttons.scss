@@ -55,11 +55,6 @@
   background: $color-purples-purple-5;
 }
 
-// .button-basic:active .front {
-//   transform: translateY(-1px);
-//   filter: saturate(160%);
-// }
-
 .button-basic .front.pushed {
   transform: translateY(-1px);
   filter: saturate(160%);
@@ -77,4 +72,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.submit-button-basic {
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border: 3px solid $color-black-greys-main-black;
+  font-family: $body-font;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  background-color: $color-yellows-yellow-5;
 }
