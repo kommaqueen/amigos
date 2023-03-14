@@ -83,3 +83,5 @@ gem 'faker'
 gem "cloudinary"
 
 gem "geocoder"
+
+gem 'acts_as_favoritor'

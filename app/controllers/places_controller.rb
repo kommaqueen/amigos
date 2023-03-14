@@ -49,6 +49,28 @@ class PlacesController < ApplicationController
     end
   end
 
+  # def favorite
+  #   @place = Place.find(params[:id])
+  #   current_user.favorite(@place)
+  #   redirect_to place_path(@place)
+  # end
+
+  def favoriter
+    @place = Place.find(params[:id])
+    if current_user.favorited?(@place)
+      current_user.unfavorite(@place)
+    else
+      current_user.favorite(@place)
+    end
+    
+  end
+
+  # def unfavorite
+  #   @place = Place.find(params[:id])
+  #   current_user.unfavorite(@place)
+  #   redirect_to place_path(@place)
+  # end
+
   private
 
   def latest_places

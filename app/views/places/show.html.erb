@@ -1,5 +1,16 @@
 <%= link_to "Back to search", places_path %>
 
+
+<div class="" data-controller="favorite">
+    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite">
+      <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
+        <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+      <% end %>
+    </div>
+  </div>
+
+
+
 <div class="place-data upper-space bottom-space big">
   <div class="place-category pill bottom-space-small">
     <p><%= @place.category.capitalize %></p>

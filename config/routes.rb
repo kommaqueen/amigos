@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :reviews, except: [:destroy, :edit, :update]
     resources :comments, except: [:destroy, :edit, :update]
     resources :check_ins, only: [:new, :create]
+    member do
+      get "favoriter", to: "places#favoriter"
+      # get "unfavorite", to: "places#unfavorite"
+    end
   end
 
   resources :comments, only: [:destroy]
@@ -24,9 +28,12 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
 
+  # resources :favorites, only: [:create]
+  # resources :favorites, only: [:destroy]
 
   resources :invites, only: [:update]
   resources :friendships, only: [:update]
+
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search"
