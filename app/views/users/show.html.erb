@@ -1,5 +1,30 @@
-<h1>Bio user, <%= @user.username %><h1>
+<div class="dashboard-nav">
+  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
+</div>
 
+<div class="profile-head text-center">
+  <div class="avatar-box">
+    <%= image_tag @user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
+  </div>
+  <div class="greeting">
+    <h2><%= @user.username %></h2>
+  </div>
+  <div class="profile-links">
+    <p><%= @user.location %></p>
+    <p><%= @user.bio %></p>
+  </div>
+</div>
+
+<% unless current_user.friends_with?(@user) %>
   <%= simple_form_for [@user, @friendship] do |f| %>
-    <%= f.submit "Add as friend", class: "cta-basic-front resize-text w-100"%>
+    <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
   <% end %>
+<% end %>
+
+<div class="dashboard-section">
+  <h2>Recent Check-Ins</h2>
+</div>
+
+<div class="dashboard-section">
+  <h2>Upcoming Events</h2>
+</div>
