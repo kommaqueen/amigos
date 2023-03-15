@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_085254) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_150025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,22 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_085254) do
   end
 
   create_table "invites", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "place_id", null: false
-    t.boolean "accepted"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_invites_on_place_id"
-    t.index ["user_id"], name: "index_invites_on_user_id"
-  end
-
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
@@ -132,6 +114,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_085254) do
     t.index ["asker_id"], name: "index_invites_on_asker_id"
     t.index ["event_id"], name: "index_invites_on_event_id"
     t.index ["receiver_id"], name: "index_invites_on_receiver_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friendship_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friendship_id"], name: "index_messages_on_friendship_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "places", force: :cascade do |t|
@@ -190,13 +191,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_085254) do
   add_foreign_key "comments", "users"
   add_foreign_key "events", "places"
   add_foreign_key "events", "users"
-  add_foreign_key "invites", "places"
-  add_foreign_key "invites", "users"
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
   add_foreign_key "invites", "events"
   add_foreign_key "invites", "users", column: "asker_id"
   add_foreign_key "invites", "users", column: "receiver_id"
+  add_foreign_key "messages", "friendships"
+  add_foreign_key "messages", "users"
   add_foreign_key "places", "users"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
