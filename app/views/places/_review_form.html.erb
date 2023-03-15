@@ -1,27 +1,27 @@
 <div class="container">
-    <h2 class="toggler-header">Leave a review!</h2>
-        <%= simple_form_for [@place, @review] do |f| %>
-      <div class="row justify-content-center">
-          <div class="col">
-          <%= f.input :cleanliness, collection: (1..5).to_a, label: "Cleanliness", input_html: {data: {controller: "star-rating"}} %>
-          </div>
-          <div class="col">
-          <%= f.input :condition, collection: (1..5).to_a, label: "Condition", input_html: {data: {controller: "star-rating"}} %>
-          </div>
+  <h2 class="toggler-header">Leave a review!</h2>
+  <%= simple_form_for [@place, @review] do |f| %>
+  <div class="row justify-content-center">
+      <div class="col">
+      <%= f.input :cleanliness, collection: (1..5).to_a, label: "Cleanliness", input_html: {data: {controller: "star-rating"}} %>
       </div>
-      <div class="row justify-content-center">
-        <div class="col">
-        <%= f.input :age_appropriate, collection: (1..5).to_a, label: "Age Appropriate-ness", input_html: {data: {controller: "star-rating"}} %>
-        </div>
-        <div class="col">
-        <%= f.input :fun_factor, collection: (1..5).to_a, label: "Fun Factor", input_html: {data: {controller: "star-rating"}} %>
-        </div>
+      <div class="col">
+      <%= f.input :condition, collection: (1..5).to_a, label: "Condition", input_html: {data: {controller: "star-rating"}} %>
       </div>
-      <div class="row justify-content-center">
-        <%= f.input :comment, label: "Anything else another Amigo should know?" %>
-        <%= f.submit "Submit", class: "submit-button-basic" %>
-        <% end %>
-      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+    <%= f.input :age_appropriate, collection: (1..5).to_a, label: "Age Appropriate-ness", input_html: {data: {controller: "star-rating"}} %>
+    </div>
+    <div class="col">
+    <%= f.input :fun_factor, collection: (1..5).to_a, label: "Fun Factor", input_html: {data: {controller: "star-rating"}} %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= f.input :comment, label: "Anything else another Amigo should know?" %>
+    <%= f.submit "Submit", class: "submit-button-basic" %>
+    <% end %>
+  </div>
 </div>
 
   <% if @place.reviews.any?%>
