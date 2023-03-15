@@ -13,18 +13,32 @@
   width: 25px;
 }
 
-.dashboard-section h2 {
-  margin-bottom: .5em;
-}
+.greeting{
 
-.amigo-avatar {
-  width: 100px;
+  h2 {
+    margin-bottom: .5em;
+  }
+
+  a {
+    font-size: 1.5rem;
+    font-family: "Paytone One";
+    font-weight: 400;
+    font-style: normal;
+    text-decoration-color: $color-oranges-orange-2;
+  }
 }
 
 .profile-head {
   margin-bottom: 2em;
 }
 
-.avatar {
-  border: 2px black solid;
+.profile-links {
+  border: 4px black solid;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: $color-oranges-orange-5;
+
+  p {
+    margin-bottom: 0;
+  }
 }

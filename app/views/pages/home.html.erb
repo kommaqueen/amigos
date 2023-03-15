@@ -37,11 +37,13 @@
 
 </div>
 
-<div class="box text-center bottom-space big">
-  <%= link_to "View all playareas", places_path, class: "text-center" %>
+<div class="cta cta-big bottom-space big">
+  <div class="cta-basic w-100">
+    <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front resize-text" %>
+  </div>
 </div>
 
-<div class="perks">
+<div class="perks bottom-space big">
   <h2 class="text-center">Join our community to ... </h2>
   <div class="perk">
     <%= render "shared/icon", id: Icon.library(:bubbles) %>
@@ -54,11 +56,5 @@
   <div class="perk bottom-space big">
     <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
     <p>...find fun playareas year round!</p>
-  </div>
-</div>
-
-<div class="cta cta-big bottom-space big">
-  <div class="cta-basic w-100">
-    <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front resize-text" %>
   </div>
 </div>
