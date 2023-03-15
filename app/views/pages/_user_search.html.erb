@@ -1,4 +1,4 @@
-<%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
+<%= form_with url: dashboard_path, method: :get, class: "d-flex", data: { controller: "tom_select" } do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
