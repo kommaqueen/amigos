@@ -5,15 +5,7 @@
   </div>
 </div>
 
-<%# <div class="search-box bottom-space big"> %>
-  <%= render("search_bar") %>
-  <%# <div class="search-input">
-    <p class="input-text":>Find a place near you...</p>
-  </div>
-  <div class="search-icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div> %>
-<%# </div> %>
+<%= render("search_bar") %>
 
 <div class="filter-box" data-controller="category-filter" data-category-filter-url-value="<%= places_path %>">
 
