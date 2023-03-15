@@ -1,6 +1,18 @@
 <div class="show-event-card toggler-items">
-  <p><%= link_to event.title, event_path(event) %></p>
-  <p><%= event.place.address %></p>
-  <p>When: <%= event.start_time.strftime("%A, %b %d") %></p>
-  <p>Hosted by: <%= event.user.username %></p>
+  <div class="event-image">
+    <img src="https://images.unsplash.com/photo-1596241913274-fd9f65e3a2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="">
+  </div>
+
+  <div class="event-info">
+    <h2 class="text-center"><%= link_to event.title, event_path(event) %></h2>
+    <div class="subline">
+      <p><%= event.start_time.strftime("%A, %b %d") %></p>
+      <p>by <%= link_to event.user.username, user_path(event.user) %>
+    </div>
+    <p>
+      <% words = event.description.split(" ") %>
+      <% preview = words[0..9].join(" ") %>
+      <%= "#{preview}..." %>
+    </p>
+  </div>
 </div>

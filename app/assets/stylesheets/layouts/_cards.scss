@@ -38,8 +38,28 @@
   margin-bottom: 20px;
   background-color: #FFFFFF;
   color: #000000;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 1em;
+
+}
+
+.show-event-card h2 a {
+  font-size: 1.625rem;
+  font-family: "Dosis";
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.show-event-card .event-info p {
+  margin-bottom: 0;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.subline {
+  display: flex;
+  justify-content: space-around;
 }
 
 .img-box {
