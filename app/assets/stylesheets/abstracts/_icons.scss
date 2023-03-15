@@ -20,6 +20,10 @@
   height: 35px;
 }
 
+.search-card .icon {
+  width: 22px;
+}
+
 @mixin icon($fill: null, $stroke: null) {
 
   &.icon--fill {

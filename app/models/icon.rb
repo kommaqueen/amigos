@@ -20,6 +20,7 @@ class Icon
     envelope: "envelope",
     bell: "bell",
     chats: "chats",
+    group: "group",
   }
 
   def self.library(key)

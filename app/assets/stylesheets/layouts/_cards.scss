@@ -95,6 +95,84 @@
 
 // Search Cards (ie Search Page / Place Index)
 
+.search-card {
+  display: flex;
+  height: 230px;
+  background-color: $color-blues-blue-6;
+  border-radius: 1em;
+  border: 3px solid black;
+}
+
+.search-card > * {
+  flex: 1;
+}
+
+.search-card .info {
+
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-family: "Mulish";
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    font-family: "Paytone One";
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: .2em;
+  }
+
+  a {
+    font-size: 0.875rem;
+    font-family: "Mulish";
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+    text-transform: none;
+  }
+
+}
+
+.search-card .icons > * {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.header .stars {
+  margin-bottom: 0.5em;
+}
+
+.search-card .image-1 {
+  img {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 0 0.8em 0.8em 0;
+  }
+}
+
+
 // Place Show Card (on individual Show page)
 
 // User Dashboard Event Card
