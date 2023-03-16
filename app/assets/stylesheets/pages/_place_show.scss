@@ -1,3 +1,24 @@
+.showbar {
+  display: flex;
+  height: 5%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+
+  i {
+    font-size: 1.5em;
+  }
+
+  svg {
+    height: 2em;
+    width: 2em;
+  }
+}
+
+.showbar > * {
+  margin-bottom: 0;
+}
+
 .place-data p {
   margin-bottom: 0;
 }
