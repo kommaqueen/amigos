@@ -40,6 +40,9 @@ class PagesController < ApplicationController
     @invites = Invite.where(status: "pending").where(receiver: current_user)
     @myacceptedinvites = Invite.where(status: "accepted").where(receiver: current_user)
     @myevents = Event.where(user: current_user)
+
+    @allevents = @myacceptedinvites + @myevents
+    @sortedevents = @allevents.sort_by { |event| event[:start_time] }
   end
 
 end

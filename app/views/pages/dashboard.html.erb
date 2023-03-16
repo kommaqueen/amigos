@@ -58,15 +58,18 @@
 
 <div class="dashboard-section">
   <h2>Upcoming Events</h2>
-  <% @myevents.each do |e| %>
-    <p><%= e.title %></p>
-    <p><%= e.start_time %></p>
+
+  <% @sortedevents.each do |event| %>
+    <%= render "events/event_card", event: event %>
   <% end %>
 
-  <% @myacceptedinvites.each do |i| %>
-    <%= i.event.title %>
-    <%= i.event.start_time %>
-  <% end %>
+  <%# @myevents.each do |event| %>
+    <%# render "events/event_card", event: event %>
+  <%# end %>
+
+  <%# @myacceptedinvites.each do |i| %>
+    <%# render "events/event_card", event: event %>
+  <%# end %>
 </div>
 
 <div class="dashboard-section">

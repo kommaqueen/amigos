@@ -41,8 +41,8 @@
           <p>No upcoming events 😔</p>
         <% end %>
         <% @place.events.each do |event| %>
-            <%= render "events/event_card", event: event %>
-          <% end %>
+          <%= render "events/event_card", event: event %>
+        <% end %>
         <p class="submit-button-basic justify-content-center"><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
       </div>
 
