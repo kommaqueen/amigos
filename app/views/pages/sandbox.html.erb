@@ -1,37 +1,8 @@
 <h1>This is where we play!</h1>
 
-<%= render "shared/icon", id: Icon.library(:home) %>
-
-<%= render "shared/icon", id: Icon.library(:search) %>
-
 <%# This is bootstrap all the way. Javascript is below....%>
 <%# Styling currently lives in the buttons.scss file... %>
 
-<div class="container mx-auto justify-content-center">
-  <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Wall</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Events</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</button>
-    </li>
-  </ul>
+<%# render("search_cards") %>
 
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <h2>Wall</h2>
-      <p>This is the comments section.</p>
-    </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <h2>Events</h2>
-      <p>This is the upcoming events section.</p>
-    </div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-      <h2>Reviews</h2>
-      <p>This is the reviews section.</p>
-    </div>
-  </div>
-</div>
+<%= render 'pages/search_cards', places: @places, events: @events%>

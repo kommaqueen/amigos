@@ -20,7 +20,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: { content: render_to_string(partial: "pages/category_cards", formats: [ :html ], locals: { places: @places }) }
+        render json: { content: render_to_string(partial: "pages/category_cards", formats: [ :html ], locals: { places: @places, title: params[:category] }) }
       end
     end
   end
@@ -49,6 +49,28 @@ class PlacesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # def favorite
+  #   @place = Place.find(params[:id])
+  #   current_user.favorite(@place)
+  #   redirect_to place_path(@place)
+  # end
+
+  def favoriter
+    @place = Place.find(params[:id])
+    if current_user.favorited?(@place)
+      current_user.unfavorite(@place)
+    else
+      current_user.favorite(@place)
+    end
+    
+  end
+
+  # def unfavorite
+  #   @place = Place.find(params[:id])
+  #   current_user.unfavorite(@place)
+  #   redirect_to place_path(@place)
+  # end
 
   private
 

@@ -17,8 +17,18 @@
   margin-bottom: .5em;
 }
 
+.huge-space {
+  margin-bottom: 3em;
+}
+
+.total-space {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 .upper-space {
-  margin-top: 1.2em;
+  // margin-top: 1.2em;
+  margin-top: 2em;
 }
 
 .not-signed-in {
@@ -75,3 +85,17 @@
 .two-row-grid .div2 { grid-area: 1 / 2 / 2 / 3; }
 .two-row-grid .div3 { grid-area: 2 / 1 / 3 / 2; }
 .two-row-grid .div4 { grid-area: 2 / 2 / 3 / 3; }
+
+.matched-radius {
+  --matched-radius-padding: 8px;
+  --matched-radius-inner-size: 12px;
+
+  padding: var(--matched-radius-padding);
+  border-radius: calc(
+    var(--matched-radius-inner-size) + var(--matched-radius-padding)
+  );
+}
+
+.matched-radius__inner {
+  border-radius: var(--matched-radius-inner-size);
+}

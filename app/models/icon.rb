@@ -16,6 +16,11 @@ class Icon
     balloons: "balloons",
     tearcalendar: "tearcalendar",
     cleanhand: "cleanhand",
+    heart: "heart",
+    envelope: "envelope",
+    bell: "bell",
+    chats: "chats",
+    group: "group",
   }
 
   def self.library(key)

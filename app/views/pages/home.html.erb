@@ -1,25 +1,19 @@
-<div class="logo-banner">
+<%# <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,160L80,144C160,128,320,96,480,106.7C640,117,800,171,960,176C1120,181,1280,139,1360,117.3L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg> %>
+
+<div class="logo-banner total-space">
   <%= image_tag "staggered_logo.png" %>
   <div class="logo-tagline">
     <h2>A place to play wherever we go!</h2>
   </div>
 </div>
 
-<%# <div class="search-box bottom-space big"> %>
-  <%= render("search_bar") %>
-  <%# <div class="search-input">
-    <p class="input-text":>Find a place near you...</p>
-  </div>
-  <div class="search-icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </div> %>
-<%# </div> %>
+<%= render("search_bar") %>
 
 <div class="filter-box" data-controller="category-filter" data-category-filter-url-value="<%= places_path %>">
 
   <div class="categories">
     <%# <h2 class="header big text-center">Browse Categories</h2> %>
-    <div class="button-box bottom-space upper-gap">
+    <div class="button-box bottom-space big upper-gap">
       <button class="button-basic button-basic-blue" data-action="click->category-filter#filter">
         <span class="front front-blue" data-category-filter-target="button">
           Newest
@@ -41,32 +35,28 @@
     </div>
   </div>
 
-  <%= render "category_cards", places: @places %>
+  <%= render "category_cards", places: @places, title: "Newest" %>
 
-</div>
-
-<div class="box text-center bottom-space big">
-  <%= link_to "View all playareas", places_path, class: "text-center" %>
-</div>
-
-<div class="perks">
-  <h2 class="text-center">Join our community to ... </h2>
-  <div class="perk">
-    <%= render "shared/icon", id: Icon.library(:bubbles) %>
-    <p>...meet families in your neighbourhood!</p>
-  </div>
-  <div class="perk">
-    <%= render "shared/icon", id: Icon.library(:balloons) %>
-    <p>...set up playdates and parties!</p>
-  </div>
-  <div class="perk bottom-space big">
-    <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
-    <p>...find fun playareas year round!</p>
-  </div>
 </div>
 
 <div class="cta cta-big bottom-space big">
   <div class="cta-basic w-100">
     <%= link_to "Become an Amigo!", new_user_registration_path, class: "cta-basic-front resize-text" %>
   </div>
+</div>
+
+<div class="perks bottom-space big upper-space">
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:bubbles) %>
+    <p>Meet families in your neighbourhood!</p>
+  </div>
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:balloons) %>
+    <p>Set up playdates and parties!</p>
+  </div>
+  <div class="perk">
+    <%= render "shared/icon", id: Icon.library(:tearcalendar) %>
+    <p>Find fun playareas year round!</p>
+  </div>
+  <h2 class="text-center">and more! </h2>
 </div>
