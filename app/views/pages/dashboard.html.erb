@@ -15,17 +15,19 @@
 
 <div class="dashboard-section total-space">
   <h2>My Amigos</h2>
-  <% @myfriends.each do |f| %>
-    <% if current_user == f.asker %>
-      <div class="amigo-avatar">
-        <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
-        <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
-      </div>
-      <% else %>
-      <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
-      <%= f.asker.username %>
+  <div class="amigos-box">
+    <% @myfriends.each do |f| %>
+      <% if current_user == f.asker %>
+        <div class="amigo-avatar">
+          <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+          <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
+        </div>
+        <% else %>
+        <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
+        <%= f.asker.username %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <div class="dashboard-section total-space">
