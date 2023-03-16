@@ -13,7 +13,22 @@
   </div>
 </div>
 
-<div class="dashboard-section">
+<div class="dashboard-section total-space">
+  <h2>My Amigos</h2>
+  <% @myfriends.each do |f| %>
+    <% if current_user == f.asker %>
+      <div class="amigo-avatar">
+        <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+        <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
+      </div>
+      <% else %>
+      <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
+      <%= f.asker.username %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="dashboard-section total-space">
   <h2>Pending Requests </h2>
 
   <% @friendship.each do |friend| %>
@@ -48,42 +63,30 @@
   <% end %>
 </div>
 
-<div class="dashboard-section">
+<div class="dashboard-section total-space">
   <h2>Favorites</h2>
 </div>
 
-<div class="dashboard-section">
+<div class="dashboard-section total-space">
   <h2>Recent Check-Ins</h2>
 </div>
 
-<div class="dashboard-section">
+<div class="dashboard-section total-space">
   <h2>Upcoming Events</h2>
-  <% @myevents.each do |e| %>
-    <p><%= e.title %></p>
-    <p><%= e.start_time %></p>
+
+  <% @sortedevents.each do |event| %>
+    <%= render "events/event_card", event: event %>
   <% end %>
 
-  <% @myacceptedinvites.each do |i| %>
-    <%= i.event.title %>
-    <%= i.event.start_time %>
-  <% end %>
-</div>
+  <%# @myevents.each do |event| %>
+    <%# render "events/event_card", event: event %>
+  <%# end %>
 
-<div class="dashboard-section">
-  <h2>My Amigos</h2>
-  <% @myfriends.each do |f| %>
-    <% if current_user == f.asker  %>
-      <div class="amigo-avatar">
-        <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar', style: "width: 60px" %>
-        <%= link_to f.receiver.username, user_path(f.receiver) %>
-      </div>
-      <% elsif current_user == f.receiver %>
-        <div class="amigo-avatar">
-        <%= image_tag f.asker.avatar, class: 'rounded-circle avatar', style: "width: 60px" %>
-        <%= link_to f.asker.username, user_path(f.asker) %>
-      </div>
-    <% end %>
-  <% end %>
+  <h2>Find more Amigos!</h2>
 
-  <h3>add searchbar here</h3>
+  <%= render("user_search") %>
+
+  <%# @myacceptedinvites.each do |i| %>
+    <%# render "events/event_card", event: event %>
+  <%# end %>
 </div>
