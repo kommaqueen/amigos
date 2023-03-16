@@ -1,11 +1,4 @@
-<div class="dashboard-nav">
-  <% if @chatroom.exists? %>
-    <%= link_to friendship_path(@chatroom[0].id) do %>
-      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
-    <% end %>
-  <% end %>
-  
-</div>
+
 
 <div class="profile-head text-center">
   <div class="avatar-box">
@@ -20,10 +13,14 @@
   </div>
 </div>
 
-<% unless current_user.friends_with?(@user) %>
-  <%= simple_form_for [@user, @friendship] do |f| %>
-    <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
-  <% end %>
+<% if current_user.friends_with?(@user) %>
+    <%= link_to friendship_path(@chatroom) do %>
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for [@user, @friendship] do |f| %>
+      <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+    <% end %>
 <% end %>
 
 <div class="dashboard-section">
