@@ -5,11 +5,13 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.friendship = @chatroom
     @message.user = current_user
-    if @message.save
-      redirect_to friendship_path(@chatroom)
-    else
-      render "friendships/show", status: :unprocessable_entity
-    end
+
+    @message.save
+    FriendshipChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: "messages/message", locals: { message: @message })
+    )
+    head :ok #dont send a view, dont make redirect.
   end
 
   private

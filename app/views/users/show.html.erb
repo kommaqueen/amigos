@@ -1,5 +1,10 @@
 <div class="dashboard-nav">
-  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
+  <% if @chatroom.exists? %>
+    <%= link_to friendship_path(@chatroom[0].id) do %>
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
+    <% end %>
+  <% end %>
+  
 </div>
 
 <div class="profile-head text-center">
