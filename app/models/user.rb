@@ -15,27 +15,24 @@ class User < ApplicationRecord
   has_many :invites_as_asker, class_name: "Friendship", foreign_key: :asker_id
   has_many :invites_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
 
-<<<<<<< HEAD
   include PgSearch::Model
   pg_search_scope :search_by_name_and_username,
   against: [ :first_name, :last_name, :username ],
   using: {
     tsearch: { prefix: true }
   }
-=======
   acts_as_favoritor
->>>>>>> f788df6bd4094b001043167493edf0550cdbcfef
 
   def friends
     user_ids = friendships_as_asker.pluck(:receiver_id) + friendships_as_receiver.pluck(:asker_id)
     User.where(id: user_ids)
   end
 
-<<<<<<< HEAD
-=======
   def friends_with?(user)
     friendships_as_asker.find_by(receiver_id: user.id) || friendships_as_receiver.find_by(asker_id: user.id)
   end
 
->>>>>>> f788df6bd4094b001043167493edf0550cdbcfef
+  def format_name
+    "#{first_name} #{last_name} - #{username}"
+  end
 end

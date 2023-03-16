@@ -26,34 +26,6 @@
       <%= f.submit "Accept", class: "btn btn-success"%>
     <% end %>
 
-<% @myfriends.each do |f| %>
-  <% if current_user == f.asker %>
-    <%= f.receiver.username %>
-    <%= image_tag f.receiver.avatar %>
-    <% else %>
-    <%= f.asker.username %>
-    <%= image_tag f.asker.avatar %>
-  <% end %>
-<% end %>
-
-<%= render("user_search") %>
-
-<% @users.each do |user| %>
-  <p><%= user.username %></p>
-  <%= image_tag user.avatar %>
-<% end %>
-
-<h3>Pending Requests</h3>
-
-
-<% @friendship.each do |friend| %>
-  <%= friend.asker.username %>
-  <%= image_tag friend.asker.avatar %>
-  <%= friend.status %>
-
-  <%= simple_form_for friend do |f| %>
-    <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-    <%= f.submit "Accept", class: "btn btn-success"%>
     <%= simple_form_for friend do |f| %>
       <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
       <%= f.submit "Deny", class: "btn btn-danger"%>
@@ -111,5 +83,7 @@
     <% end %>
   <% end %>
 
-  <h3>add searchbar here</h3>
+  <h2>Find more Amigos!</h2>
+
+  <%= render("user_search") %>
 </div>

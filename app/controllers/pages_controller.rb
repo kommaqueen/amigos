@@ -34,6 +34,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    if params['id']
+      @user = User.find(params['id'])
+      redirect_to user_path(@user)
+    end
     @friendship = Friendship.where(status: "pending").where(receiver: current_user)
     @myfriends = Friendship.where(status: "accepted").where(asker: current_user).or(Friendship.where(status: "accepted").where(receiver: current_user))
 
