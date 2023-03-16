@@ -28,7 +28,7 @@
   min-height: 200px;
   padding: 0.5em;
   border-radius: 10px;
-  border: 3px solid;
+  // border: 3px solid;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -44,9 +44,10 @@
   /* Styles for children without the class "active" */
 }
 
-.toggler-header {
-  border-bottom: #000000 2px solid;
-  padding-bottom: 10px;}
+// .toggler-header {
+//   border-bottom: #000000 2px solid;
+//   padding-bottom: 10px;
+// }
 
 .toggler-items {
   border: 3px solid #000000;
