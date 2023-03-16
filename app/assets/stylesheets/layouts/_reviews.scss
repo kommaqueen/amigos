@@ -1,1 +1,17 @@
 // Review Post on Wall
+.review-user {
+  gap: .5em;
+}
+
+.star-box {
+  width: 40%;
+}
+
+.review-card p {
+  margin-bottom: 0;
+}
+
+.review-metadata {
+  gap: 1em;
+  align-items: baseline;
+}
