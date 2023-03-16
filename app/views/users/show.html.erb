@@ -11,10 +11,14 @@
   </div>
 </div>
 
-<% unless current_user.friends_with?(@user) || current_user == @user %>
-  <%= simple_form_for [@user, @friendship] do |f| %>
-    <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
-  <% end %>
+<% if current_user.friends_with?(@user) %>
+    <%= link_to friendship_path(@chatroom) do %>
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:envelope) %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for [@user, @friendship] do |f| %>
+      <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+    <% end %>
 <% end %>
 
 <div class="dashboard-section">
