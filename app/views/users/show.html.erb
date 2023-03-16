@@ -1,6 +1,6 @@
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
-    <%= image_tag @user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
+    <%= image_tag @user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
   </div>
   <div class="greeting">
     <h2><%= @user.username %></h2>
@@ -11,11 +11,21 @@
   </div>
 </div>
 
-<% unless current_user.friends_with?(@user) || current_user == @user %>
+<% if current_user.friends_with?(@user) %>
+  <div class="cta cta-big bottom-space big">
+    <div class="cta-basic w-100">
+      <%= link_to "Open Chat", friendship_path(@chatroom), class: "cta-basic-front resize-text" %>
+    </div>
+  </div>
+
+<% elsif current_user != @user  %>
   <%= simple_form_for [@user, @friendship] do |f| %>
-    <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+    <div class="cta-basic">
+      <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+    </div>
   <% end %>
 <% end %>
+
 
 <div class="dashboard-section">
   <h2>Recent Check-Ins</h2>

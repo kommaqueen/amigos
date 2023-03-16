@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
 
+  resources :friendships, only: [:show] do
+    resources :messages, only: [:create]
+  end
   # resources :favorites, only: [:create]
   # resources :favorites, only: [:destroy]
 
@@ -37,5 +40,6 @@ Rails.application.routes.draw do
 
   get "sandbox", to: "pages#sandbox"
   get "search", to: "pages#search", as: :search
+
   get "dashboard", to: "pages#dashboard"
 end

@@ -46,6 +46,12 @@ class PagesController < ApplicationController
     @myevents = Event.where(user: current_user)
 
 
+    @allevents = @myacceptedinvites + @myevents
+    @sortedevents = @allevents.sort_by { |event| event[:start_time] }
+  end
+
+
+
     if params[:query].present?
       @users = User.search_by_name_and_username(params[:query])
     else
