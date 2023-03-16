@@ -33,6 +33,11 @@
   border: 4px $color-oranges-main-orange solid;
 }
 
+.avatar.orange-stroke.mini {
+  box-shadow: 2px -3px 1px 2px #f9c69a;
+  border: 3px #f17d18 solid;
+}
+
 .avatar.pink-stroke {
   box-shadow:12px -10px 1px 2px $color-pinks-pink-3;
   border: 4px $color-pinks-main-pink solid;

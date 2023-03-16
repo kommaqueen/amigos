@@ -8,6 +8,12 @@
   fill: $color-pinks-pink-4;
 }
 
+.star-box .icon {
+  height: 1.2em;
+  fill: #FFC107;
+  stroke: black;
+}
+
 .navbar-icon.active {
   border: 4px solid $color-black-greys-main-black;
   border-radius: 50px;
