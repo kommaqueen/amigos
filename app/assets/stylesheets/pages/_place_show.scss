@@ -5,6 +5,11 @@
   justify-content: flex-end;
   gap: 1em;
 
+  position: absolute;
+  top: 10px;
+  right: 3px;
+  font-size: .7em;
+
   i {
     font-size: 1.5em;
   }
@@ -19,20 +24,25 @@
   margin-bottom: 0;
 }
 
-.place-data p {
-  margin-bottom: 0;
-}
-
-.place-data a {
-  font-weight: 700;
-}
-
 .place-data {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 2px;
+  position: relative;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: 700;
+  }
+
+  h2 {
+    max-width: 60%;
+  }
 }
 
 .place-address {
