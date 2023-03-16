@@ -34,6 +34,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    if params['id']
+      @user = User.find(params['id'])
+      redirect_to user_path(@user)
+    end
     @friendship = Friendship.where(status: "pending").where(receiver: current_user)
     @myfriends = Friendship.where(status: "accepted").where(asker: current_user).or(Friendship.where(status: "accepted").where(receiver: current_user))
 
@@ -41,8 +45,18 @@ class PagesController < ApplicationController
     @myacceptedinvites = Invite.where(status: "accepted").where(receiver: current_user)
     @myevents = Event.where(user: current_user)
 
+
     @allevents = @myacceptedinvites + @myevents
     @sortedevents = @allevents.sort_by { |event| event[:start_time] }
   end
 
+
+
+    if params[:query].present?
+      @users = User.search_by_name_and_username(params[:query])
+    else
+      @users = User.all
+      @user_infos = @users.map { |user| [user.username, "#{user.first_name} #{user.last_name}"] }
+    end
+  end
 end
