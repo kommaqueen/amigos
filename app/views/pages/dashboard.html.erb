@@ -72,14 +72,16 @@
 <div class="dashboard-section">
   <h2>My Amigos</h2>
   <% @myfriends.each do |f| %>
-    <% if current_user == f.asker %>
+    <% if current_user == f.asker  %>
       <div class="amigo-avatar">
         <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar', style: "width: 60px" %>
         <%= link_to f.receiver.username, user_path(f.receiver) %>
       </div>
-      <% else %>
-      <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
-      <%= f.asker.username %>
+      <% elsif current_user == f.receiver %>
+        <div class="amigo-avatar">
+        <%= image_tag f.asker.avatar, class: 'rounded-circle avatar', style: "width: 60px" %>
+        <%= link_to f.asker.username, user_path(f.asker) %>
+      </div>
     <% end %>
   <% end %>
 
