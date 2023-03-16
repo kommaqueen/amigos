@@ -1,4 +1,10 @@
 class FriendshipsController < ApplicationController
+
+  def show
+    @chatroom = Friendship.find(params[:id])
+    @message = Message.new
+  end
+
   def create
     @friendship = Friendship.new
     @user = User.find(params[:user_id])
@@ -15,7 +21,7 @@ class FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find(params[:id])
     @friendship.update(friendship_params)
-    
+
     redirect_to dashboard_path
   end
 

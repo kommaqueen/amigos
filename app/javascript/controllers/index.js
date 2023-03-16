@@ -19,6 +19,9 @@ application.register("favorite", FavoriteController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+import FriendshipSubscriptionController from "./friendship_subscription_controller"
+application.register("friendship-subscription", FriendshipSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
