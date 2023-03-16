@@ -1,11 +1,13 @@
-<%= form_with url: search_path, method: :get, class: "d-flex", data: {search_target: "form"} do %>
+<div class="search-bar">
+  <%= form_with url: search_path, method: :get, class: "d-flex bottom-space big", data: {search_target: "form"} do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "search-box",
     placeholder: "Search for places or events!",
     data: {
       search_target: "input",
       action: "keyup->search#update"}
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+  <%= submit_tag "Vamos!", class: "search-button" %>
+  <% end %>
+</div>

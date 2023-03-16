@@ -124,6 +124,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_150025) do
     t.datetime "updated_at", null: false
     t.index ["friendship_id"], name: "index_messages_on_friendship_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.bigint "event_id"
+    t.bigint "asker_id"
+    t.bigint "receiver_id"
+    t.index ["asker_id"], name: "index_invites_on_asker_id"
+    t.index ["event_id"], name: "index_invites_on_event_id"
+    t.index ["receiver_id"], name: "index_invites_on_receiver_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

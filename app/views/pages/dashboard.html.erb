@@ -1,19 +1,15 @@
-<div class="dashboard-nav">
-  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:heart) %>
-  <%= render "shared/icon", myclass: 'icon--orange', id: Icon.library(:envelope) %>
-  <%= render "shared/icon", myclass: 'icon--yellow', id: Icon.library(:bell) %>
-</div>
+<%# <div class="dashboard-nav"> %>
+  <%# render "shared/icon", myclass: 'icon--pink', id: Icon.library(:heart) %>
+  <%# render "shared/icon", myclass: 'icon--orange', id: Icon.library(:envelope) %>
+  <%# render "shared/icon", myclass: 'icon--yellow', id: Icon.library(:bell) %>
+<%# </div> %>
 
-<div class="profile-head text-center">
-  <div class="avatar-box">
-    <%= image_tag current_user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
+<div class="profile-head text-center upper-space">
+  <div class="avatar-box bottom-space-small">
+    <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
   </div>
   <div class="greeting">
     <h2>Hey, <%= link_to current_user.username, user_path(current_user)%>!</h2>
-  </div>
-  <div class="profile-links">
-    <p><%# current_user.location %></p>
-    <%# link_to "View Profile", user_path(current_user)%>
   </div>
 </div>
 

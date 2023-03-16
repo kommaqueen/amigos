@@ -1,13 +1,13 @@
 <nav class="navbar-styled fixed-bottom" data-controller="navbar">
   <div class="navbar-icons">
     <div class="navbar-icon">
-      <%= link_to root_path do %>
-        <%= render "shared/icon", id: Icon.library(:home) %>
+      <%= link_to search_path do %>
+        <%= render "shared/icon", id: Icon.library(:search) %>
       <% end %>
     </div>
     <div class="navbar-icon">
-      <%= link_to search_path do %>
-        <%= render "shared/icon", id: Icon.library(:search) %>
+      <%= link_to root_path do %>
+        <%= render "shared/icon", id: Icon.library(:chats) %>
       <% end %>
     </div>
     <div class="navbar-icon" data-opens="add-box" data-action="click->navbar#handleClick" data-navbar-target="icon">

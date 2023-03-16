@@ -1,14 +1,12 @@
-
-
-<div class="profile-head text-center">
-  <div class="avatar-box">
+<div class="profile-head text-center upper-space">
+  <div class="avatar-box bottom-space-small">
     <%= image_tag @user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
   </div>
   <div class="greeting">
     <h2><%= @user.username %></h2>
+    <p><%= @user.location %></p>
   </div>
   <div class="profile-links">
-    <p><%= @user.location %></p>
     <p><%= @user.bio %></p>
   </div>
 </div>

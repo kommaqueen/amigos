@@ -1,9 +1,27 @@
-.place-data p {
-  margin-bottom: 0;
+.showbar {
+  display: flex;
+  height: 5%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+
+  position: absolute;
+  top: 10px;
+  right: 3px;
+  font-size: .7em;
+
+  i {
+    font-size: 1.5em;
+  }
+
+  svg {
+    height: 2em;
+    width: 2em;
+  }
 }
 
-.place-data a {
-  font-weight: 700;
+.showbar > * {
+  margin-bottom: 0;
 }
 
 .place-data {
@@ -12,6 +30,19 @@
   justify-content: center;
   align-items: flex-start;
   gap: 2px;
+  position: relative;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: 700;
+  }
+
+  h1 {
+    max-width: 60%;
+  }
 }
 
 .place-address {

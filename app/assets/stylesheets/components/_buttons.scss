@@ -1,12 +1,11 @@
 .button-basic {
   border-radius: 50px;
-  border: 2px solid black;
   padding: 0;
-  cursor: pointer;
   outline-offset: 2px;
-  border: 2px solid $color-black-greys-main-black;
+  border: 2px solid black;
   font-family: Dosis;
   font-weight: bolder;
+  max-width: 175px;
 }
 
 .button-basic-blue {
@@ -31,10 +30,10 @@
 
 .front {
   display: block;
-  padding: 12px 42px;
+  padding: 0.5em;
   border-radius: 50px;
   border: 2px solid black;
-  font-size: 1.25rem;
+  // font-size: 1.25rem;
   color: $color-black-greys-main-black;
   transform: translate(-2px, -3px);
 }
@@ -62,8 +61,8 @@
 
 .button-box {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
 }
@@ -82,6 +81,7 @@
   font-family: $body-font;
   font-weight: bolder;
   margin-bottom: 10px;
-  background-color: $color-yellows-yellow-5;
+  background-color: $color-yellows-main-yellow;
   text-decoration: none;
 }
+

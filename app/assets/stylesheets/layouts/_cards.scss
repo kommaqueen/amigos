@@ -5,6 +5,7 @@
   width: 100vw;
   gap: 1em;
   padding: 0 0.5em 0.5em 0;
+  align-items: center;
 }
 
 .category-card {
@@ -13,45 +14,9 @@
   border: 2px solid #000000;
   border-radius: 18px;
   width: 300px;
-  height: 365px;
   flex-shrink: 0;
   text-overflow: clip;
-}
-
-.event-card {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #000000;
-  border-radius: 18px;
-  width: 300px;
-  height: 410px;
-  flex-shrink: 0;
-}
-
-.show-event-card {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border: 2px solid #000000;
-border-radius: 10px;
-margin-bottom: 20px;
-background-color: #FFFFFF;
-color: #000000;
-font-size: 16px;
-font-weight: bold;
-}
-
-.img-box {
-  height: 305px;
-  max-height: 100%;
-}
-
-.img-box img {
-  object-fit: cover;
-  border-radius: 1em 1em 0 0;
-  height: 100%;
-  width: 100%;
+  height: 36vh;
 }
 
 .category-card-info p, .category-card-info a {
@@ -59,15 +24,14 @@ font-weight: bold;
 }
 
 .category-card-info {
-  // height: 118px;
   display: flex;
   flex-direction: column;
-  font-family: $font-dosis;
-  padding: 0.8em 1em;
+  font-family: "Dosis";
+  padding: 0.5em 1em;
   overflow: hidden;
   font-size: clamp(0.9em, 1em, 1em);
   justify-content: space-around;
-  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .category-card-info a {
@@ -95,10 +59,178 @@ font-weight: bold;
 
 // Search Cards (ie Search Page / Place Index)
 
+.search-card {
+  display: flex;
+  height: 230px;
+  background-color: $color-blues-blue-6;
+  border-radius: 1em;
+  border: 3px solid black;
+}
+
+.search-card > * {
+  flex: 1;
+}
+
+.search-card .info {
+
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-family: "Mulish";
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    font-family: "Paytone One";
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: .2em;
+  }
+
+  a {
+    font-size: 0.875rem;
+    font-family: "Mulish";
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+    text-transform: none;
+  }
+
+}
+
+.search-card .icons > * {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.header .stars {
+  margin-bottom: 0.5em;
+}
+
+.search-card .image-1 {
+  img {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 0 0.8em 0.8em 0;
+  }
+}
+
+
 // Place Show Card (on individual Show page)
 
 // User Dashboard Event Card
 
 // Event Card on Place Wall
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000000;
+  border-radius: 18px;
+  width: 300px;
+  height: 410px;
+  flex-shrink: 0;
+}
+
+.show-event-card {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 1em;
+  gap: 1em;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+}
+
+.show-event-card h2 a {
+  font-family: "Dosis";
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+  font-size: .8em;
+}
+
+.show-event-card .event-info p {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.event-info {
+  font-size: .7em;
+  flex: 2;
+  padding: 0 0.5em;
+}
+
+p.description {
+  padding-top: 0.5em;
+}
+
+.subline {
+  display: flex;
+  font-weight: 700;
+  gap: 1em;
+}
+
+.event-image {
+  height: 100%;
+  flex: 1;
+  align-self: center;
+}
+
+.event-image img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.img-box {
+  flex: 2;
+  height: 50%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    bottom: -16px;
+    fill: white;
+  }
+}
+
+.img-box img {
+  object-fit: cover;
+  border-radius: 1em 1em 0 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 // Event Card Banners

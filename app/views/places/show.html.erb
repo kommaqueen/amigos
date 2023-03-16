@@ -1,24 +1,37 @@
-<%= link_to "Back to search", places_path %>
+<%# link_to "Back to search", places_path %>
 
+<div class="showbar d-none">
+  <div class="place-category pill bottom-space-small order-2">
+    <p><%= @place.category.capitalize %></p>
+  </div>
 
-<div class="" data-controller="favorite">
-    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite">
+  <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
+    <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
+      <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+    <% end %>
+  </div>
+
+  <%= render "shared/icon", id: Icon.library(:map) %>
+</div>
+
+<div class="place-data bottom-space big mt-3">
+  <div class="showbar">
+    <div class="place-category pill bottom-space-small order-2">
+      <p><%= @place.category.capitalize %></p>
+    </div>
+
+    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
       <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
         <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
       <% end %>
     </div>
+
+    <%= render "shared/icon", id: Icon.library(:map) %>
   </div>
 
-
-
-<div class="place-data upper-space bottom-space big">
-  <div class="place-category pill bottom-space-small">
-    <p><%= @place.category.capitalize %></p>
-  </div>
   <h1><%= @place.name %></h1>
   <div class="place-address">
     <p><%= @place.address %></p>
-    <%= render "shared/icon", id: Icon.library(:map), myclass: 'flex-b-s-g-default' %>
   </div>
   <div class="place-rating">
     <%# @place_avg_rating  %>
@@ -53,7 +66,7 @@
   </div>
 
 
-  <div class="cta cta-big bottom-space">
+  <div class="cta cta-big bottom-space mt-3">
     <div class="cta-basic w-100">
       <%= render("places/check_ins_form", {check_in: @check_in, place: @place}) %>
     </div>
@@ -83,6 +96,5 @@
 
 
 <%= render "toggler" %>
-
 
 <%# TODO: add logic to display public events to all and private events to those invited %>
