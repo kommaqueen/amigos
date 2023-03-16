@@ -2,8 +2,9 @@
   height: 6%;
   background-color: $color-pinks-pink-3;
   padding: 3px;
-  border-bottom: 4px solid #000000c7;
+  // border-bottom: 4px solid #000000c7;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .homebar img {

@@ -18,62 +18,6 @@
   text-overflow: clip;
 }
 
-.event-card {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #000000;
-  border-radius: 18px;
-  width: 300px;
-  height: 410px;
-  flex-shrink: 0;
-}
-
-.show-event-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #000000;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background-color: #FFFFFF;
-  color: #000000;
-  font-size: 1em;
-
-}
-
-.show-event-card h2 a {
-  font-size: 1.625rem;
-  font-family: "Dosis";
-  font-weight: 600;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-}
-
-.show-event-card .event-info p {
-  margin-bottom: 0;
-  padding: 0.5em;
-  text-align: left;
-}
-
-.subline {
-  display: flex;
-  justify-content: space-around;
-}
-
-.img-box {
-  height: 305px;
-  max-height: 100%;
-}
-
-.img-box img {
-  object-fit: cover;
-  border-radius: 1em 1em 0 0;
-  height: 100%;
-  width: 100%;
-}
-
 .category-card-info p, .category-card-info a {
   margin-bottom: 0;
 }
@@ -198,5 +142,88 @@
 // User Dashboard Event Card
 
 // Event Card on Place Wall
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000000;
+  border-radius: 18px;
+  width: 300px;
+  height: 410px;
+  flex-shrink: 0;
+}
+
+.show-event-card {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 1em;
+  gap: 1em;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+}
+
+.show-event-card h2 a {
+  font-family: "Dosis";
+  font-weight: 600;
+  font-style: normal;
+  text-transform: none;
+  font-size: .8em;
+}
+
+.show-event-card .event-info p {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.event-info {
+  font-size: .7em;
+  flex: 2;
+  padding: 0 0.5em;
+}
+
+p.description {
+  padding-top: 0.5em;
+}
+
+.subline {
+  display: flex;
+  font-weight: 700;
+  gap: 1em;
+}
+
+.event-image {
+  height: 100%;
+  flex: 1;
+  align-self: center;
+}
+
+.event-image img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.img-box {
+  height: 305px;
+  max-height: 100%;
+}
+
+.img-box img {
+  object-fit: cover;
+  border-radius: 1em 1em 0 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 // Event Card Banners
