@@ -24,8 +24,23 @@
   width: 100px;
 }
 
-.avatar {
+.avatar.stroke {
   border: 4px black solid;
+}
+
+.avatar.orange-stroke {
+  box-shadow:12px -10px 1px 2px $color-oranges-orange-4;
+  border: 4px $color-oranges-main-orange solid;
+}
+
+.avatar.pink-stroke {
+  box-shadow:12px -10px 1px 2px $color-pinks-pink-3;
+  border: 4px $color-pinks-main-pink solid;
+}
+
+.avatar.green-stroke {
+  box-shadow:12px -10px 1px 2px $color-greens-green-4;
+  border: 4px $color-greens-main-green solid;
 }
 
 // below are Amigo avatar styles, for User Profiles

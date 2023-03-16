@@ -16,7 +16,7 @@
   width: 300px;
   flex-shrink: 0;
   text-overflow: clip;
-  height: 100%;
+  height: 36vh;
 }
 
 .category-card-info p, .category-card-info a {
@@ -24,14 +24,14 @@
 }
 
 .category-card-info {
-  // height: 118px;
   display: flex;
   flex-direction: column;
-  font-family: $font-dosis;
+  font-family: "Dosis";
   padding: 0.5em 1em;
   overflow: hidden;
   font-size: clamp(0.9em, 1em, 1em);
   justify-content: space-around;
+  flex-shrink: 0;
 }
 
 .category-card-info a {
@@ -214,8 +214,15 @@ p.description {
 }
 
 .img-box {
-  height: 305px;
-  max-height: 100%;
+  flex: 2;
+  height: 50%;
+  position: relative;
+
+  svg {
+    position: absolute;
+    bottom: -16px;
+    fill: white;
+  }
 }
 
 .img-box img {

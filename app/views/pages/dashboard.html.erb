@@ -6,7 +6,7 @@
 
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
-    <%= image_tag current_user.avatar, class: 'rounded-circle avatar', style: "width: 130px" %>
+    <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
   </div>
   <div class="greeting">
     <h2>Hey, <%= link_to current_user.username, user_path(current_user)%>!</h2>
