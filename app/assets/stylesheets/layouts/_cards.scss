@@ -233,4 +233,44 @@ p.description {
 }
 
 
+.dashboard-section .show-event-card {
+  flex-direction: column;
+  width: 60%;
+  gap: 0.5em;
+  flex-shrink: 0;
+  height: 280px;
+
+  .event-image {
+    width: 100%;
+  }
+}
+
+.dashboard-events {
+  display: inline-flex;
+  overflow-x: scroll;
+  width: 100vw;
+  gap: 1em;
+}
+
+.dashboard-section .show-event-card .event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  overflow: scroll;
+
+  .subline {
+    gap: 3px;
+    order: 2;
+  }
+
+  h2 {
+    order: 1;
+  }
+
+  p {
+    order: 3;
+  }
+}
+
+
 // Event Card Banners
