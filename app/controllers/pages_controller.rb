@@ -43,10 +43,21 @@ class PagesController < ApplicationController
     @myfriends = Friendship.where(status: "accepted").where(asker: current_user).or(Friendship.where(status: "accepted").where(receiver: current_user))
 
     @invites = Invite.where(status: "pending").where(receiver: current_user)
-    @myacceptedinvites = Invite.where(status: "accepted").where(receiver: current_user)
+    @myacceptedinvites = myacceptedevents
+
     @myevents = Event.where(user: current_user)
 
     @allevents = @myacceptedinvites + @myevents
     @sortedevents = @allevents.sort_by { |event| event[:start_time] }
   end
+
+  def myacceptedevents
+    invites = Invite.where(status: "accepted").where(receiver: current_user)
+    events = []
+    invites.each do |invite|
+      events << invite.event
+    end
+    events
+  end
+
 end
