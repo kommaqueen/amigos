@@ -76,19 +76,15 @@
 <div class="dashboard-section total-space">
   <h2>Upcoming Events</h2>
 
-  <% @sortedevents.each do |event| %>
-    <%= render "events/event_card", event: event %>
-  <% end %>
+  <div class="dashboard-events">
+    <% @sortedevents.each do |event| %>
+      <%= render "events/event_card", event: event %>
+    <% end %>
+  </div>
 
-  <%# @myevents.each do |event| %>
-    <%# render "events/event_card", event: event %>
-  <%# end %>
+</div>
 
+<div class="dashboard-section">
   <h2>Find more Amigos!</h2>
-
   <%= render("user_search") %>
-
-  <%# @myacceptedinvites.each do |i| %>
-    <%# render "events/event_card", event: event %>
-  <%# end %>
 </div>
