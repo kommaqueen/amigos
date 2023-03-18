@@ -33,7 +33,15 @@
         </div>
       </div>
       <% if place.events.any? %>
-        <p><%= "#{place.events.count} #{'event'.pluralize(place.events.count)}" %></p>
+        <% sentence = [] %>
+        <% place.events.each do |event| %>
+          <% sentence << event.category %>
+        <% end %>
+        <p>Events:
+          <% sentence.uniq.each do |category| %>
+            <p><%= "#{sentence.count(category)} #{category.pluralize(sentence.count(category))}" %></p>
+          <% end %>
+        </p>
       <% else %>
         <a href="/">View More Details</a>
       <% end %>

@@ -18,7 +18,7 @@ class PagesController < ApplicationController
       end
     else
       @places = Place.all
-      @events = Event.where(public: true)
+      @events = Event.where(public: true).where('end_time > ?', Time.now)
     end
     @markers = @places.map do |place|
       {
