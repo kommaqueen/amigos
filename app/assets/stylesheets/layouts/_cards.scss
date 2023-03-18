@@ -19,6 +19,10 @@
   height: 36vh;
 }
 
+.category-card:last-child {
+  margin-right: 1em;
+}
+
 .category-card-info p, .category-card-info a {
   margin-bottom: 0;
 }
