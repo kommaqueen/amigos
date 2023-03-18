@@ -1,0 +1,5 @@
+meta_product_name: "Product Name"
+meta_title: "Amigos: A Place to Play Wherever You Go!"
+meta_description: "Find a fun playplace in Berlin for your kids no matter the weather and connect with other parents."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
