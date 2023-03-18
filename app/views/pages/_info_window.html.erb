@@ -1,8 +1,8 @@
-<%= link_to place_path(place.id) do %>
+<%= link_to place_path(place.id), class: "text-decoration-none" do %>
 
   <div class="search-card">
     <div class="info">
-      <div class="header">
+      <div class="header mapbox-styling">
         <h2><%= place.name %></h2>
         <div class="star-box d-flex">
           <% place.place_avg_rating.to_i.times do %>
@@ -14,26 +14,39 @@
       <div class="icons">
         <div class="age">
           <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
-          <p><%= place.age_range %></p>
+          <% if place.age_range == "all" %>
+            <p>All Ages</p>
+          <% else %>
+            <p><%= place.age_range %></p>
+          <% end %>
         </div>
         <div class="checkins">
           <%= render "shared/icon", myclass: 'icon--orange icon--stroke', id: Icon.library(:group) %>
           <p><%= place.check_ins.count %></p>
         </div>
       </div>
+
       <% if place.events.any? %>
         <% sentence = [] %>
         <% place.events.each do |event| %>
           <% sentence << event.category %>
         <% end %>
         <p>Events:
-          <% sentence.uniq.each do |category| %>
-            <%= "#{sentence.count(category)} #{category.pluralize(sentence.count(category))}" %>
+          <% sentence.uniq.each_with_index do |category, index| %>
+            <% count = sentence.count(category) %>
+            <%= "#{count} #{category.pluralize(count)}" %>
+            <% unless index == sentence.uniq.size - 1 %>
+              <% if index == sentence.uniq.size - 2 %>
+                <%# second to last element %>
+                <%= " and" %>
+              <% else %>
+                <%= "," %>
+              <% end %>
+            <% end %>
           <% end %>
         </p>
-      <% else %>
-        <a href="/">View More Details</a>
       <% end %>
+
     </div>
 
     <div class="image-1">
