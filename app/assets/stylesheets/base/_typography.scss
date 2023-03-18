@@ -17,6 +17,14 @@ p, a {
   font-family: $body-font;
 }
 
+a .heavy {
+  font-weight: 700;
+}
+
+.tiny {
+  font-size: .7em;
+}
+
 .byline {
   font-family: $body-font;
   // font-weight: 700;

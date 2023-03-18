@@ -1,5 +1,7 @@
 .map-display {
-  height: 70vh;
+  height: 75vh;
+  border-radius: 20px;
+  margin-bottom: 1em;
 }
 
 .mapboxgl-popup-content {
@@ -11,7 +13,8 @@
 
 .mapboxgl-popup {
   transform: none !important;
-  bottom: 0;
+  // bottom: 0;
+  bottom: 5px;
   left: 0;
   right: 0;
   top: unset;
@@ -23,4 +26,17 @@
 
 .header.mapbox-styling {
   text-decoration: none;
+
+  .star-box {
+    gap: 0;
+    margin: 0.5em 0;
+  }
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  display: none
+}
+
+canvas.mapboxgl-canvas {
+  height: 100% !important;
 }
