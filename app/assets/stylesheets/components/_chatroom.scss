@@ -28,3 +28,21 @@
     }
   }
 }
+
+  .sender-style, .receiver-style {
+    width: 70%;
+    max-width: 400px;
+    border-radius: 4px;
+    padding: 8px;
+    min-height: 80px;
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+  }
+
+  .sender-style {
+    background-color: $color-pinks-pink-4;
+  }
+
+  .receiver-style {
+    background-color: $color-blues-blue-4;
+  }

@@ -5,11 +5,13 @@ import { createConsumer } from "@rails/actioncable"
 export default class extends Controller {
   static targets = ["messages"]
   static values = {
-    chatroomId: Number
+    chatroomId: Number,
+    currentUserId: Number
   }
 
   connect() {
-    console.log(`connecting to the ActionCable channel with id ${this.chatroomIdValue}`)
+    // console.log(this.currentUserIdValue)
+    // console.log(`connecting to the ActionCable channel with id ${this.chatroomIdValue}`)
     this.channel = createConsumer().subscriptions.create(
       { channel: "FriendshipChannel", id: this.chatroomIdValue },
       { received: (data) => { this.#insertMessage(data)}}
@@ -17,7 +19,7 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.log("disconnecting")
+    // console.log("disconnecting")
     this.channel.unsubscribe()
   }
 
@@ -26,9 +28,34 @@ export default class extends Controller {
   }
 
   #insertMessage(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    // console.log(data)
+    // console.log(this.currentUserIdValue === data.sender_id)
+    const currUserIsSender = this.currentUserIdValue === data.sender_id
+    const messageElement = this.#buildMessageElement(currUserIsSender, data.message)
+
+    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     // scroll to the bottom of the message list
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
+
+  #buildMessageElement(currentUserIsSender, message) {
+    // <div class="${ currentUserIsSender ? 'sender' : 'recipient'}">
+    return `
+      <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
+        <div class="${this.#userStyleClass(currentUserIsSender)}">
+          ${message}
+        </div>
+      </div>
+    `
+  }
+
+  #justifyClass(currentUserIsSender) {
+    return currentUserIsSender ? "justify-content-end" : "justify-content-start"
+  }
+
+  #userStyleClass(currentUserIsSender) {
+    // return currentUserIsSender ? "sender-style" : "receiver-style"
+    return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 
 }

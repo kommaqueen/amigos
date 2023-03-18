@@ -1,9 +1,14 @@
-<div class="container chatroom" data-controller="friendship-subscription" data-friendship-subscription-chatroom-id-value="<%=@chatroom.id%>">
-  <h1>Chat! with your friend!</h1>
+<div class="container chatroom" data-controller="friendship-subscription" data-friendship-subscription-chatroom-id-value="<%=@chatroom.id%>" data-friendship-subscription-current-user-id-value="<%= current_user.id %>">
+  <h1>Chat with  </h1>
 
   <div class="messages" data-friendship-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
+    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+      <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
       <%= render "messages/message", message: message %>
+    </div>
+  </div>
+
     <% end %>
   </div>
 
@@ -13,7 +18,7 @@
     placeholder: "Message now",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Send", class: "btn submit-button-basic mb-3" %>
 <% end %>
 
 </div>
