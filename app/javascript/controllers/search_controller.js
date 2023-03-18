@@ -3,13 +3,12 @@ import { clippingParents } from "@popperjs/core"
 
 // Connects to data-controller="search"
 export default class extends Controller {
-  static targets = ["map", "form", "input", "results", 'content']
+  static targets = ["map", "form", "input", 'content']
   connect() {
     console.log("hello from search controller")
     console.log(this.mapTarget)
     console.log(this.formTarget)
     console.log(this.inputTarget)
-    console.log(this.resultsTarget)
   }
 
   update() {
@@ -19,7 +18,7 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      this.resultsTarget.outerHTML = data.results
+      // this.resultsTarget.outerHTML = data.results
       this.mapTarget.dataset.mapMarkersValue = JSON.stringify(data.markers)
     })
   }
