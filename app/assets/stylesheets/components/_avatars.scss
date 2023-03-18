@@ -20,6 +20,11 @@
   border: white 1px solid;
 }
 
+
+.amigos-box {
+  display: flex;
+  gap: 1.5em;
+}
 .amigo-avatar {
   width: 100px;
   display: flex;

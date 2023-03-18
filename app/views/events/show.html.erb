@@ -10,11 +10,11 @@
     <h1><%= @event.title %></h1>
   </div>
   <% if @event.public? %>
-    <div class="place-category pill bottom-space-small order-2 privacy detail pink">
+    <div class="place-category pill bottom-space-small order-2 privacy detail green">
       <p>Public</p>
     </div>
   <% else %>
-    <div class="place-category pill bottom-space-small order-2 detail black">
+    <div class="place-category pill bottom-space-small order-2 detail pink">
       <p>Private</p>
     </div>
   <% end %>
@@ -48,16 +48,20 @@
 
 <div class="event-attendees">
   <h2>Attendees</h2>
-  <% @attendees.each do |attendee| %>
-    <p><%= attendee.receiver.username %></p>
-    <%= image_tag attendee.receiver.avatar %>
-  <% end %>
+  <div class="amigos-box">
+    <% @attendees.each do |attendee| %>
+      <div class="amigo-avatar">
+        <%= image_tag attendee.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+        <%= link_to attendee.receiver.username, user_path(attendee.receiver), class: "fw-bold" %>
+      </div>
+    <% end %>
+  </div>
 
   <% if @event.user == current_user %>
   <div class="event-invite-links">
-    <p><%= link_to "Invite friends", new_event_invite_path(@event.id) %></p>
-    <p><%= link_to "Edit event", edit_event_path %></p>
-    <p><%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <%= link_to "Invite friends", new_event_invite_path(@event.id) %>
+    <%= link_to "Edit event", edit_event_path %>
+    <%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   </div>
   <% end %>
 </div>
