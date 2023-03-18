@@ -53,4 +53,30 @@
 
 <div class="dashboard-section">
   <h2>Upcoming Events</h2>
+  <h2>Hosted by <%= @user.username %></h2>
+  <% @user.events.each do |event| %>
+    <div class="show-event-card toggler-items">
+      <div class="event-image">
+        <img src="https://images.unsplash.com/photo-1596241913274-fd9f65e3a2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="">
+      </div>
+
+      <div class="event-info">
+        <div class="subline">
+          <p><%= event.start_time.strftime("%A, %b %d") %></p>
+          <p>by <%= link_to event.user.username, user_path(event.user) %>
+        </div>
+        <h2><%= link_to event.title, event_path(event) %></h2>
+        <p class="description">
+          <% words = event.description.split(" ") %>
+          <% preview = words[0..9].join(" ") %>
+          <%= "#{preview}..." %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <h2>That <%= @user.username %> is attending</h2>
+  <% @myacceptedinvites.each do |event| %>
+    <%= event.title %>
+  <% end %>
 </div>
