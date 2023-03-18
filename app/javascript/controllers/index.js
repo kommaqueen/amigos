@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AttendancesController from "./attendances_controller"
+application.register("attendances", AttendancesController)
+
 import CategoryFilterController from "./category_filter_controller"
 application.register("category-filter", CategoryFilterController)
 

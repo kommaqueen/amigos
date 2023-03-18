@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
   has_many :invites_as_asker, class_name: "Friendship", foreign_key: :asker_id
   has_many :invites_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+  has_many :attendances, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_username,

@@ -5,6 +5,8 @@ class EventsController < ApplicationController
     @attendees = Invite.where(event_id: @event).where(status: "accepted")
     @invite = Invite.new
     @friends = current_user.friends
+    @attendance = Attendance.new
+    @attendances = Attendance.all
   end
 
   def new

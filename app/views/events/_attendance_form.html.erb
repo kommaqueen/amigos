@@ -1,0 +1,3 @@
+ <%= simple_form_for [event, attendance], data: {attendances_target: "form", action: "submit->attendances#send"} do |f| %>
+    <%= f.submit "I am attending" %>
+  <% end %>
