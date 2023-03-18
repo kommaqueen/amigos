@@ -49,14 +49,4 @@ class PagesController < ApplicationController
     @allevents = @myacceptedinvites + @myevents
     @sortedevents = @allevents.sort_by { |event| event[:start_time] }
   end
-
-
-
-    if params[:query].present?
-      @users = User.search_by_name_and_username(params[:query])
-    else
-      @users = User.all
-      @user_infos = @users.map { |user| [user.username, "#{user.first_name} #{user.last_name}"] }
-    end
-  end
 end
