@@ -8,10 +8,16 @@
   fill: $color-pinks-pink-4;
 }
 
-.star-box .icon {
+.star-box .icon, .stars .icon {
   height: 1.2em;
+  width: 1.2em;
   fill: #FFC107;
   stroke: black;
+}
+
+.stars {
+  align-self: baseline;
+  gap: 0.2em;
 }
 
 .navbar-icon.active {

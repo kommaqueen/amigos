@@ -22,13 +22,13 @@
       <p><%= @place.category.capitalize %></p>
     </div>
 
-   <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
         <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
           <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
         <% end %>
       </div>
-   <% end %>
+    <% end %>
 
     <%= render "shared/icon", id: Icon.library(:map) %>
   </div>
@@ -42,17 +42,17 @@
     <% if @place_avg_rating == 0 %>
         <p>No Rating Yet</p>
       <% else %>
-        <div class="stars">
+        <div class="stars d-flex">
           <% @place_avg_rating.to_i.times do %>
-            <i class="fa-solid fa-star"></i>
+            <%= render "shared/icon", id: Icon.library(:star) %>
           <% end %>
         </div>
+        <p>(<%= @place.reviews.count %>)</p>
     <% end %>
     <%# Average rating calculation for place is in the places controller %>
-    <a href="/">Read all Reviews</a>
   </div>
   <div class="place-activity">
-    <strong class="byline">Last Updated: <%= Date.today %> by <span><%= @place.user.username %></span></strong>
+    <p class="byline">Added by: <%= link_to @place.user.username, user_path(@place.user) %> </p>
   </div>
 </div>
 
@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<p>There have been <%= @check_ins_all.count %> total check-ins here!</p>
+<p class="text-center tiny">(There have been <%= @check_ins_all.count %> total check-ins here!)</p>
 
 <div class="place-description">
   <p class="text-justify"><%= @place.description %></p>
