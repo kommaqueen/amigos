@@ -1,13 +1,4 @@
 
-<%# <div class="card mapboxgl-popup">
-  <div class="card-content">
-    <%= place.address %>
-    <%# <%= place.name %>
-  <%# </div>
-  <div class="card-photo">
-  </div>
-</div> %>
-
 <%= link_to place_path(place.id), class: "text-decoration-none" do %>
 <div class="search-cards">
 
@@ -54,11 +45,3 @@
 
 </div>
 <% end %>
-
-
-<%# <div class="card mapboxgl-popup" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path place.photos.first.key, crop: :fill %>
-    <%# <div class="card-content text-white text-decoration-none"> %>
-      <%# <%= place.address  %>
-      <%# <%= place.name %>
-    <%# </div> %>
-  <%# </div> %>

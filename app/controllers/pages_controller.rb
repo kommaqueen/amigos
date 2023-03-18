@@ -61,7 +61,3 @@ class PagesController < ApplicationController
   end
 
 end
-
-
-# @places = Place.all
-# @events = Event.where(public: true)
