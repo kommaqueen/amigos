@@ -1,12 +1,10 @@
-
-<%= link_to place_path(place.id), class: "text-decoration-none" do %>
-<div class="search-cards">
+<%= link_to place_path(place.id) do %>
 
   <div class="search-card">
     <div class="info">
       <div class="header">
         <h2><%= place.name %></h2>
-         <div class="star-box d-flex">
+        <div class="star-box d-flex">
           <% place.place_avg_rating.to_i.times do %>
             <%= render "shared/icon", id: Icon.library(:star)%>
           <% end %>
@@ -30,7 +28,7 @@
         <% end %>
         <p>Events:
           <% sentence.uniq.each do |category| %>
-            <p><%= "#{sentence.count(category)} #{category.pluralize(sentence.count(category))}" %></p>
+            <%= "#{sentence.count(category)} #{category.pluralize(sentence.count(category))}" %>
           <% end %>
         </p>
       <% else %>
@@ -43,5 +41,4 @@
     </div>
   </div>
 
-</div>
 <% end %>
