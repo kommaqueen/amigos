@@ -15,7 +15,7 @@ body {
 
 .full-wrapper {
   height: 100vh;
-  overflow: scroll;
+  overflow-x: hidden;
   position: relative;
   width: 100%;
 }
@@ -121,7 +121,8 @@ body {
 }
 
 @media screen and (min-width: 415px) {
-  body {
-    border: 1px solid black;
+  .body-border {
+    // border: 1px solid black;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
   }
 }

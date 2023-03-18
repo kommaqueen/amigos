@@ -246,7 +246,8 @@ p.description {
   width: 250px;
   gap: 0.5em;
   flex-shrink: 0;
-  height: 200px;
+  // height: 200px;
+  height: 100%;
 
   .event-image {
     width: 100%;
