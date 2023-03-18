@@ -16,6 +16,17 @@ class Place < ApplicationRecord
 
   include PgSearch::Model
 
-  multisearchable against: [:name, :category]
+  multisearchable against: [:name, :category],
+  using: {
+    tsearch: { prefix: true }
+  }
+
+  def place_avg_rating
+    avg = 0.00
+    self.reviews.each do |r|
+      avg += r.rating
+    end
+    self.reviews.empty? ? 0 : avg / self.reviews.length
+  end
 
 end

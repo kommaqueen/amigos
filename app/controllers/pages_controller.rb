@@ -18,13 +18,13 @@ class PagesController < ApplicationController
       end
     else
       @places = Place.all
-      @events = Event.where(public: true)
+      @events = Event.where(public: true).where('end_time > ?', Time.now)
     end
     @markers = @places.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude,
-        info_window_html: render_to_string(partial: "pages/info_window", locals: { place: place }, formats: :html)
+        info_window_html: render_to_string(partial: "pages/info_window", locals: { place: place, rating: place.place_avg_rating }, formats: :html)
       }
     end
     respond_to do |format|

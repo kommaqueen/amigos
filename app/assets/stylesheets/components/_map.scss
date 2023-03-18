@@ -1,11 +1,12 @@
-.mapboxgl-popup {
-  max-width: 372px;
-  // card in the bottom of the marker
-  bottom: 0px;
-
-}
-
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+}
+
+.mapboxgl-popup {
+  transform: none !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: unset;
 }

@@ -1,18 +1,47 @@
 
-<%# <div class="card mapboxgl-popup">
-  <div class="card-content">
-    <%= place.address %>
-    <%# <%= place.name %>
-  <%# </div>
-  <div class="card-photo">
-  </div>
-</div> %>
-
 <%= link_to place_path(place.id), class: "text-decoration-none" do %>
-  <div class="card mapboxgl-popup" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path place.photos.first.key, crop: :fill %>')">
-    <div class="card-content text-white text-decoration-none">
-      <%= place.address  %>
-      <%= place.name %>
+<div class="search-cards">
+
+  <div class="search-card">
+    <div class="info">
+      <div class="header">
+        <h2><%= place.name %></h2>
+         <div class="star-box d-flex">
+          <% place.place_avg_rating.to_i.times do %>
+            <%= render "shared/icon", id: Icon.library(:star)%>
+          <% end %>
+        </div>
+        <p><%= place.address %></p>
+      </div>
+      <div class="icons">
+        <div class="age">
+          <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
+          <p><%= place.age_range %></p>
+        </div>
+        <div class="checkins">
+          <%= render "shared/icon", myclass: 'icon--orange icon--stroke', id: Icon.library(:group) %>
+          <p><%= place.check_ins.count %></p>
+        </div>
+      </div>
+      <% if place.events.any? %>
+        <% sentence = [] %>
+        <% place.events.each do |event| %>
+          <% sentence << event.category %>
+        <% end %>
+        <p>Events:
+          <% sentence.uniq.each do |category| %>
+            <p><%= "#{sentence.count(category)} #{category.pluralize(sentence.count(category))}" %></p>
+          <% end %>
+        </p>
+      <% else %>
+        <a href="/">View More Details</a>
+      <% end %>
+    </div>
+
+    <div class="image-1">
+      <%= cl_image_tag place.photos[0].key, crop: :fill %>
     </div>
   </div>
+
+</div>
 <% end %>

@@ -30,7 +30,7 @@ class PlacesController < ApplicationController
     @review = Review.new
     @reviews = Review.all
     @comment = Comment.new
-    @place_avg_rating = place_avg_rating
+    @place_avg_rating = @place.place_avg_rating
     @check_in = CheckIn.new
     check_ins_today
     check_ins_all
@@ -63,7 +63,7 @@ class PlacesController < ApplicationController
     else
       current_user.favorite(@place)
     end
-    
+
   end
 
   # def unfavorite
@@ -85,13 +85,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
 
-  def place_avg_rating
-    avg = 0.00
-    @place.reviews.each do |r|
-      avg += r.rating
-    end
-    @place.reviews.empty? ? 0 : avg / @place.reviews.length
-  end
+
 
   def check_ins_today
     @check_ins = CheckIn.where(place: @place).where("created_at > ?", 1.day.ago)
