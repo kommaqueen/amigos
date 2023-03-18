@@ -16,7 +16,7 @@
 .dashboard-section {
 
   h2 {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
   }
 
 }
@@ -34,6 +34,11 @@
     font-style: normal;
     text-decoration-color: $color-oranges-orange-2;
   }
+}
+
+.amigo-box {
+  display: flex;
+  gap: 1em;
 }
 
 .profile-head {

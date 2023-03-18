@@ -5,11 +5,13 @@
     <p><%= @place.category.capitalize %></p>
   </div>
 
-  <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
-    <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
-      <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
-    <% end %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
+      <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
+        <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= render "shared/icon", id: Icon.library(:map) %>
 </div>
@@ -20,11 +22,13 @@
       <p><%= @place.category.capitalize %></p>
     </div>
 
-    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
-      <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
-        <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
-      <% end %>
-    </div>
+   <% if user_signed_in? %>
+      <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
+        <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
+          <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+        <% end %>
+      </div>
+   <% end %>
 
     <%= render "shared/icon", id: Icon.library(:map) %>
   </div>

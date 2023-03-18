@@ -21,9 +21,11 @@
         <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
         <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
       </div>
-      <% else %>
-      <%= image_tag f.asker.avatar, class: 'rounded-circle', style: "width: 60px" %>
-      <%= f.asker.username %>
+      <% elsif current_user == f.receiver %>
+        <div class="amigo-avatar">
+          <%= image_tag f.asker.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+          <%= link_to f.asker.username, user_path(f.asker), class: "fw-bold" %>
+        </div>
     <% end %>
   <% end %>
 </div>
@@ -74,19 +76,15 @@
 <div class="dashboard-section total-space">
   <h2>Upcoming Events</h2>
 
-  <% @sortedevents.each do |event| %>
-    <%= render "events/event_card", event: event %>
-  <% end %>
+  <div class="dashboard-events">
+    <% @sortedevents.each do |event| %>
+      <%= render "events/event_card", event: event %>
+    <% end %>
+  </div>
 
-  <%# @myevents.each do |event| %>
-    <%# render "events/event_card", event: event %>
-  <%# end %>
+</div>
 
+<div class="dashboard-section">
   <h2>Find more Amigos!</h2>
-
   <%= render("user_search") %>
-
-  <%# @myacceptedinvites.each do |i| %>
-    <%# render "events/event_card", event: event %>
-  <%# end %>
 </div>
