@@ -22,6 +22,9 @@ class Icon
     chats: "chats",
     group: "group",
     star: "star",
+    calendar: "calendar",
+    clock: "clock",
+    marker: "marker",
   }
 
   def self.library(key)
