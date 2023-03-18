@@ -49,6 +49,7 @@ class PagesController < ApplicationController
 
     @allevents = @myacceptedinvites + @myevents
     @sortedevents = @allevents.sort_by { |event| event[:start_time] }
+    
   end
 
   def myacceptedevents

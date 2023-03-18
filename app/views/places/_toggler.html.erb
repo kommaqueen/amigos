@@ -26,12 +26,9 @@
           <%= render partial: "places/comment_form", locals: {place: @place, comment: @comment } %>
         </div>
         <div class="comments-display col-12 col-lg-6 " data-comments-target="comment">
-          <%# if @place.comments.blank? %>
-          <%# else %>
             <% @place.comments.each do |comment| %>
               <%= render partial: "places/display_comments", locals: {comment: comment} %>
             <% end %>
-          <%# end %>
         </div>
       </div>
 
@@ -46,16 +43,23 @@
         <p class="submit-button-basic justify-content-center"><%= link_to "Create a new event at #{@place.name}", new_place_event_path(@place) %></p>
       </div>
 
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" data-controller="reviews">
         <% if @place.reviews.blank? %>
           <p>No reviews yet 😔</p>
           <p>Check-in to this place to leave a review!</p>
         <% end %>
-        <div class="form-review col-12 col-lg-6">
-          <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
-        </div>
         <div class="reviews-display col-12 col-lg-6">
-          <%= render partial: "places/display_reviews", locals: {place: @place } %>
+          <div data-reviews-target="items">
+            <% if @place.reviews.any?%>
+              <% @place.reviews.each do |r| %>
+                <%= render partial: "places/display_reviews", locals: {r: r } %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="form-review col-12 col-lg-6">
+          <h2 class="toggler-header">Leave a review!</h2>
+          <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
         </div>
       </div>
 

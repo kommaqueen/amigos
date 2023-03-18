@@ -31,6 +31,9 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import ReviewsController from "./reviews_controller"
+application.register("reviews", ReviewsController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 

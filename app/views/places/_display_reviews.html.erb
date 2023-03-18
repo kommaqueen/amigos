@@ -1,0 +1,21 @@
+<div class="toggler-items mb-2 review-card">
+  <div class="review-user d-flex align-items-center">
+    <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+          <strong><%= link_to r.user.username, user_path(r.user)%></strong>
+        </div>
+        <div class="review-metadata d-flex mt-2">
+          <div class="star-box d-flex">
+            <% r.rating.times do %>
+              <%= render "shared/icon", id: Icon.library(:star) %>
+            <% end %>
+          </div>
+          <p class="small"><%= r.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+        </div>
+        <hr>
+        <div class="review-comment mt-2">
+          <p><%= r.comment %>
+          <% if r.user == current_user %>
+          <%= link_to "", review_path(r.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fas fa-trash-alt my-2 d-flex justify-content-end" %></p>
+          <% end%>
+        </div>
+</div>

@@ -1,8 +1,6 @@
 <h1>Who are you going to invite?</h1>
 
 <%= simple_form_for [@event, @invite] do |f| %>
-  <%= f.input :receiver_id, collection: @friends %>
-  <%= f.submit %>
+  <%= f.input :receiver_id, label: false, collection: @friends, label_method: :username %>
+  <%= f.submit class: "cta-basic-front resize-text" %>
 <% end %>
-
-<%= @friends.inspect %>
