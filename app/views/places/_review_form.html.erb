@@ -1,37 +1,7 @@
-<% if @place.reviews.any?%>
-  <%# <h2 class="toggler-header">Latest Reviews</h2> %>
-  <% @place.reviews.each do |r| %>
-    <div class="toggler-items mb-2 review-card">
-
-      <div class="review-user d-flex align-items-center">
-        <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
-        <strong><%= link_to r.user.username, user_path(r.user)%></strong>
-      </div>
-      <div class="review-metadata d-flex mt-2">
-        <div class="star-box d-flex">
-          <% r.rating.times do %>
-            <%= render "shared/icon", id: Icon.library(:star) %>
-          <% end %>
-        </div>
-        <p class="small"><%= r.created_at.strftime("%a %b %e at %l:%M %p") %></p>
-      </div>
-      <hr>
-      <div class="review-comment mt-2">
-        <p><%= r.comment %>
-        <% if r.user == current_user %>
-        <%= link_to "", review_path(r.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "fas fa-trash-alt my-2 d-flex justify-content-end" %></p>
-        <% end%>
-      </div>
-
-    </div>
-  <% end %>
-<% end %>
-
-<hr>
 
 <div class="review-area mt-3">
-  <h2 class="toggler-header">Leave a review!</h2>
-  <%= simple_form_for [@place, @review] do |f| %>
+
+  <%= simple_form_for [place, review], data: {reviews_target: "form", action: "submit->reviews#send"} do |f| %>
   <div class="row justify-content-center">
     <div class="col">
     <%= f.input :cleanliness, collection: (1..5).to_a, label: "Cleanliness", input_html: {data: {controller: "star-rating"}} %>
