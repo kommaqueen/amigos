@@ -1,0 +1,14 @@
+<div data-attendances-target="attendees">
+  <% @attendances.each do |a| %>
+    <%= a.user.username %>
+  <% end %>
+  <%# <div class="amigos-box">
+    <% @attendances.each do |attendance| %>
+        <%# <div class="amigo-avatar"> %>
+          <%# <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %> %>
+          <%# <%= link_to attendance.user.username, user_path(attendance.user), class: "fw-bold" %> %>
+        <%# </div> %>
+      <%# <% end %>
+  <%# </div> %>
+</div>
+<%# <p data-attendances-target="attendees"><%= attendances.count %>

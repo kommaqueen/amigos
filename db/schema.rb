@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_18_153758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
   create_table "check_ins", force: :cascade do |t|
@@ -105,8 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
   end
 
   create_table "invites", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "place_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
@@ -115,9 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
     t.bigint "receiver_id"
     t.index ["asker_id"], name: "index_invites_on_asker_id"
     t.index ["event_id"], name: "index_invites_on_event_id"
-    t.index ["place_id"], name: "index_invites_on_place_id"
     t.index ["receiver_id"], name: "index_invites_on_receiver_id"
-    t.index ["user_id"], name: "index_invites_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -189,6 +194,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "attendances", "events"
+  add_foreign_key "attendances", "users"
   add_foreign_key "check_ins", "places"
   add_foreign_key "check_ins", "users"
   add_foreign_key "comments", "places"
@@ -198,8 +205,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_17_134527) do
   add_foreign_key "friendships", "users", column: "asker_id"
   add_foreign_key "friendships", "users", column: "receiver_id"
   add_foreign_key "invites", "events"
-  add_foreign_key "invites", "places"
-  add_foreign_key "invites", "users"
   add_foreign_key "invites", "users", column: "asker_id"
   add_foreign_key "invites", "users", column: "receiver_id"
   add_foreign_key "messages", "friendships"

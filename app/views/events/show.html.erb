@@ -46,7 +46,18 @@
   <p><%= @event.description %></p>
 </div>
 
-<% unless @event.public? %>
+
+
+<% if @event.public? %>
+<div data-controller="attendances">
+  <%= render("events/attendance_form", {attendance: @attendance, event: @event}) %>
+  <div class="event-attendees">
+    <h2>Attendees</h2>
+    <%= render("events/public_attendees", {attendances: @attendances}) %>
+  </div>
+</div>
+
+<% else %>
   <div class="event-attendees">
     <h2>Attendees</h2>
     <div class="amigos-box">
@@ -70,4 +81,4 @@
     <% end %>
   </div>
 <% end %>
-      <%= link_to "Edit event", edit_event_path %>
+<p><%= link_to "Edit event", edit_event_path %></p>

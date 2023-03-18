@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:show, :edit, :update, :destroy] do
     resources :invites, only: [:new, :create]
+    resources :attendances, only: [:new, :create]
   end
 
   resources :users, only: [:show, :index] do
