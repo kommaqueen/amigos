@@ -235,7 +235,7 @@ p.description {
 
 .dashboard-section .show-event-card {
   flex-direction: column;
-  width: 60%;
+  width: 250px;
   gap: 0.5em;
   flex-shrink: 0;
   height: 280px;
@@ -248,7 +248,7 @@ p.description {
 .dashboard-events {
   display: inline-flex;
   overflow-x: scroll;
-  width: 100vw;
+  width: 100%;
   gap: 1em;
 }
 

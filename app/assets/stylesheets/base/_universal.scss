@@ -1,3 +1,8 @@
+body {
+  width: 414px;
+  margin: 0 auto;
+}
+
 .full-wrapper {
   height: 100vh;
   overflow: scroll;
@@ -33,6 +38,7 @@
 
 .nav-shadow {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
 }
 
 .not-signed-in {
@@ -102,4 +108,10 @@
 
 .matched-radius__inner {
   border-radius: var(--matched-radius-inner-size);
+}
+
+@media screen and (min-width: 415px) {
+  body {
+    border: 1px solid black;
+  }
 }
