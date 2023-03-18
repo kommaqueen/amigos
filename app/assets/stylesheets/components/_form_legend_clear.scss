@@ -8,3 +8,17 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.forms-general {
+  justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $color-yellows-yellow-5;
+  font-family: Dosis;
+}
+
+.form-input {
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
