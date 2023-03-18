@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 
   def show
     @attendees = Invite.where(event_id: @event).where(status: "accepted")
+    @invite = Invite.new
+    @friends = current_user.friends
   end
 
   def new

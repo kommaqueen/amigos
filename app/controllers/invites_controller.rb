@@ -2,8 +2,7 @@ class InvitesController < ApplicationController
 
   def new
     @event = Event.find(params[:event_id])
-    @invite = Invite.new
-    @friends = current_user.friends
+
   end
 
   def create
@@ -12,7 +11,6 @@ class InvitesController < ApplicationController
     @invite.asker = current_user
     @invite.event = @event
     @invite.receiver = User.find(params[:invite][:receiver_id])
-    
     if @invite.save
       redirect_to event_path(@event)
     else
