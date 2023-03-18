@@ -168,17 +168,26 @@
 
   h2 {
     margin-bottom: 0;
+
+    a {
+      font-family: "Dosis";
+      font-weight: 600;
+      font-style: normal;
+      text-transform: none;
+      font-size: .8em;
+    }
+
   }
 
 }
 
-.show-event-card h2 a {
-  font-family: "Dosis";
-  font-weight: 600;
-  font-style: normal;
-  text-transform: none;
-  font-size: .8em;
-}
+// .show-event-card h2 a {
+//   font-family: "Dosis";
+//   font-weight: 600;
+//   font-style: normal;
+//   text-transform: none;
+//   font-size: .8em;
+// }
 
 .show-event-card .event-info p {
   margin-bottom: 0;
@@ -223,25 +232,29 @@ p.description {
     bottom: -16px;
     fill: white;
   }
-}
 
-.img-box img {
-  object-fit: cover;
-  border-radius: 1em 1em 0 0;
-  height: 100%;
-  width: 100%;
+  img {
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+    height: 100%;
+    width: 100%;
+  }
 }
-
 
 .dashboard-section .show-event-card {
   flex-direction: column;
   width: 250px;
   gap: 0.5em;
   flex-shrink: 0;
-  height: 280px;
+  height: 200px;
 
   .event-image {
     width: 100%;
+    height: 100px;
+
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -257,6 +270,7 @@ p.description {
   flex-direction: column;
   gap: 0.5em;
   overflow: scroll;
+  width: 100%;
 
   .subline {
     gap: 3px;
@@ -269,8 +283,11 @@ p.description {
 
   p {
     order: 3;
+
+    &.description {
+      display: none;
+    }
   }
 }
-
 
 // Event Card Banners

@@ -45,6 +45,11 @@
   @include icon();
 }
 
+.icon--small {
+  height: 30px;
+  width: 40px;
+}
+
 .icon--purple {
   fill: $color-purples-main-purple;
   // @include icon($fill: $color-purples-main-purple);

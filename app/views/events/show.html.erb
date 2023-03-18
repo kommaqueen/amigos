@@ -1,32 +1,69 @@
 <%= link_to "Back to #{@event.place.name}", place_path(@event.place) %>
 
-<div class= "event-content">
-  <img src="http://res.cloudinary.com/doztalggg/image/upload/c_fill/v1/development/ankmqvgkov4uoiz6umf0vp4jk5jf" alt="" class="event-image">
-
-  <div class="event-title"><h1><%= @event.title %></h1></div>
-</div>
-
-<div class="event-description">
-    <p><strong>Where:</strong><%= @event.place.address %></p>
-    <p><strong>When:</strong> <%= @event.start_time.strftime("%A, %b %d") %></p>
-    <p><strong>From:</strong> <%= @event.start_time.strftime("%l:%M") %></p>
-    <p><strong>Until:</strong> <%= @event.end_time.strftime("%l:%M") %></p>
-    <p><strong>Hosted by:</strong> <%= @event.user.username %></p>
-    <% if @event.public? %>
-    <p>This is a public event.</p>
-    <% else %>
-    <p>This is a private event.</p>
-    <% end %>
-    <p><%= @event.description %></p>
-    <p><strong>Attendees</strong></p>
-    <% @attendees.each do |attendee| %>
-      <p><%= attendee.receiver.username %></p>
-      <%= image_tag attendee.receiver.avatar %>
-    <% end %>
-    
-    <% if @event.user == current_user %>
-</div>
-  <p><%= link_to "Invite friends", new_event_invite_path(@event.id) %></p>
-  <p><%= link_to "Edit event", edit_event_path %></p>
-  <p><%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+<div class="event-banner semi-thick-border-radius upper-space bottom-space big">
+  <% if @event.photo.attached? %>
+    <%= cl_image_tag @event.photo.key, width: 400, height: 300, crop: :fill %>
+  <% else %>
+    <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
   <% end %>
+  <div class="content">
+    <h1><%= @event.title %></h1>
+  </div>
+  <% if @event.public? %>
+    <div class="place-category pill bottom-space-small order-2 privacy detail green">
+      <p>Public</p>
+    </div>
+  <% else %>
+    <div class="place-category pill bottom-space-small order-2 detail pink">
+      <p>Private</p>
+    </div>
+  <% end %>
+</div>
+
+<div class="event-details bottom-space big">
+  <div class="detail-row">
+    <%= render "shared/icon", id: Icon.library(:marker), myclass: "icon--small icon--pink icon--stroke" %>
+    <%= link_to @event.place.name.titleize, place_path(@event.place) %>
+  </div>
+
+  <div class="detail-row">
+    <%= render "shared/icon", id: Icon.library(:calendar), myclass: "icon--small icon--orange icon--stroke" %>
+    <p><%= @event.start_time.strftime("%A, %b %d") %></p>
+  </div>
+
+  <div class="detail-row">
+    <%= render "shared/icon", id: Icon.library(:clock), myclass: "icon--small icon--green icon--stroke" %>
+    <p><%= @event.start_time.strftime("%l:%M") %> to <%= @event.end_time.strftime("%l:%M") %></p>
+  </div>
+
+  <div class="detail-row">
+    <%= render "shared/icon", id: Icon.library(:avatar_circle), myclass: "icon--small icon--purple icon--stroke" %>
+    <p>Created by: <%= link_to @event.user.username, user_path(@event.user) %></p>
+  </div>
+</div>
+
+<div class="event-description bottom-space-big">
+  <p><%= @event.description %></p>
+</div>
+
+<% unless @event.public? %>
+  <div class="event-attendees">
+    <h2>Attendees</h2>
+    <div class="amigos-box">
+      <% @attendees.each do |attendee| %>
+        <div class="amigo-avatar">
+          <%= image_tag attendee.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+          <%= link_to attendee.receiver.username, user_path(attendee.receiver), class: "fw-bold" %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @event.user == current_user %>
+    <div class="event-invite-links">
+      <%= link_to "Invite friends", new_event_invite_path(@event.id) %>
+      <%= link_to "Edit event", edit_event_path %>
+      <%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
