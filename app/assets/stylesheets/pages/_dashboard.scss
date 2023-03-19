@@ -55,3 +55,20 @@
     margin-bottom: 0;
   }
 }
+
+.request-box {
+  background: yellowgreen;
+  // width: 216px;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  background: #673ab71c;
+}
+
+.request-buttons {
+  display: flex;
+  gap: 0.5em;
+}

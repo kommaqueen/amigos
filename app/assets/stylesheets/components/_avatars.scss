@@ -20,11 +20,11 @@
   border: white 1px solid;
 }
 
-
 .amigos-box {
   display: flex;
-  gap: 1.5em;
+  // gap: 1em;
 }
+
 .amigo-avatar {
   width: 100px;
   display: flex;
@@ -46,14 +46,24 @@
   border: 3px #f17d18 solid;
 }
 
+
 .avatar.pink-stroke {
   box-shadow:12px -10px 1px 2px $color-pinks-pink-3;
   border: 4px $color-pinks-main-pink solid;
 }
 
-.amigo-avatar .avatar.green-stroke {
-  box-shadow: 6px -3px 1px 2px #b7d0b7;
-  border: 4px #639a64 solid;
+.amigo-avatar {
+
+  .avatar.green-stroke {
+    box-shadow: 6px -3px 1px 2px #b7d0b7;
+    border: 4px #639a64 solid;
+  }
+
+  .avatar.pink-stroke {
+    box-shadow: 6px -3px 1px 2px $color-pinks-pink-3;
+    border: 4px $color-pinks-main-pink solid;
+  }
+
 }
 
 .avatar.green-stroke {

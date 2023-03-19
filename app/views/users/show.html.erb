@@ -18,9 +18,9 @@
     </div>
   </div>
 
-<% elsif current_user != @user  %>
+<% elsif current_user != @user || current_user %>
   <%= simple_form_for [@user, @friendship] do |f| %>
-    <div class="cta-basic">
+    <div class="cta-basic bottom-space big">
       <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
     </div>
   <% end %>
