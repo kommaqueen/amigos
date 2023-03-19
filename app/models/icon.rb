@@ -25,6 +25,7 @@ class Icon
     calendar: "calendar",
     clock: "clock",
     marker: "marker",
+    plus: "plus",
   }
 
   def self.library(key)

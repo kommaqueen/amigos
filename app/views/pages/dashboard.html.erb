@@ -14,7 +14,14 @@
 </div>
 
 <div class="dashboard-section total-space">
-  <h2>My Amigos</h2>
+  <div class="with-link">
+    <h2>My Amigos</h2>
+    <div class="icon-text">
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:plus) %>
+      <p>Add Amigo</p>
+    </div>
+  </div>
+
   <% unless current_user.friends.empty? %>
     <div class="amigos-box">
       <% @myfriends.each do |f| %>
