@@ -9,7 +9,9 @@ class MessagesController < ApplicationController
     @message.save
     FriendshipChannel.broadcast_to(
       @chatroom,
-      render_to_string(partial: "messages/message", locals: { message: @message })
+      message: render_to_string(partial: "messages/message", locals: { message: @message }),
+      sender_id: @message.user.id
+      #render_to_string(partial: "messages/message", locals: { message: @message })
     )
     head :ok #dont send a view, dont make redirect.
   end
