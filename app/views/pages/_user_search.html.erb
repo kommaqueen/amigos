@@ -1,4 +1,4 @@
 <%= form_with url: dashboard_path, method: :get, class: "d-flex" do |f|%>
   <%= f.collection_select(:id, User.order(:last_name), :id, :format_name, { prompt: "Search for a user" }, {data: { controller: "tom-select", tom_select_options_value: {tags: true, placeholder: "Search for a user"} } }) %>
-  <%= submit_tag "View profile", class: "btn btn-primary" %>
+  <%= submit_tag "View profile", class: "btn button-small orange left-margin-bump" %>
 <% end %>
