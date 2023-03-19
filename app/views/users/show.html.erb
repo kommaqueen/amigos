@@ -26,75 +26,55 @@
   <% end %>
 <% end %>
 
-<div class="dashboard-section">
+<div class="dashboard-section total-space">
   <h2>Recent Check-Ins</h2>
-  <div class="category-box bottom-space big" data-category-filter-target="filterContainer">
-    <div class="category-cards bottom-space">
-      <% @user.check_ins.each do |check_in| %>
-        <div class="category-card card">
-            <% if check_in.place.photos.present? %>
-              <div class="img-box">
-                <%= cl_image_tag check_in.place.photos[0].key, crop: :fill %>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                  <path d="M0,224L60,197.3C120,171,240,117,360,128C480,139,600,213,720,224C840,235,960,181,1080,176C1200,171,1320,213,1380,234.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
-                </svg>
+
+  <% unless current_user.check_ins.empty? %>
+    <div class="category-box bottom-space big" data-category-filter-target="filterContainer">
+      <div class="category-cards bottom-space">
+        <% @user.check_ins.each do |check_in| %>
+          <div class="category-card card">
+              <% if check_in.place.photos.present? %>
+                <div class="img-box">
+                  <%= cl_image_tag check_in.place.photos[0].key, crop: :fill %>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path d="M0,224L60,197.3C120,171,240,117,360,128C480,139,600,213,720,224C840,235,960,181,1080,176C1200,171,1320,213,1380,234.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                  </svg>
+                </div>
+              <% end %>
+              <div class="category-card-info">
+                <%= link_to check_in.place.name.titleize, place_path(check_in.place), class: "stretched-link" %>
+                <p class="p-1"><%= check_in.place.address %></p>
               </div>
-            <% end %>
-            <div class="category-card-info">
-              <%= link_to check_in.place.name.titleize, place_path(check_in.place), class: "stretched-link" %>
-              <p class="p-1"><%= check_in.place.address %></p>
             </div>
-          </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+
+  <% else %>
+    <p>No recent check-ins</p>
+  <% end %>
 </div>
 
-<div class="dashboard-section">
-  <h2>Events Hosted by <%= @user.username %></h2>
-  <div class="dashboard-events">
-    <% @user.events.each do |event| %>
-      <div class="show-event-card toggler-items">
-        <div class="event-image">
-          <img src="https://images.unsplash.com/photo-1596241913274-fd9f65e3a2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="">
-        </div>
-
-        <div class="event-info">
-          <div class="subline">
-            <p><%= event.start_time.strftime("%A, %b %d") %></p>
-            <p>by <%= link_to event.user.username, user_path(event.user) %>
-          </div>
-          <h2><%= link_to event.title, event_path(event) %></h2>
-          <p class="description">
-            <% words = event.description.split(" ") %>
-            <% preview = words[0..9].join(" ") %>
-            <%= "#{preview}..." %>
-          </p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-<div class="dashboard-section">
-  <h2>That <%= @user.username %> is attending</h2>
-  <% @myacceptedinvites.each do |event| %>
-    <div class="show-event-card toggler-items">
-      <div class="event-image">
-        <img src="https://images.unsplash.com/photo-1596241913274-fd9f65e3a2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="">
-      </div>
-
-      <div class="event-info">
-        <div class="subline">
-          <p><%= event.start_time.strftime("%A, %b %d") %></p>
-          <p>by <%= link_to event.user.username, user_path(event.user) %>
-        </div>
-        <h2><%= link_to event.title, event_path(event) %></h2>
-        <p class="description">
-          <% words = event.description.split(" ") %>
-          <% preview = words[0..9].join(" ") %>
-          <%= "#{preview}..." %>
-        </p>
-      </div>
+<div class="dashboard-section total-space">
+  <h2>Hosted Events</h2>
+  <% unless @user.events.empty? %>
+    <div class="dashboard-events">
+      <% @user.events.each do |event| %>
+        <%= render "events/event_card", event: event %>
+      <% end %>
     </div>
+  <% else %>
+    <p>No hosted events.</p>
+  <% end %>
+
+<div class="dashboard-section total-space">
+  <h2>Attending Events</h2>
+  <% unless @myacceptedinvites.empty? %>
+    <% @myacceptedinvites.each do |event| %>
+      <%= render "events/event_card", event: event %>
+    <% end %>
+  <% else %>
+    <p>No attending events.</p>
   <% end %>
 </div>
