@@ -21,14 +21,15 @@
         <% if @place.comments.blank? %>
           <p>No comments on <%= @place.name %>'s wall yet 😔</p>
         <% end %>
-        <div class="comment-form col-12 col-lg-6" >
-          <p>Add a comment to the wall:</p>
-          <%= render partial: "places/comment_form", locals: {place: @place, comment: @comment } %>
-        </div>
         <div class="comments-display col-12 col-lg-6 " data-comments-target="comment">
             <% @place.comments.each do |comment| %>
               <%= render partial: "places/display_comments", locals: {comment: comment} %>
             <% end %>
+        </div>
+        <hr>
+        <div class="comment-form col-12 col-lg-6" >
+          <p>Add your comment to the wall:</p>
+          <%= render partial: "places/comment_form", locals: {place: @place, comment: @comment } %>
         </div>
       </div>
 
@@ -46,7 +47,6 @@
       <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" data-controller="reviews">
         <% if @place.reviews.blank? %>
           <p>No reviews yet 😔</p>
-          <p>Check-in to this place to leave a review!</p>
         <% end %>
         <div class="reviews-display col-12 col-lg-6">
           <div data-reviews-target="items">
@@ -57,6 +57,7 @@
             <% end %>
           </div>
         </div>
+        <hr>
         <div class="form-review col-12 col-lg-6">
           <h2 class="toggler-header">Leave a review!</h2>
           <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
