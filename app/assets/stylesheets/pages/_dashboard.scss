@@ -72,3 +72,48 @@
   display: flex;
   gap: 0.5em;
 }
+
+.with-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7em;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .icon-text {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    height: 100%;
+
+    p {
+      margin-bottom: 0;
+      text-decoration: underline;
+      color: #ca78b0;
+      font-weight: 700;
+    }
+
+    .icon {
+      height: 0.8em;
+      width: 0.8em;
+    }
+
+  }
+}
+
+#addAmigoModal {
+  .modal-header {
+    // border-bottom: 1px grey solid;
+  }
+
+  .modal-body {
+    padding-top: 0;
+  }
+}
+
+.ts-wrapper {
+  width: 100%;
+}

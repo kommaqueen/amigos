@@ -14,7 +14,30 @@
 </div>
 
 <div class="dashboard-section total-space">
-  <h2>My Amigos</h2>
+  <div class="with-link">
+    <h2>My Amigos</h2>
+    <div class="icon-text" data-bs-toggle="modal" data-bs-target="#addAmigoModal">
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:plus) %>
+      <p>Add Amigo</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addAmigoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content thick-border-radius">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">Add Amigo!</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render("user_search") %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <% unless current_user.friends.empty? %>
     <div class="amigos-box">
       <% @myfriends.each do |f| %>
@@ -32,7 +55,7 @@
       <% end %>
     </div>
   <% else %>
-    <p>No Amigos</p>
+    <p>No Amigos 😔</p>
   <% end %>
 </div>
 
@@ -93,7 +116,7 @@
   <% unless current_user.favorites.empty? %>
     some code header
   <% else %>
-    <p>No favorites</p>
+    <p>No favorites 😔</p>
   <% end %>
 </div>
 
@@ -122,7 +145,7 @@
       </div>
     </div>
   <% else %>
-    <p>No recent check-ins</p>
+    <p>No recent check-ins 😔</p>
   <% end %>
 </div>
 
@@ -135,9 +158,4 @@
     <% end %>
   </div>
 
-</div>
-
-<div class="dashboard-section">
-  <h2>Find more Amigos!</h2>
-  <%= render("user_search") %>
 </div>

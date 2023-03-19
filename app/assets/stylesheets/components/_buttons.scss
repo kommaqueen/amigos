@@ -4,12 +4,20 @@
   color: white;
 }
 
+.left-margin-bump {
+  margin-left: 0.3em;
+}
+
 .button-small.success {
   background: $color-greens-main-green;
 }
 
 .button-small.decline {
   background: #dc3545;
+}
+
+.button-small.orange {
+  background: $color-oranges-main-orange;
 }
 
 .button-basic {
