@@ -1,3 +1,17 @@
+.button-small {
+  font-family: $font-playful;
+  font-weight: 400;
+  color: white;
+}
+
+.button-small.success {
+  background: $color-greens-main-green;
+}
+
+.button-small.decline {
+  background: #dc3545;
+}
+
 .button-basic {
   border-radius: 50px;
   padding: 0;
@@ -84,4 +98,3 @@
   background-color: $color-yellows-main-yellow;
   text-decoration: none;
 }
-
