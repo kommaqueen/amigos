@@ -34,6 +34,9 @@ class PlacesController < ApplicationController
     @check_in = CheckIn.new
     check_ins_today
     check_ins_all
+    @cleanliness = @place.cleanliness
+    @condition = @place.condition
+    @fun_factor = @place.fun_factor
   end
 
   def new
