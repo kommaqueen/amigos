@@ -1,3 +1,20 @@
+.back-button {
+  display: flex;
+  gap: 0.5em;
+  padding-left: .2em;
+  position: relative;
+
+  .icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  a {
+    font-family: 'Dosis';
+    text-decoration-color: $color-blues-main-blue;
+  }
+}
+
 .event-banner {
   position: relative;
   height: 130px;
@@ -46,6 +63,10 @@
     display: flex;
     align-items: center;
     gap: .5em;
+
+    a {
+      font-weight: 700;
+    }
   }
 }
 
