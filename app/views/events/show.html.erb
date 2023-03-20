@@ -1,6 +1,9 @@
-<%= link_to "Back to #{@event.place.name}", place_path(@event.place) %>
+<div class="back-button">
+  <%= render "shared/icon", myclass: 'icon--blue', id: Icon.library(:round_left) %>
+  <%= link_to "Back to #{@event.place.name.titleize}", place_path(@event.place), class: "stretched-link" %>
+</div>
 
-<div class="event-banner semi-thick-border-radius upper-space bottom-space big">
+<div class="event-banner semi-thick-border-radius total-space">
   <% if @event.photo.attached? %>
     <%= cl_image_tag @event.photo.key, width: 400, height: 300, crop: :fill %>
   <% else %>

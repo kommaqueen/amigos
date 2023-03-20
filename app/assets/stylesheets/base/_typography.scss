@@ -21,6 +21,10 @@ a .heavy {
   font-weight: 700;
 }
 
+a:hover {
+  color: $color-black-greys-main-black;
+}
+
 .tiny {
   font-size: .7em;
 }
