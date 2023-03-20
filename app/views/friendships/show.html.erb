@@ -1,13 +1,13 @@
 <div class="chatroom" data-controller="friendship-subscription" data-friendship-subscription-chatroom-id-value="<%=@chatroom.id%>" data-friendship-subscription-current-user-id-value="<%= current_user.id %>">
 
   <div class="chat-header">
-    <h1>Chat with
+    <h2 class="text-center">Chat with
       <% if current_user == @chatroom.asker %>
-        <%= @chatroom.receiver.username %>
-        <% elsif current_user == @chatroom.receiver %>
-        <%= @chatroom.asker.username %>
+      <%= link_to @chatroom.receiver.username, user_path(@chatroom.receiver) %>
+      <% elsif current_user == @chatroom.receiver %>
+      <%= link_to @chatroom.asker.username, user_path(@chatroom.asker) %>
       <% end %>
-    </h1>
+    </h2>
   </div>
 
   <div class="messages" data-friendship-subscription-target="messages">
