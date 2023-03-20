@@ -69,6 +69,10 @@ p {
   color: white;
 }
 
+.red {
+  color: $color-red;
+}
+
 .resize-text {
   white-space: nowrap; /* Prevents text from breaking into a new line */
   font-size: calc(12px + 1vw); /* Resizes font size based on viewport width */

@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-  <%= render "shared/icon", id: Icon.library(:map) %>
+  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:map) %>
 </div>
 
 <div class="place-data bottom-space big">
@@ -30,7 +30,7 @@
       </div>
     <% end %>
 
-    <%= render "shared/icon", id: Icon.library(:map) %>
+    <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:map) %>
   </div>
 
   <h1><%= @place.name %></h1>
