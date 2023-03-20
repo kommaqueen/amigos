@@ -11,20 +11,43 @@
   </div>
 </div>
 
-<% if current_user.friends_with?(@user) %>
-  <div class="cta cta-big bottom-space big">
-    <div class="cta-basic w-100">
-      <%= link_to "Open Chat", friendship_path(@chatroom), class: "cta-basic-front resize-text" %>
+<% if @pending.nil? %>
+  <% if current_user.friends_with?(@user)  %>
+    <div class="cta cta-big bottom-space big">
+      <div class="cta-basic w-100">
+        <%= link_to "Open Chat", friendship_path(@chatroom), class: "cta-basic-front resize-text" %>
+      </div>
     </div>
-  </div>
-
-<% elsif current_user != @user || current_user %>
-  <%= simple_form_for [@user, @friendship] do |f| %>
-    <div class="cta-basic bottom-space big">
-      <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+  <% elsif current_user != @user || current_user %>
+    <%= simple_form_for [@user, @friendship] do |f| %>
+      <div class="cta-basic bottom-space big">
+        <%= f.submit "Add Amigo", class: "cta-basic-front resize-text w-100"%>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <% if current_user == @pending.receiver %>
+    <div class="cta cta-big bottom-space big">
+      <div class="cta-basic w-100">
+        <%= simple_form_for @friendships do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+          <%= f.submit "Accept as friend", class: "btn button-small success"%>
+        <% end %>
+        <%= simple_form_for @friendships do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+            <%= f.submit "Deny", class: "btn button-small decline"%>
+        <% end %>
+      </div>
+    </div>
+    <% else %>
+    <div class="cta cta-big bottom-space big">
+      <div class="cta-basic w-100">
+        <%= link_to "Pending request", class: "cta-basic-front resize-text" %>
+      </div>
     </div>
   <% end %>
 <% end %>
+
 
 <div class="dashboard-section total-space">
   <h2>Recent Check-Ins</h2>

@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
     @friendship.asker = current_user
     @friendship.receiver = @user
     if @friendship.save
-      redirect_to dashboard_path
+      redirect_to user_path(@friendship.receiver.id)
     else
       render "users/show", status: :unprocessable_entity
       flash[:alert] = "Something went wrong."
@@ -19,10 +19,11 @@ class FriendshipsController < ApplicationController
   end
 
   def update
+
     @friendship = Friendship.find(params[:id])
     @friendship.update(friendship_params)
 
-    redirect_to dashboard_path
+    redirect_to user_path(@friendship.asker.id)
   end
 
   private
