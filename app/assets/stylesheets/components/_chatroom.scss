@@ -15,7 +15,7 @@
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   #new_message {
@@ -32,14 +32,37 @@
     width: 70%;
     max-width: 400px;
     border-radius: 4px;
-    padding: 8px;
+    padding: 0.5em;
     min-height: 80px;
-    border: 1px solid #000000;
     margin-bottom: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+    &:first-child {
+
+      height: 100%;
+
+      small {
+
+        font-family: 'Mulish';
+
+        i {
+          font-size: smaller;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+
+      }
+    }
   }
 
   .sender-style {
     background-color: $color-pinks-pink-4;
+
+    &:first-child {
+      text-align: right;
+    }
   }
 
   .receiver-style {
