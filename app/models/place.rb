@@ -31,17 +31,20 @@ class Place < ApplicationRecord
 
   def cleanliness
     cleanliness_array = self.reviews.pluck(:cleanliness)
-    cleanliness_array.sum / cleanliness_array.count.to_f
+    avg = cleanliness_array.sum / cleanliness_array.count.to_f
+    self.reviews.empty? ? 0 : avg
   end
 
   def condition
     condition_array = self.reviews.pluck(:condition)
-    condition_array.sum / condition_array.count.to_f
+    avg = condition_array.sum / condition_array.count.to_f
+    self.reviews.empty? ? 0 : avg
   end
 
   def fun_factor
     fun_factor_array = self.reviews.pluck(:fun_factor)
-    fun_factor_array.sum / fun_factor_array.count.to_f
+    avg = fun_factor_array.sum / fun_factor_array.count.to_f
+    self.reviews.empty? ? 0 : avg
   end
 
 
