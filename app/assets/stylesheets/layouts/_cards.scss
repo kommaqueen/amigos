@@ -266,6 +266,10 @@ p.description {
   }
 }
 
+.dashboard-section .show-event-card.toggler-items {
+  background-color: $color-blues-blue-3;
+}
+
 .dashboard-events {
   display: inline-flex;
   overflow-x: scroll;
@@ -298,4 +302,20 @@ p.description {
   }
 }
 
-// Event Card Banners
+// Favorite Cards
+
+.category-card.favorite::before, .category-card.favorite::after {
+  background: $color-red;
+}
+
+.favorite-marker {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  .icon {
+    height: 2em;
+    width: 2em;
+    fill: $color-red;
+  }
+}

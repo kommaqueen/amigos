@@ -17,8 +17,6 @@ export default class extends Controller {
     event.currentTarget.classList.toggle("fas")
     event.currentTarget.classList.toggle("far")
     fetch(this.linkTarget.href)
-
   }
-
 
 }
