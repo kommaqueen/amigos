@@ -1,3 +1,4 @@
-<h1>Create a new event at <%= @place.name %></h1>
-
-<%= render("event_form", {event: @event, place: @place}) %>
+<div class="forms-general mb-3">
+  <h1>Create event at: <%= @place.name %></h1>
+  <%= render("event_form", {event: @event, place: @place}) %>
+</div>
