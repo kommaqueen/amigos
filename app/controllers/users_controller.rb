@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = User.all
     @friendship = Friendship.new
-    @friendships = Friendship.where(status: "pending").where(receiver: current_user, asker: @user).take
+    @friendships = current_user.friendships_as_receiver.where(status: "pending").or(current_user.friendships_as_asker.where(status: "pending"))
     @chatroom = Friendship.where(status: "accepted").where(asker: @user).or(Friendship.where(status: "accepted").where(receiver: @user))
     @chatroom = @chatroom.where(status: "accepted").where(asker: current_user).or(@chatroom.where(status: "accepted").where(receiver: current_user)).take
     @pending = Friendship.where(status: "pending").where(asker: @user).or(Friendship.where(status: "pending").where(receiver: @user))
