@@ -89,3 +89,4 @@ gem 'acts_as_favoritor'
 
 gem "pg_search"
 
+gem 'pry-byebug'

@@ -2,7 +2,11 @@
   <div class="amigos-box">
     <% @attendances.where(event: @event).each do |attendance| %>
       <div class="amigo-avatar">
-        <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+        <% if attendance.user.photo.attached? %>
+          <%= image_tag attendance.user.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+        <% else %>
+          <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+        <% end %>
         <%= link_to attendance.user.username, user_path(attendance.user), class: "fw-bold" %>
       </div>
     <% end %>
