@@ -1,0 +1,11 @@
+<% @chatrooms.each do |chat| %>
+  <% if chat.asker == current_user %>
+    <%= link_to friendship_path(chat) do %>
+      <%= chat.receiver.username %>
+    <% end %>
+  <% else %>
+    <%= link_to friendship_path(chat) do %>
+      <%= chat.asker.username %>
+    <% end %>
+  <% end %>
+<% end %>

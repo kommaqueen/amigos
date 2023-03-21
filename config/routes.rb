@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
 
-  resources :friendships, only: [:show] do
+  resources :friendships, only: [:show, :index] do
     resources :messages, only: [:create]
   end
   # resources :favorites, only: [:create]
