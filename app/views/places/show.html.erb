@@ -1,21 +1,4 @@
 <%# link_to "Back to search", places_path %>
-
-<div class="showbar d-none">
-  <div class="place-category pill bottom-space-small order-2">
-    <p><%= @place.category.capitalize %></p>
-  </div>
-
-  <% if user_signed_in? %>
-    <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
-      <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
-        <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:map) %>
-</div>
-
 <div class="place-data bottom-space big">
   <div class="showbar">
     <div class="place-category pill bottom-space-small order-2">
@@ -29,8 +12,9 @@
         <% end %>
       </div>
     <% end %>
-
-    <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:map) %>
+    <%= link_to search_path(query: @place.name) do %>
+      <%= render "shared/icon", myclass: 'icon--pink', id: Icon.library(:map) %>
+    <% end %>
   </div>
 
   <h1><%= @place.name %></h1>
@@ -88,24 +72,25 @@
     <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
     <p>Ages: <%= @place.age_range.capitalize %></p>
   </div>
-  <div class="div2">
-      <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:cleanhand) %>
-    <p>Clean <%= @cleanliness %></p>
-  </div>
-  <div class="div3">
-    <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
-    <p>Super Fun! <%= @fun_factor %></p>
-  </div>
+  <% if @cleanliness > 4 %>
+    <div class="div2">
+        <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:cleanhand) %>
+      <p>Clean</p>
+    </div>
+  <% end %>
+  <% if @fun_factor > 4 %>
+    <div class="div3">
+      <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
+      <p>Super Fun!</p>
+    </div>
+  <% end %>
+  <% if @condition > 4 %>
+    <div class="div3">
+      <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
+      <p>Change ICON</p>
+    </div>
+  <% end %>
 
-  <div class="div4">
-    <% if @condition < 3 %>
-      <p>👎🏼</p>
-      <% elsif @condition > 3 && @condition < 4 %>
-      <p>👍🏼</p>
-      <% else %>
-      <p>GREAT! <%= @condition %></p>
-    <% end %>
-  </div>
 </div>
 
 

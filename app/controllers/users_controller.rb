@@ -12,19 +12,27 @@ class UsersController < ApplicationController
     @chatroom = @chatroom.where(status: "accepted").where(asker: current_user).or(@chatroom.where(status: "accepted").where(receiver: current_user)).take
     @pending = Friendship.where(status: "pending").where(asker: @user).or(Friendship.where(status: "pending").where(receiver: @user))
     @pending = @pending.where(status: "pending").where(asker: current_user).or(@pending.where(status: "pending").where(receiver: current_user)).take
-    @myacceptedinvites = myacceptedevents
+    # @myacceptedinvites = myacceptedevents
+    @mypublicevents = mypublicevents
   end
 
   private
 
-  def myacceptedevents
-    invites = Invite.where(status: "accepted").where(receiver: User.find(params[:id]))
+  # def myacceptedevents
+  #   invites = Invite.where(status: "accepted").where(receiver: User.find(params[:id]))
+  #   events = []
+  #   invites.each do |invite|
+  #     events << invite.event
+  #   end
+  #   events
+  # end
+
+  def mypublicevents
+    attendances = Attendance.where(user: User.find(params[:id]))
     events = []
-    invites.each do |invite|
-      events << invite.event
+    attendances.each do |attendance|
+      events << attendance.event
     end
     events
   end
-
-  # where asker: current_user
 end

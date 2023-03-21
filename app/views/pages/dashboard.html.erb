@@ -189,6 +189,29 @@
     <% @sortedevents.each do |event| %>
       <%= render "events/event_card", event: event %>
     <% end %>
-  </div>
+    <% current_user.attendances.each do |attendance| %>
+      <div class="show-event-card toggler-items">
+        <div class="event-image">
+          <% if attendance.event.photo.attached? %>
+            <%= cl_image_tag attendance.event.photo.key, width: 400, height: 300, crop: :fill %>
+          <% else %>
+            <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
+          <% end %>
+      </div>
 
+      <div class="event-info">
+        <div class="subline">
+          <p><%= attendance.event.start_time.strftime("%A, %b %d") %></p>
+          <p>by <%= link_to attendance.event.user.username, user_path(attendance.user) %>
+        </div>
+        <h2><%= link_to attendance.event.title, event_path(attendance.event) %></h2>
+          <p class="description">
+            <% words = attendance.event.description.split(" ") %>
+            <% preview = words[0..9].join(" ") %>
+            <%= "#{preview}..." %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
