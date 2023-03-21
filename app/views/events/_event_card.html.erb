@@ -12,7 +12,7 @@
       <p><%= event.start_time.strftime("%A, %b %d") %></p>
       <p>by <%= link_to event.user.username, user_path(event.user) %>
     </div>
-    <h2><%= link_to event.title, event_path(event) %></h2>
+    <h2><%= link_to event.title, event_path(event), class: "stretched-link" %></h2>
     <p class="description">
       <% words = event.description.split(" ") %>
       <% preview = words[0..9].join(" ") %>
