@@ -96,11 +96,13 @@
 
 <div class="dashboard-section total-space">
   <h2>Attending Events</h2>
-  <% unless @myacceptedinvites.empty? %>
-    <% @myacceptedinvites.each do |event| %>
-      <%= render "events/event_card", event: event %>
+  <% unless @mypublicevents.empty? %>
+  <div class="dashboard-events">
+      <% @mypublicevents.each do |event| %>
+        <%= render "events/event_card", event: event %>
+      <% end %>
+    <% else %>
+      <p>No attending events 😔</p>
     <% end %>
-  <% else %>
-    <p>No attending events 😔</p>
-  <% end %>
+  </div>
 </div>
