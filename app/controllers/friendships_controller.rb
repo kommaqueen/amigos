@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
   def index
     #@chatroom = Friendship.where(status: "accepted").where(asker: @user).or(Friendship.where(status: "accepted").where(receiver: @user))
     #@chatroom = @chatroom.where(status: "accepted").where(asker: current_user).or(@chatroom.where(status: "accepted").where(receiver: current_user)).take
-    @chatrooms = Friendship.where(asker: current_user).or(Friendship.where(receiver: current_user))
+    @chatrooms = Friendship.where(asker: current_user, status: "accepted").or(Friendship.where(receiver: current_user, status: "accepted"))
   end
 
   def show
