@@ -1,7 +1,15 @@
 <% if Attendance.where(user: current_user, event:event).exists? %>
-  <p>You are attending!</p>
+  <div class="cta cta-big bottom-space upper-space">
+    <div class="w-100">
+      <p class="cta-basic-front">You are attending!</p>
+    </div>
+  </div>
 <% else %>
- <%= simple_form_for [event, attendance], data: {attendances_target: "form", action: "submit->attendances#send"} do |f| %>
-    <%= f.submit "I am attending" %>
+<div class="cta cta-big bottom-space big">
+  <%= simple_form_for [event, attendance], data: {attendances_target: "form", action: "submit->attendances#send"}, html: { class: 'w-100' } do |f| %>
+  <div class="cta-basic w-100">
+    <%= f.submit "Attend Event", class: 'cta-basic-front w-100' %>
+  </div>
   <% end %>
+</div>
 <% end %>
