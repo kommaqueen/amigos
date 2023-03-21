@@ -100,6 +100,7 @@ body {
 .two-row-grid > div p {
   margin-bottom: 0;
   flex: 2;
+  font-family: $font-dosis;
 }
 
 .two-row-grid .div1 { grid-area: 1 / 1 / 2 / 2; }

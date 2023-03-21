@@ -83,7 +83,7 @@
   <p class="text-justify"><%= @place.description %></p>
 </div>
 
-<div class="place-icons two-row-grid bottom-space">
+<div class="place-icons two-row-grid bottom-space upper-space">
   <div class="div1">
     <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
     <p>Ages: <%= @place.age_range.capitalize %></p>
@@ -97,7 +97,7 @@
     <p>Super Fun! <%= @fun_factor %></p>
   </div>
 
-   <div class="div4">
+  <div class="div4">
     <% if @condition < 3 %>
       <p>👎🏼</p>
       <% elsif @condition > 3 && @condition < 4 %>
