@@ -35,25 +35,24 @@
   <% end %>
 <% else %>
   <% if current_user == @pending.receiver %>
-    <div class="cta cta-big bottom-space big">
-      <div class="cta-basic w-100">
-        <%= simple_form_for @friendships do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-          <%= f.submit "Accept as friend", class: "btn button-small success"%>
-        <% end %>
-        <%= simple_form_for @friendships do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-            <%= f.submit "Deny", class: "btn button-small decline"%>
-        <% end %>
-      </div>
+    <div class="friend-request-notification">
+      <%= simple_form_for @friendships do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+        <%= f.submit "Accept Friend Request", class: "btn button-small success"%>
+      <% end %>
+      <%= simple_form_for @friendships do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+          <%= f.submit "Deny", class: "btn button-small decline"%>
+      <% end %>
     </div>
-    <% else %>
+  <% else %>
     <div class="cta cta-big bottom-space big">
       <div class="cta-basic w-100">
-        <%= link_to "Pending request", class: "cta-basic-front resize-text" %>
+        <p class="cta-basic-front resize-text">Request Pending</p>
       </div>
     </div>
   <% end %>
+
 <% end %>
 
 

@@ -76,7 +76,11 @@
       <div class="request-box semi-thick-border-radius">
 
         <div class="amigo-avatar">
-          <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+          <% if friend.asker.photo.attached? %>
+            <%= image_tag friend.asker.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+          <% else %>
+            <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+          <% end %>
           <%= link_to friend.asker.username, user_path(friend.asker), class: "fw-bold" %>
           <%# friend.status %>
         </div>
@@ -101,20 +105,25 @@
   <div class="event-invitation-box requests">
 
     <% @invites.each do |invite| %>
-      <p>You got a new invitation for <%= invite.event.title %></p>
-      <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
 
-      <%= simple_form_for invite do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-        <%= f.submit "Accept", class: "btn btn-success"%>
+      <div class="request-box semi-thick-border-radius">
+        <p>You got a new invitation for <%= invite.event.title %></p>
+        <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
+
+        <div class="request-buttons">
+          <%= simple_form_for invite do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+            <%= f.submit "Accept", class: "btn btn-success"%>
+          <% end %>
+
+          <%= simple_form_for invite do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+            <%= f.submit "Deny", class: "btn btn-danger"%>
+          <% end %>
+        </div>
+      </div>
+
       <% end %>
-
-      <%= simple_form_for invite do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-        <%= f.submit "Deny", class: "btn btn-danger"%>
-      <% end %>
-    <% end %>
-
   </div>
 
 </div>
