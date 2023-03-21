@@ -5,19 +5,30 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  hint: ("This will be your login address") %>
+      <%= f.input :first_name,
+                  hint: ("This will be viewable only by other registered users") %>
+      <%= f.input :last_name,
+                  hint: ("This will be viewable only by other registered users") %>
       <%= f.input :username,
                   required: true,
-                  hint: ("username must be unique") %>
-
+                  hint: ("Username must be unique") %>
+      <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, as: :file  %>
       <%= f.input :bio,
                   required: true,
-                  placeholder: "Tell us a bit about yourself and your family!",
-                  hint: ("bio must be at least 100 characters")%>
+                  placeholder: "Tell us a bit about yourself and your family!" %>
       <%= f.input :location,
                   required: true,
-                  placeholder: "Which part of Berlin do you live in?"%>
-
+                  placeholder: "In which part/kiez of Berlin do you live?"%>
     </div>
 
       <%= f.button :submit, "Sign up", :class => "submit-button-basic w-100" %>
