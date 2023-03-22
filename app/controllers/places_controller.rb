@@ -34,6 +34,7 @@ class PlacesController < ApplicationController
     @check_in = CheckIn.new
     check_ins_today
     check_ins_all
+    @check_in_current_user = CheckIn.where(place: @place, user: current_user)
     @cleanliness = @place.cleanliness
     @condition = @place.condition
     @fun_factor = @place.fun_factor
