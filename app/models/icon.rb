@@ -28,6 +28,7 @@ class Icon
     plus: "plus",
     round_left: "round_left",
     tools: "tools",
+    signout: "signout",
   }
 
   def self.library(key)
