@@ -122,7 +122,6 @@ form.new_invite {
 
 .event-attendees .amigo-avatar {
   button:first-child {
-    margin-bottom: 0.2em;
     width: 60px;
     height: 60px;
     background-color: white;
@@ -136,7 +135,7 @@ form.new_invite {
   p {
     margin-bottom: 0;
     text-decoration: underline;
-    font-family: 'Dosis';
-    font-size: 1.1em;
+    font-size: 1em;
+    font-weight: 700;
   }
 }
