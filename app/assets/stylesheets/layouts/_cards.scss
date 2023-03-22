@@ -304,6 +304,12 @@ p.description {
   }
 }
 
+.dashboard-section.attending .show-event-card {
+
+  background-color: $color-pinks-pink-3;
+
+}
+
 // Favorite Cards
 
 .category-card.favorite::before, .category-card.favorite::after {

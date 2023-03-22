@@ -18,7 +18,8 @@ body {
   overflow-x: hidden;
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 68px);
+  // min-height: calc(100vh - 68px);
+  height: calc(100vh - 130px);
 }
 
 .bottom-space {
@@ -79,34 +80,39 @@ body {
 .two-row-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  // grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: auto auto;
   grid-column-gap: 0.5em;
   grid-row-gap: 1em;
   justify-items: center;
+  width: 90%;
+  // margin: 0 auto;
+  margin: 2em auto;
 }
 
 .two-row-grid > div {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5em;
+  width: 100%;
 }
 
 .two-row-grid > div .icon {
-  height: 45px;
+  height: 2.5em;
+  width: 2.5em;
   flex: 1;
+}
+
+.two-row-grid > div:empty:last-child,
+.two-row-grid > div:empty:nth-last-child(2):not(:empty) {
+  display: none;
 }
 
 .two-row-grid > div p {
   margin-bottom: 0;
-  flex: 2;
+  flex: 1;
   font-family: $font-dosis;
 }
-
-.two-row-grid .div1 { grid-area: 1 / 1 / 2 / 2; }
-.two-row-grid .div2 { grid-area: 1 / 2 / 2 / 3; }
-.two-row-grid .div3 { grid-area: 2 / 1 / 3 / 2; }
-.two-row-grid .div4 { grid-area: 2 / 2 / 3 / 3; }
 
 .matched-radius {
   --matched-radius-padding: 8px;
