@@ -104,3 +104,18 @@
 .event-description {
   padding: 0 0.5em;
 }
+
+form.new_invite {
+  display: flex;
+}
+
+#inviteModal {
+  .modal-body {
+    padding-top: 0;
+  }
+
+  .invite_receiver_id {
+    flex: 2;
+    margin-bottom: 0 !important;
+  }
+}

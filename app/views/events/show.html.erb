@@ -85,7 +85,7 @@
     <% if @event.user == current_user %>
 
       <div class="event-invite-links">
-        <button type="button" class="submit-button-basic" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="submit-button-basic" data-bs-toggle="modal" data-bs-target="#inviteModal">
           +
         </button>
         <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
