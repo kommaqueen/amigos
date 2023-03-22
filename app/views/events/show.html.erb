@@ -20,6 +20,12 @@
     <div class="place-category pill bottom-space-small order-2 privacy detail pink">
       <p>Private</p>
     </div>
+    <% if @event.user == current_user %>
+      <div class="edit-event-links">
+        <%= link_to "", edit_event_path, class: "fa-solid fa-pen-to-square" %>
+        <%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
@@ -43,12 +49,12 @@
     <%= render "shared/icon", id: Icon.library(:avatar_circle), myclass: "icon--small icon--purple icon--stroke" %>
     <p>Created by: <%= link_to @event.user.username, user_path(@event.user) %></p>
   </div>
+
 </div>
 
 <div class="event-description bottom-space-big">
   <p><%= @event.description %></p>
 </div>
-
 
 
 <% if @event.public? %>
@@ -77,15 +83,14 @@
     </div>
 
     <% if @event.user == current_user %>
-    <div class="event-invite-links">
-      <button type="button" class="submit-button-basic" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        +
-      </button>
-      <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
 
-      <%= link_to "", event_path(@event), class: "fas fa-trash-alt", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </div>
+      <div class="event-invite-links">
+        <button type="button" class="submit-button-basic" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          +
+        </button>
+        <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
+      </div>
+
     <% end %>
   </div>
 <% end %>
-<p><%= link_to "Edit event", edit_event_path %></p>

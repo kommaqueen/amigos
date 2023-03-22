@@ -1,4 +1,4 @@
 <div class="forms-general mb-3">
-  <h1>Create event at: <%= @place.name %></h1>
+  <h2 class="mb-3">Create New Event at <%= link_to @place.name.titleize, place_path(@place) %></h2>
   <%= render("event_form", {event: @event, place: @place}) %>
 </div>

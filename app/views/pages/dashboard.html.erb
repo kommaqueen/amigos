@@ -43,7 +43,7 @@
   </div>
 
   <% unless current_user.friends.empty? %>
-    <div class="amigos-box">
+    <div class="amigos-box mt-3">
       <% @myfriends.each do |f| %>
         <% if current_user == f.asker %>
           <div class="amigo-avatar">
