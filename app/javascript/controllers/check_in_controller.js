@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   send(event) {
-    event.preventDefault()
+    // event.preventDefault()
     const url = this.formTarget.action
     const options = {
       method: "POST",

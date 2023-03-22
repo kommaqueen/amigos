@@ -2,7 +2,9 @@
 <div class="place-data bottom-space big">
   <div class="showbar">
     <div class="place-category pill bottom-space-small order-2">
+      <%= link_to search_path(query: @place.category) do %>
       <p><%= @place.category.capitalize %></p>
+      <% end %>
     </div>
 
     <% if user_signed_in? %>

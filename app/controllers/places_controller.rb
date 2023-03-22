@@ -9,9 +9,9 @@ class PlacesController < ApplicationController
       when "newest"
         @places = Place.order(created_at: :desc).limit(5)
       when "popular"
-        @places = Place.all.sample(3)
+        @places = popular
       when "all ages"
-        @places = Place.all.sample(5)
+        @places = Place.where(age_range: "all").limit(5)
       when "kindercafe"
         @places = Place.where(category: "kindercafe").limit(5)
       end
@@ -25,7 +25,6 @@ class PlacesController < ApplicationController
     end
   end
 
-
   def show
     @review = Review.new
     @reviews = Review.all
@@ -34,6 +33,7 @@ class PlacesController < ApplicationController
     @check_in = CheckIn.new
     check_ins_today
     check_ins_all
+    @check_in_current_user = CheckIn.where(place: @place, user: current_user)
     @cleanliness = @place.cleanliness
     @condition = @place.condition
     @fun_factor = @place.fun_factor
@@ -88,13 +88,19 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
 
-
-
   def check_ins_today
     @check_ins = CheckIn.where(place: @place).where("created_at > ?", 1.day.ago)
   end
 
   def check_ins_all
     @check_ins_all = CheckIn.where(place: @place)
+  end
+
+  def popular
+    popular_places = Place.joins(:check_ins).group(:id).order('count(check_ins.id) desc').limit(5)
+    if popular_places.count < 2
+      popular_places = Place.all.sample(5)
+    end
+    popular_places
   end
 end
