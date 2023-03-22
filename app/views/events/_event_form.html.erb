@@ -1,5 +1,4 @@
   <%= simple_form_for [place, event] do |f| %>
-
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
@@ -12,6 +11,6 @@
         <%= f.input :end_time, as: :string, input_html: {data: {controller: "flatpickr"}} %>
       </div>
     </div>
-    <%= f.input :public, as: :boolean, label: "Make event public?" %>
+    <%= f.input :public, as: :boolean, label: "Make event Public?" %>
     <%= f.button :submit, "Create!", :class => "submit-button-basic w-100" %>
   <% end %>

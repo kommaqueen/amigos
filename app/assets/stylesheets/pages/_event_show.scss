@@ -75,10 +75,68 @@
   }
 }
 
+.edit-event-links {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 5px;
+  padding: 0.3em 0.5em;
+  width: fit-content;
+  position: absolute;
+  bottom: -1em;
+  right: 6px;
+  background-color: white;
+
+  a {
+    font-size: 1.3em;
+    padding: 0 0.2em;
+    color: #ca78b0;
+    text-decoration: none;
+  }
+}
+
 .modal-header {
   border: none;
 }
 
 .close {
   border: none;
+}
+
+.event-description {
+  padding: 0 0.5em;
+}
+
+form.new_invite {
+  display: flex;
+}
+
+#inviteModal {
+  .modal-body {
+    padding-top: 0;
+  }
+
+  .invite_receiver_id {
+    flex: 2;
+    margin-bottom: 0 !important;
+  }
+}
+
+.event-attendees .amigo-avatar {
+  button:first-child {
+    margin-bottom: 0.2em;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+
+    i {
+      font-size: 1.2em;
+      color: $color-purples-main-purple;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    text-decoration: underline;
+    font-family: 'Dosis';
+    font-size: 1.1em;
+  }
 }

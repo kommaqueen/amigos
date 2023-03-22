@@ -26,12 +26,12 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="addAmigoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addAmigoModal" tabindex="-1" aria-labelledby="addAmigoModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content thick-border-radius">
           <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLabel">Find New Amigo!</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h2 class="modal-title" id="addAmigoModalLabel">Find New Amigo!</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <%= render("user_search") %>
@@ -43,7 +43,7 @@
   </div>
 
   <% unless current_user.friends.empty? %>
-    <div class="amigos-box">
+    <div class="amigos-box mt-3">
       <% @myfriends.each do |f| %>
         <% if current_user == f.asker %>
           <div class="amigo-avatar">
