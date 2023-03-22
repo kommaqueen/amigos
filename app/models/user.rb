@@ -1,5 +1,5 @@
 require "open-uri"
-require "pry-byebug"
+# require "pry-byebug"
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
