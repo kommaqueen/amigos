@@ -60,3 +60,17 @@
 .wall-button {
   width: 94%;
 }
+
+.comment-box {
+  display: flex;
+  gap: 1em;
+  min-height: 100px;  
+
+  .main-text {
+    width: 100%;
+  }
+}
+
+.amigo-avatar.comment {
+  justify-content: center;
+}
