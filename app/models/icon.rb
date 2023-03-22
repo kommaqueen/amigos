@@ -27,6 +27,7 @@ class Icon
     marker: "marker",
     plus: "plus",
     round_left: "round_left",
+    tools: "tools",
   }
 
   def self.library(key)

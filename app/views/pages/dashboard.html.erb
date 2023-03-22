@@ -48,18 +48,18 @@
         <% if current_user == f.asker %>
           <div class="amigo-avatar">
             <% if f.receiver.photo.attached? %>
-              <%= image_tag f.receiver.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+              <%= image_tag f.receiver.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% else %>
-              <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+              <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% end %>
             <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
           </div>
           <% elsif current_user == f.receiver %>
             <div class="amigo-avatar">
               <% if f.asker.photo.attached? %>
-                <%= image_tag f.asker.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+                <%= image_tag f.asker.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% else %>
-                <%= image_tag f.asker.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+                <%= image_tag f.asker.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% end %>
               <%= link_to f.asker.username, user_path(f.asker), class: "fw-bold" %>
             </div>

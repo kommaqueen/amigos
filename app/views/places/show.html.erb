@@ -68,26 +68,26 @@
 </div>
 
 <div class="place-icons two-row-grid bottom-space upper-space">
-  <div class="div1">
+  <div class="div">
     <%= render "shared/icon", myclass: 'icon--purple icon--stroke', id: Icon.library(:child) %>
     <p>Ages: <%= @place.age_range.capitalize %></p>
   </div>
   <% if @cleanliness > 4 %>
-    <div class="div2">
+    <div class="div">
         <%= render "shared/icon", myclass: 'icon--blue icon--stroke', id: Icon.library(:cleanhand) %>
-      <p>Clean</p>
+      <p>Clean!</p>
     </div>
   <% end %>
   <% if @fun_factor > 4 %>
-    <div class="div3">
+    <div class="div">
       <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
       <p>Super Fun!</p>
     </div>
   <% end %>
   <% if @condition > 4 %>
-    <div class="div3">
-      <%= render "shared/icon", myclass: 'icon--green icon--stroke', id: Icon.library(:laughing) %>
-      <p>Change ICON</p>
+    <div class="div">
+      <%= render "shared/icon", myclass: 'icon--pink icon--stroke', id: Icon.library(:tools) %>
+      <p>Great Condition!</p>
     </div>
   <% end %>
 
