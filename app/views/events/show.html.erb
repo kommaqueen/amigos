@@ -76,10 +76,10 @@
           <button type="button" class="rounded-circle avatar pink-stroke" style= "width: 60px">
             <i class="fa-solid fa-user-plus"></i>
           </button>
-          <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
           <p>Invite Amigo</p>
         </div>
 
+        <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
       <% end %>
 
       <% @attendees.each do |attendee| %>
