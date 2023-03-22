@@ -1,11 +1,64 @@
-<% @chatrooms.each do |chat| %>
-  <% if chat.asker == current_user %>
-    <%= link_to friendship_path(chat) do %>
-      <%= chat.receiver.username %>
-    <% end %>
-  <% else %>
-    <%= link_to friendship_path(chat) do %>
-      <%= chat.asker.username %>
+<h2 class="text-center">Chats</h2>
+
+<div class="chatroom-area total-space">
+
+  <% @chatrooms.each do |chat| %>
+
+    <% unless chat.messages.empty? %>
+
+      <div class="chatroom-box semi-thick-border-radius position-relative bottom-space">
+
+        <div class="amigo-avatar">
+
+          <% if chat.asker == current_user %>
+
+            <% if chat.receiver.photo.attached? %>
+              <%= image_tag chat.receiver.photo, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+            <% else %>
+              <%= image_tag chat.receiver.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+            <% end %>
+
+            <%= link_to friendship_path(chat), class: "stretched-link text-decoration-none" do %>
+              <%= chat.receiver.username%>
+            <% end %>
+
+          <% else %>
+
+            <% if chat.asker.photo.attached? %>
+              <%= image_tag chat.asker.photo, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+            <% else %>
+              <%= image_tag chat.asker.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+            <% end %>
+
+            <%= link_to friendship_path(chat), class: "fw-bold stretched-link" do %>
+              <%= chat.asker.username %>
+            <% end %>
+
+          <% end %>
+        </div>
+
+        <div class="chat-preview flex-grow-1 pe-3">
+
+          <div class="meta">
+            <p class="small"><%= chat.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+          </div>
+
+          <div class="last-message">
+            <p class="fw-bold">
+              <% if chat.messages.last.user == current_user %>
+              You:
+              <% else %>
+              Them:
+              <% end %>
+              <%= chat.messages.last.content %>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
     <% end %>
   <% end %>
-<% end %>
+
+</div>

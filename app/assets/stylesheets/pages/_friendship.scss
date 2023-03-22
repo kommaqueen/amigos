@@ -1,0 +1,19 @@
+.chatroom-box {
+  display: flex;
+  padding: 1em 0.5em;
+  gap: 1em;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(odd) {
+    background-color: #b7e4ea;
+    box-shadow: 6px 6px 0px 0px rgb(81,190, 204);
+  }
+
+  &:nth-child(even) {
+    background-color: #f9c69a;
+    box-shadow: 6px 6px 0px 0px #f17d18;
+  }
+}
