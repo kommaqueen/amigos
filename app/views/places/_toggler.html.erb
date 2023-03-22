@@ -18,9 +18,9 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" data-controller="comments">
         <%# <h2 class="toggler-header">Wall</h2> %>
-        <% if @place.comments.blank? %>
-          <p>No comments on <%= @place.name %>'s wall yet 😔</p>
-        <% end %>
+        <%# <% if @place.comments.blank? %>
+          <%# <p>No comments on wall yet 😔</p> %>
+        <%# <% end %>
         <div class="comments-display col-12" data-comments-target="comment">
             <% @place.comments.each do |comment| %>
               <%= render partial: "places/display_comments", locals: {comment: comment} %>
@@ -44,10 +44,11 @@
         <p class="submit-button-basic justify-content-center text-center"><%= link_to "Create a new event at #{@place.name.titleize}", new_place_event_path(@place) %></p>
       </div>
 
+
       <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" data-controller="reviews">
-        <% if @place.reviews.blank? %>
-          <p>No reviews yet 😔</p>
-        <% end %>
+        <%# <% if @place.reviews.blank? %>
+          <%# <p>No reviews yet 😔</p> %>
+        <%# <% end %>
         <div class="reviews-display col-12">
           <div data-reviews-target="items">
             <% if @place.reviews.any?%>
@@ -58,11 +59,16 @@
           </div>
         </div>
         <hr>
-        <div class="form-review col-12">
-          <h2 class="toggler-header">Leave a review!</h2>
-          <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
-        </div>
+        <% if @check_in_current_user.exists? %>
+          <div class="form-review col-12">
+            <h2 class="toggler-header">Leave a review!</h2>
+            <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
+          </div>
+          <% else %>
+          <p>You should at least check in once to leave a review!</p>
+        <% end %>
       </div>
+
 
     </div>
     <% else %>
