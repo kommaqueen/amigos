@@ -46,22 +46,22 @@
     <div class="amigos-box mt-3">
       <% @myfriends.each do |f| %>
         <% if current_user == f.asker %>
-          <div class="amigo-avatar">
+          <div class="amigo-avatar position-relative">
             <% if f.receiver.photo.attached? %>
               <%= image_tag f.receiver.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% else %>
               <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% end %>
-            <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold" %>
+            <%= link_to f.receiver.username, user_path(f.receiver), class: "fw-bold text-decoration-none stretched-link" %>
           </div>
           <% elsif current_user == f.receiver %>
-            <div class="amigo-avatar">
+            <div class="amigo-avatar position-relative">
               <% if f.asker.photo.attached? %>
                 <%= image_tag f.asker.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% else %>
                 <%= image_tag f.asker.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% end %>
-              <%= link_to f.asker.username, user_path(f.asker), class: "fw-bold" %>
+              <%= link_to f.asker.username, user_path(f.asker), class: "fw-bold text-decoration-none stretched-link" %>
             </div>
         <% end %>
       <% end %>
@@ -74,10 +74,11 @@
 <div class="dashboard-section total-space">
   <h2>Pending Requests </h2>
 
-  <div class="friend-request-box requests">
+  <%# need logic here for not displaying when empty!! %>
+  <div class="friend-request-box requests category-cards">
 
     <% @friendship.each do |friend| %>
-      <div class="request-box semi-thick-border-radius">
+      <div class="request-box semi-thick-border-radius friendship">
 
         <div class="amigo-avatar">
           <% if friend.asker.photo.attached? %>
@@ -86,7 +87,6 @@
             <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
           <% end %>
           <%= link_to friend.asker.username, user_path(friend.asker), class: "fw-bold" %>
-          <%# friend.status %>
         </div>
 
         <div class="request-buttons">
@@ -106,23 +106,30 @@
 
   </div>
 
-  <div class="event-invitation-box requests">
+  <%# need logic here for not displaying when empty!! %>
+  <div class="event-invitation-box requests category-cards">
 
     <% @invites.each do |invite| %>
 
-      <div class="request-box semi-thick-border-radius">
-        <p>You got a new invitation for <%= invite.event.title %></p>
-        <p>From <%= invite.asker.username %> that is <strong><%= invite.status %></strong></p>
+      <div class="request-box semi-thick-border-radius invite">
+        <p class="mb-0">Invitation to <span class="fw-bold"><%= invite.event.title %></span></p>
+        <p class="mb-0">on <%= invite.event.start_time.strftime("%a %b %e at %l:%M %p")%></p>
+        <p class="mb-0">from <%= link_to invite.asker.username, user_path(invite.asker), class: "fw-bold" %></p>
+        <p class="description fst-italic text-center">
+          <% words = invite.event.description.split(" ") %>
+          <% preview = words[0..9].join(" ") %>
+          <%= "#{preview}..." %>
+        </p>
 
         <div class="request-buttons">
           <%= simple_form_for invite do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-            <%= f.submit "Accept", class: "btn btn-success"%>
+            <%= f.submit "Accept", class: "btn button-small success"%>
           <% end %>
 
           <%= simple_form_for invite do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-            <%= f.submit "Deny", class: "btn btn-danger"%>
+            <%= f.submit "Deny", class: "btn button-small decline"%>
           <% end %>
         </div>
       </div>

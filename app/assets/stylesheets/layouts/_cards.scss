@@ -2,7 +2,6 @@
 .category-cards {
   display: inline-flex;
   overflow-x: scroll;
-  // width: 100vw;
   width: 100%;
   gap: 1em;
   padding: 0 0.5em 0.5em 0;
@@ -254,9 +253,8 @@ p.description {
   gap: 0.5em;
   flex-shrink: 0;
   margin-bottom: 0;
-  // height: 200px;
-  height: 200px;
   width: fit-content;
+  height: 190px;
 
   .event-image {
     width: 100%;

@@ -6,7 +6,7 @@
 
     <% unless chat.messages.empty? %>
 
-      <div class="chatroom-box semi-thick-border-radius position-relative bottom-space">
+      <div class="chatroom-box semi-thick-border-radius position-relative mb-3">
 
         <div class="amigo-avatar">
 
@@ -30,7 +30,7 @@
               <%= image_tag chat.asker.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
             <% end %>
 
-            <%= link_to friendship_path(chat), class: "fw-bold stretched-link" do %>
+            <%= link_to friendship_path(chat), class: "stretched-link text-decoration-none" do %>
               <%= chat.asker.username %>
             <% end %>
 
