@@ -31,22 +31,22 @@
 
 <div class="event-details bottom-space big">
   <div class="detail-row">
-    <%= render "shared/icon", id: Icon.library(:marker), myclass: "icon--small icon--pink icon--stroke" %>
+    <%= render "shared/icon", id: Icon.library(:marker), myclass: "icon--small icon--pink" %>
     <%= link_to @event.place.name.titleize, place_path(@event.place) %>
   </div>
 
   <div class="detail-row">
-    <%= render "shared/icon", id: Icon.library(:calendar), myclass: "icon--small icon--orange icon--stroke" %>
+    <%= render "shared/icon", id: Icon.library(:calendar), myclass: "icon--small icon--orange" %>
     <p><%= @event.start_time.strftime("%A, %b %d") %></p>
   </div>
 
   <div class="detail-row">
-    <%= render "shared/icon", id: Icon.library(:clock), myclass: "icon--small icon--green icon--stroke" %>
+    <%= render "shared/icon", id: Icon.library(:clock), myclass: "icon--small icon--green" %>
     <p><%= @event.start_time.strftime("%l:%M") %> to <%= @event.end_time.strftime("%l:%M") %></p>
   </div>
 
   <div class="detail-row">
-    <%= render "shared/icon", id: Icon.library(:avatar_circle), myclass: "icon--small icon--purple icon--stroke" %>
+    <%= render "shared/icon", id: Icon.library(:avatar_circle), myclass: "icon--small icon--purple" %>
     <p>Created by: <%= link_to @event.user.username, user_path(@event.user) %></p>
   </div>
 
@@ -69,7 +69,19 @@
 <% else %>
   <div class="event-attendees">
     <h2>Attendees</h2>
-    <div class="amigos-box">
+    <div class="amigos-box total-space">
+      <% if @event.user == current_user %>
+
+        <div class="amigo-avatar" data-bs-toggle="modal" data-bs-target="#inviteModal">
+          <button type="button" class="rounded-circle avatar pink-stroke" style= "width: 60px">
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+          <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
+          <p>Invite Amigo</p>
+        </div>
+
+      <% end %>
+
       <% @attendees.each do |attendee| %>
         <div class="amigo-avatar">
           <% if attendee.receiver.photo.attached? %>
@@ -82,15 +94,7 @@
       <% end %>
     </div>
 
-    <% if @event.user == current_user %>
 
-      <div class="event-invite-links">
-        <button type="button" class="submit-button-basic" data-bs-toggle="modal" data-bs-target="#inviteModal">
-          +
-        </button>
-        <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
-      </div>
 
-    <% end %>
   </div>
 <% end %>
