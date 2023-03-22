@@ -1,5 +1,5 @@
 <div class="forms-general mb-3">
-  <h2 class="text-center">Sign up</h2>
+  <h2 class="text-center">Sign Up!</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -25,10 +25,10 @@
       <%= f.input :photo, as: :file  %>
       <%= f.input :bio,
                   required: true,
-                  placeholder: "Tell us a bit about yourself and your family!" %>
+                  placeholder: "Tell other users a bit about yourself and your family" %>
       <%= f.input :location,
                   required: true,
-                  placeholder: "In which part/kiez of Berlin do you live?"%>
+                  placeholder: "ex. Mitte, Prenzlauer Berg, Neukolln, etc."%>
     </div>
 
       <%= f.button :submit, "Sign up", :class => "submit-button-basic w-100" %>

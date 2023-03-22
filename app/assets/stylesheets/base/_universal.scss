@@ -54,12 +54,16 @@ body {
 }
 
 .not-signed-in {
-  padding: 3em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1em;
+
+  .links {
+    gap: .5em;
+  }
 }
 
 .not-signed-in p {
@@ -69,6 +73,7 @@ body {
 	font-style: normal;
 	text-decoration: none;
 	text-transform: none;
+  margin-bottom: 0;
 }
 
 .flex-b-s-g-default {

@@ -73,10 +73,13 @@
     </div>
     <% else %>
         <div class="not-signed-in">
-          <%= render "shared/icon", myclass: 'icon--black', id: Icon.library(:sadface) %>
+          <%= render "shared/icon", myclass: 'icon--purple', id: Icon.library(:sadface) %>
           <p>Uh-oh! This content is only viewable by an AMIGO!</p>
-          <%= link_to "Login", new_user_session_path %>
-          <%= link_to "Become an Amigo!", new_user_registration_path %>
+          <div class="links d-flex w-100 justify-content-center">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-dark" %>
+            <%= link_to "Become an Amigo!", new_user_registration_path, class: "btn btn-dark" %>
+          </div>
+
         </div>
     <% end %>
   </div>

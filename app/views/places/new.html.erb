@@ -1,12 +1,12 @@
 <div class="container forms-general mb-3">
-  <h1>Create a place!</h1>
+  <h1>Add a New Place!</h1>
   <%= simple_form_for(@place) do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, placeholder: 'ex. "Weinberger Spielplatz"' %>
     <%= f.input :category, collection: ["spielplatz", "kindercafe", "museum"] %>
-    <%= f.input :address %>
-    <%= f.input :description %>
+    <%= f.input :address, placeholder: 'Zeppelinplatz, Ostender Str. 11-12, 13353 Berlin' %>
+    <%= f.input :description, placeholder: 'What makes this place unique? Appearance, amenities, equipment, etc.' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :age_range, collection: ["1-3", "4-7", "7-10", "all"] %>
-    <%= f.submit :class => "submit-button-basic w-100" %>
+    <%= f.input :age_range, collection: ["1-3", "4-7", "7-10", "All"] %>
+    <%= f.submit 'Add New Place!', :class => "submit-button-basic w-100"%>
   <% end %>
 </div>
