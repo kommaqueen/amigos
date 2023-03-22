@@ -1,8 +1,14 @@
-<div class="toggler-items mb-2">
-  <small>
-    <strong><%= link_to comment.user.username, user_path(comment.user) %></strong>
-    <i><%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= comment.content %></p>
+<div class="toggler-items mb-2 comment-box">
+  <div class="amigo-avatar comment">
+    <% if comment.user.photo.attached? %>
+      <%= image_tag comment.user.photo, class: 'rounded-circle avatar blue-stroke mini', style: "width: 40px" %>
+    <% else %>
+      <%= image_tag comment.user.avatar, class: 'rounded-circle avatar blue-stroke mini', style: "width: 40px" %>
+    <% end %>
+  </div>
+  <div class="main-text">
+    <strong class="small"><%= link_to comment.user.username, user_path(comment.user) %></strong>
+    <p class="small mb-0">on <%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+    <p class="mb-0">"<%= comment.content %>"</p>
+  </div>
 </div>
-

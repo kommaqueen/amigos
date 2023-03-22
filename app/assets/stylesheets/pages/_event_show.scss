@@ -76,14 +76,14 @@
 }
 
 .edit-event-links {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;  border-radius: 5px;
   padding: 0.3em 0.5em;
   width: fit-content;
   position: absolute;
   bottom: -1em;
   right: 6px;
-  background-color: white;
+  // background-color: white;
+  background-color: #efd6e7;
 
   a {
     font-size: 1.3em;
@@ -120,9 +120,22 @@ form.new_invite {
   }
 }
 
+.event-attendees .amigos-box {
+
+  display: inline-flex;
+  overflow-x: scroll;
+  width: 100%;
+  padding: 0.5em 0 0 0;
+
+  .amigo-avatar {
+    flex-shrink: 0;
+    text-overflow: clip;
+  }
+
+}
+
 .event-attendees .amigo-avatar {
   button:first-child {
-    margin-bottom: 0.2em;
     width: 60px;
     height: 60px;
     background-color: white;
@@ -136,7 +149,7 @@ form.new_invite {
   p {
     margin-bottom: 0;
     text-decoration: underline;
-    font-family: 'Dosis';
-    font-size: 1.1em;
+    font-size: 1em;
+    font-weight: 700;
   }
 }

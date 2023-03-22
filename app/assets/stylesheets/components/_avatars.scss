@@ -70,11 +70,21 @@
     border: 3px #f17d18  solid;
   }
 
+  .avatar.blue-stroke {
+    box-shadow: 6px -3px 1px 2px #b7e4ea;
+    border: 3px #75cbd7 solid;
+  }
+
 }
 
 .amigo-avatar img.avatar.green-stroke  {
   box-shadow: 6px -3px 1px 2px #b7d0b7;
   border: 4px #639a64 solid;
+}
+
+.amigo-avatar img.avatar.blue-stroke  {
+  box-shadow: 6px -3px 1px 2px #b7e4ea;
+  border: 3px #75cbd7 solid;
 }
 
 .amigo-avatar  img.avatar.pink-stroke {
