@@ -120,6 +120,20 @@ form.new_invite {
   }
 }
 
+.event-attendees .amigos-box {
+
+  display: inline-flex;
+  overflow-x: scroll;
+  width: 100%;
+  padding: 0.5em 0 0 0;
+
+  .amigo-avatar {
+    flex-shrink: 0;
+    text-overflow: clip;
+  }
+}
+
+
 .event-attendees .amigo-avatar {
   button:first-child {
     width: 60px;
