@@ -11,7 +11,7 @@ class PlacesController < ApplicationController
       when "popular"
         @places = popular
       when "all ages"
-        @places = Place.all.sample(5)
+        @places = Place.where(age_range: "all").limit(5)
       when "kindercafe"
         @places = Place.where(category: "kindercafe").limit(5)
       end
