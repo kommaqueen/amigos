@@ -58,13 +58,13 @@
 
 
 <% if @event.public? %>
-<div data-controller="attendances">
-  <%= render("events/attendance_form", {attendance: @attendance, event: @event}) %>
-  <div class="event-attendees">
-    <h2>Attendees</h2>
-    <%= render("events/public_attendees", {attendances: @attendances}) %>
+  <div data-controller="attendances">
+    <%= render("events/attendance_form", {attendance: @attendance, event: @event}) %>
+    <div class="event-attendees">
+      <h2>Attendees</h2>
+      <%= render("events/public_attendees", {attendances: @attendances}) %>
+    </div>
   </div>
-</div>
 
 <% else %>
   <div class="event-attendees">
@@ -93,8 +93,5 @@
         </div>
       <% end %>
     </div>
-
-
-
   </div>
 <% end %>
