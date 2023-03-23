@@ -25,15 +25,13 @@
   </div>
   <div class="place-rating">
     <%# @place_avg_rating  %>
-    <% if @place_avg_rating == 0 %>
-        <p>No Rating Yet</p>
-      <% else %>
-        <div class="stars d-flex">
-          <% @place_avg_rating.to_i.times do %>
-            <%= render "shared/icon", id: Icon.library(:star) %>
-          <% end %>
-        </div>
-        <p>(<%= @place.reviews.count %>)</p>
+    <% unless @place_avg_rating == 0 %>
+      <div class="stars d-flex">
+        <% @place_avg_rating.to_i.times do %>
+          <%= render "shared/icon", id: Icon.library(:star) %>
+        <% end %>
+      </div>
+      <p>(<%= @place.reviews.count %>)</p>
     <% end %>
     <%# Average rating calculation for place is in the places controller %>
   </div>
