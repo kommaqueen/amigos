@@ -43,7 +43,7 @@ class User < ApplicationRecord
 
   def attach_default_image
     unless self.photo.attached?
-      url = "https://robohash.org/#{self.username}.png"
+      url = "https://robohash.org/test.png"
       file = URI.open(url) # use cloudinary url
       self.photo.attach(io: file, filename: 'image.png', content_type: "image/png")
     end
