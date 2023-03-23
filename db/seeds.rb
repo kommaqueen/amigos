@@ -389,4 +389,171 @@ event = Event.create(
   description: Faker::Hipster.sentence * 5,
   public: false
 )
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 6, 10, 12, 0, 0, "+02:00"),
+  end_time: Time.new(2023, 6, 10, 14, 0, 0, '+02:00') + rand(3).hour,
+  category: 'picnic',
+  title: "Sarah's Picnic!",
+  description: 'Join us for a fun afternoon of games and food in Tiergarten!',
+  public: true
+)
+
+# Seed for a picnic in the park
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 8, 12, 12, 0, 0, "+02:00"),
+  end_time: Time.new(2023, 8, 12, 15, 0, 0, "+02:00"),
+  category: 'picnic',
+  title: "Ava's Picnic!",
+  description: "Join us for a fun afternoon of games and food in the park!",
+  public: true
+)
+
+# Seed for a playdate at our favourite cafe
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 7, 20, 10, 0, 0, "+02:00"),
+  end_time: Time.new(2023, 7, 20, 13, 0, 0, "+02:00"),
+  category: 'playdate',
+  title: "Noah's Playdate at Our Favourite Cafe",
+  description: "Bring your little ones for some playtime and snacks at our favourite cafe!",
+  public: true
+)
+
+# Seed for a birthday party at the play center
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 6, 15, 14, 0, 0, "+02:00"),
+  end_time: Time.new(2023, 6, 15, 17, 0, 0, "+02:00"),
+  category: 'birthday',
+  title: "Ethan's Birthday Bash at the Play Center",
+  description: "Come celebrate Ethan's birthday with us at the play center! There will be plenty of fun games and activities for kids of all ages!",
+  public: true
+)
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 6, 3, 10),
+  end_time: Time.new(2023, 6, 3, 13),
+  category: 'scavenger hunt',
+  title: "Oliver's Scavenger Hunt Adventure in the City",
+  description: "Join us for an exciting scavenger hunt adventure in the city! Solve clues, complete challenges, and have fun!",
+  public: false
+)
+
+  # Seed for a story time session
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 7, 12, 11, 0, 0, '+02:00'),
+  end_time: Time.new(2023, 7, 12, 12, 0, 0, '+02:00'),
+  category: 'story time',
+  title: "Story Time with the Kids",
+  description: "Let's gather at the library and enjoy some great stories together.",
+  public: false
+)
+
+# Seed for a puppet show
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 7, 15, 14, 0, 0, '+02:00'),
+  end_time: Time.new(2023, 7, 15, 15, 0, 0, '+02:00'),
+  category: 'puppet show',
+  title: "Puppet Show for the Kids",
+  description: "Come join us for a fun puppet show at the park.",
+  public: true
+)
+
+# Seed for a playdate at the playground
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 7, 18, 10, 0, 0, '+02:00'),
+  end_time: Time.new(2023, 7, 18, 12, 0, 0, '+02:00'),
+  category: 'play date',
+  title: "Playdate at the Playground",
+  description: "Let's meet up at our favourite playground",
+  public: false
+)
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 4, 1, 14, 0, 0, '+2'),
+  end_time: Time.new(2023, 4, 1, 17, 0, 0, '+2'),
+  category: 'playdate',
+  title: "Kids Playdate in the Park",
+  description: "Join us for a fun afternoon in the park! We'll have games, snacks and lots of fun!",
+  public: true
+)
+
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 4, 7, 15, 30, 0, '+2'),
+  end_time: Time.new(2023, 4, 7, 17, 30, 0, '+2'),
+  category: 'art',
+  title: "Children's Art Workshop",
+  description: "Join us for an afternoon of creativity! We'll be making art and having fun together!",
+  public: false
+)
+
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: Time.new(2023, 4, 15, 10, 0, 0, '+2'),
+  end_time: Time.new(2023, 4, 15, 12, 0, 0, '+2'),
+  category: 'birthday',
+  title: "Emily's 5th Birthday Party",
+  description: "Come celebrate Emily's 5th birthday with us! We'll have cake, games and lots of fun!",
+  public: true
+)
+
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: DateTime.new(2023, 4, 22, 13, 0, 0, '+2'),
+  end_time: DateTime.new(2023, 4, 22, 16, 0, 0, '+2'),
+  category: 'music',
+  title: "Kids Music Jam Session",
+  description: "Let's make some music together! Bring your instruments and join us for a fun jam session!",
+  public: false
+  )
+
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: DateTime.new(2023, 5, 1, 11, 0, 0, '+2'),
+  end_time: DateTime.new(2023, 5, 1, 13, 0, 0, '+2'),
+  category: 'sports',
+  title: "Soccer Game in the Park",
+  description: "Let's play some soccer together in the park! All skill levels welcome!",
+  public: false
+  )
+
+event = Event.create(
+  user: User.all.sample,
+  place: nil,
+  start_time: DateTime.new(2023, 5, 8, 14, 0, 0, '+2'),
+  end_time: DateTime.new(2023, 5, 8, 17, 0, 0, '+2'),
+  category: 'playdate',
+  title: "Playdate at the Indoor Playground",
+  description: "Come play with us at our favourite indoor playground! We'll have fun and make new friends!",
+  public: false
+  )
+
+
+  # user: User.all.sample,
+  # place: Place.all.sample,
+  # start_time: time,
+  # end_time: time + rand(3).hour,
+  # category: 'picnic',
+  # title: "#{Faker::FunnyName.name}'s Picnic!",
+  # description: Faker::Hipster.sentence * 5,
+  # public: false
 puts "added new event named #{event.title}"
