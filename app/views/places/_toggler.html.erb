@@ -33,10 +33,13 @@
 
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <%# <h2 class="toggler-header">Events</h2> %>
-        <% if @place.events.blank? %>
+        <% if Event.where(place: @place, public: true).blank? && @my_hosted_and_accepted_events.blank? %>
           <p>No upcoming events 😔</p>
         <% end %>
-        <% @place.events.each do |event| %>
+        <% Event.where(place: @place, public: true).each do |event| %>
+          <%= render "events/event_card", event: event %>
+        <% end %>
+        <% @my_hosted_and_accepted_events.each do |event| %>
           <%= render "events/event_card", event: event %>
         <% end %>
         <p class="submit-button-basic justify-content-center text-center"><%= link_to "Create a new event at #{@place.name.titleize}", new_place_event_path(@place) %></p>

@@ -93,9 +93,9 @@
 
 <div class="dashboard-section total-space">
   <h2>Hosted Events</h2>
-  <% unless @user.events.empty? %>
+  <% unless Event.where(user: @user, public: true).empty? %>
     <div class="dashboard-events">
-      <% @user.events.each do |event| %>
+      <% Event.where(user: @user, public: true).each do |event| %>
         <%= render "events/event_card", event: event %>
       <% end %>
     </div>
