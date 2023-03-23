@@ -13,10 +13,10 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :username, :bio, :location, presence: true
   validates :username, uniqueness: true
-  has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id
-  has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
-  has_many :invites_as_asker, class_name: "Friendship", foreign_key: :asker_id
-  has_many :invites_as_receiver, class_name: "Friendship", foreign_key: :receiver_id
+  has_many :friendships_as_asker, class_name: "Friendship", foreign_key: :asker_id, dependent: :destroy
+  has_many :friendships_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
+  has_many :invites_as_asker, class_name: "Friendship", foreign_key: :asker_id, dependent: :destroy
+  has_many :invites_as_receiver, class_name: "Friendship", foreign_key: :receiver_id, dependent: :destroy
   has_many :attendances, dependent: :destroy
   after_validation :attach_default_image
 
