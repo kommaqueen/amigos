@@ -153,3 +153,20 @@ form.new_invite {
     font-weight: 700;
   }
 }
+
+#profile-edit {
+  top: -1em;
+  bottom: auto;
+
+  & > div:first-child {
+    font-size: 1.3em;
+  }
+}
+
+.user_bio {
+  height: 100px;
+}
+
+#editAmigoModal .modal-body {
+  padding-top: 0;
+}

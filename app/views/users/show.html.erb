@@ -14,32 +14,35 @@
     <% else %>
       <p><%= @user.location %></p>
     <% end %>
+
   </div>
 
   <%# Edit bio session to style %>
-  <% if current_user == @user %>
-    <div class="with-link">
-      <div class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#editAmigoModal">
+
+
+  <div class="profile-links position-relative">
+    <p><%= @user.bio %></p>
+    <% if current_user == @user %>
+      <div class="edit-event-links" id="profile-edit">
+        <div class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#editAmigoModal">
+        </div>
       </div>
+
       <!-- Modal -->
-      <div class="modal fade" id="editAmigoModal" tabindex="-1" aria-labelledby="editAmigoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content thick-border-radius">
-            <div class="modal-header">
-              <h2 class="modal-title" id="editAmigoModalLabel">Change your bio!</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= render "users/edit", {user: @user} %>
+        <div class="modal fade" id="editAmigoModal" tabindex="-1" aria-labelledby="editAmigoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content thick-border-radius">
+              <div class="modal-header">
+                <h2 class="modal-title" id="editAmigoModalLabel">Update Your Bio!</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= render "users/edit", {user: @user} %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="profile-links">
-    <p><%= @user.bio %></p>
+    <% end %>
   </div>
 </div>
 
