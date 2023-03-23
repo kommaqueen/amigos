@@ -1,7 +1,7 @@
 <div class="show-event-card toggler-items">
   <div class="event-image">
     <% if event.photo.attached? %>
-      <%= cl_image_tag @event.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag event.photo.key, width: 400, height: 300, crop: :fill %>
     <% else %>
       <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
     <% end %>
@@ -9,7 +9,7 @@
 
   <div class="event-info">
     <div class="subline">
-      <p><%= event.start_time.strftime("%A, %b %d") %></p>
+      <p><%= event.start_time.strftime("%a, %b %d") %></p>
       <p>by <%= link_to event.user.username, user_path(event.user) %>
     </div>
     <h2><%= link_to event.title, event_path(event), class: "stretched-link" %></h2>
