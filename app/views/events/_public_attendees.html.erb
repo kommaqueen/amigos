@@ -3,7 +3,7 @@
     <% @attendances.where(event: @event).each do |attendance| %>
       <div class="amigo-avatar">
         <% if attendance.user.photo.attached? %>
-          <%= image_tag attendance.user.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+          <%= cl_image_tag attendance.user.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
         <% else %>
           <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
         <% end %>

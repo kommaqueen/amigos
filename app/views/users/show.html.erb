@@ -1,7 +1,7 @@
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
     <% if @user.photo.attached? %>
-      <%= image_tag @user.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
+      <%= cl_image_tag @user.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% else %>
       <%= image_tag @user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% end %>
