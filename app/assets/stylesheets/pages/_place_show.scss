@@ -3,21 +3,27 @@
   height: 5%;
   align-items: center;
   justify-content: flex-end;
-  gap: 1em;
+  gap: 1.2em;
 
   position: absolute;
   top: 10px;
   right: 3px;
   font-size: .7em;
+  padding: 1em 0;
 
   i {
     font-size: 1.5em;
   }
 
   svg {
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
   }
+
+  .pill {
+    padding: 0.5em;
+  }
+
 }
 
 .showbar > * {
@@ -42,6 +48,7 @@
 
   h1 {
     max-width: 60%;
+    word-wrap: inherit;
   }
 }
 
@@ -93,5 +100,9 @@
 }
 
 .showbar .unfavorite i.fas {
+  color: $color-red;
+}
+
+.favorite a i.fas {
   color: $color-red;
 }

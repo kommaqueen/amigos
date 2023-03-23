@@ -32,16 +32,14 @@
   </head>
 
   <body>
-    <div class="body-border">
-      <%= render "shared/sprites" %>
-      <%# unless current_page?(root_path) %>
-        <%= render "shared/homebar" %>
-      <%# end %>
-      <div class="container mt-3 full-wrapper">
-        <%= render "shared/flashes" %>
-        <%= yield %>
-      </div>
-      <%= render "shared/navbar" %>
+    <%= render "shared/sprites" %>
+    <%# unless current_page?(root_path) %>
+      <%= render "shared/homebar" %>
+    <%# end %>
+    <div class="container mt-3 full-wrapper">
+      <%= render "shared/flashes" %>
+      <%= yield %>
     </div>
+    <%= render "shared/navbar" %>
   </body>
 </html>

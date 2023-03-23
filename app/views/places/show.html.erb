@@ -1,16 +1,16 @@
 <%# link_to "Back to search", places_path %>
-<div class="place-data bottom-space big">
+<div class="place-data mb-3">
   <div class="showbar">
     <div class="place-category pill bottom-space-small order-2">
-      <%= link_to search_path(query: @place.category) do %>
-      <p><%= @place.category.capitalize %></p>
+      <%= link_to search_path(query: @place.category), class: "text-decoration-none" do %>
+        <%= @place.category.capitalize %>
       <% end %>
     </div>
 
     <% if user_signed_in? %>
       <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
         <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
-          <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+          <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart fs-4" data-action="click->favorite#toggled"></i>
         <% end %>
       </div>
     <% end %>
@@ -19,21 +19,19 @@
     <% end %>
   </div>
 
-  <h1><%= @place.name %></h1>
+  <h1><%= @place.name.titleize %></h1>
   <div class="place-address">
     <p><%= @place.address %></p>
   </div>
   <div class="place-rating">
     <%# @place_avg_rating  %>
-    <% if @place_avg_rating == 0 %>
-        <p>No Rating Yet</p>
-      <% else %>
-        <div class="stars d-flex">
-          <% @place_avg_rating.to_i.times do %>
-            <%= render "shared/icon", id: Icon.library(:star) %>
-          <% end %>
-        </div>
-        <p>(<%= @place.reviews.count %>)</p>
+    <% unless @place_avg_rating == 0 %>
+      <div class="stars d-flex">
+        <% @place_avg_rating.to_i.times do %>
+          <%= render "shared/icon", id: Icon.library(:star) %>
+        <% end %>
+      </div>
+      <p>(<%= @place.reviews.count %>)</p>
     <% end %>
     <%# Average rating calculation for place is in the places controller %>
   </div>
@@ -63,9 +61,11 @@
   </div>
 </div>
 
-<p class="text-center tiny">(There have been <%= @check_ins_all.count %> total check-ins here!)</p>
+<% if @check_ins_all.count > 1  %>
+  <p class="text-center tiny">(There have been <%= @check_ins_all.count %> total check-ins here!)</p>
+<% end  %>
 
-<div class="place-description">
+<div class="place-description mt-3">
   <p class="text-justify"><%= @place.description %></p>
 </div>
 
