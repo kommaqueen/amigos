@@ -52,7 +52,7 @@
 
 </div>
 
-<div class="event-description bottom-space-big">
+<div class="event-description bottom-space big">
   <p><%= @event.description %></p>
 </div>
 
@@ -60,14 +60,14 @@
 <% if @event.public? %>
   <div data-controller="attendances">
     <%= render("events/attendance_form", {attendance: @attendance, event: @event}) %>
-    <div class="event-attendees">
+    <div class="event-attendees bottom-space big">
       <h2>Attendees</h2>
       <%= render("events/public_attendees", {attendances: @attendances}) %>
     </div>
   </div>
 
 <% else %>
-  <div class="event-attendees">
+  <div class="event-attendees bottom-space big">
     <h2>Attendees</h2>
     <div class="amigos-box">
       <% if @event.user == current_user %>

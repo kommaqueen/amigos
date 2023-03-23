@@ -113,18 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_153758) do
     t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
   end
 
-  create_table "invites", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "status", default: 0
-    t.bigint "event_id"
-    t.bigint "asker_id"
-    t.bigint "receiver_id"
-    t.index ["asker_id"], name: "index_invites_on_asker_id"
-    t.index ["event_id"], name: "index_invites_on_event_id"
-    t.index ["receiver_id"], name: "index_invites_on_receiver_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "friendship_id", null: false

@@ -1,6 +1,12 @@
-body {
+// body {
+//   max-width: 414px;
+//   margin: 0 auto;
+// }
+
+html {
   max-width: 414px;
   margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
 .semi-thick-border-radius {
@@ -14,12 +20,11 @@ body {
 }
 
 .full-wrapper {
-  // height: 100vh;
   overflow-x: hidden;
   position: relative;
   width: 100%;
-  // min-height: calc(100vh - 68px);
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 132px);
+  height: calc(100vh - 120px);
 }
 
 .bottom-space {
@@ -49,8 +54,8 @@ body {
 }
 
 .nav-shadow {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
+  // box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .not-signed-in {

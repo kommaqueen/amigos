@@ -256,6 +256,7 @@ p.description {
   margin-bottom: 0;
   width: fit-content;
   height: 190px;
+  max-width: 90vw;
 
   .event-image {
     width: 100%;
@@ -289,6 +290,7 @@ p.description {
   .subline {
     gap: 3px;
     order: 2;
+    justify-content: center;
   }
 
   h2 {
