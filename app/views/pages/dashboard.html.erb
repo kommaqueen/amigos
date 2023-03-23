@@ -7,9 +7,9 @@
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
     <% if current_user.photo.attached? %>
-      <%= image_tag current_user.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
-    <% else %>
       <img src="https://robohash.org/<%=current_user.username%>.png" alt="defaultAvatar" class="rounded-circle avatar orange-stroke" style="width: 130px">
+    <% else %>
+      <% image_tag current_user.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 130px" %>
       <%# image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% end %>
   </div>
