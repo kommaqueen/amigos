@@ -97,9 +97,13 @@ class PlacesController < ApplicationController
   end
 
   def popular
-    popular_places = Place.joins(:check_ins).group(:id).order('count(check_ins.id) desc').limit(5)
+    popular_places = []
+    places = Place.joins(:check_ins).group(:id).order('count(check_ins.id) desc').limit(5)
+    places.each do |place|
+      popular_places << place
+    end
     if popular_places.count < 2
-      popular_places = Place.all.sample(5)
+      popular_places << Place.all.sample(5)
     end
     popular_places
   end
