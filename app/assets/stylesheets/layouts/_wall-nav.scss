@@ -25,12 +25,8 @@
 }
 
 .tab-content > .active {
-  min-height: 200px;
-  // padding: 0.5em;
+  min-height: fit-content;
   border-radius: 10px;
-  // border: 3px solid;
-  margin-top: 5px;
-  margin-bottom: 5px;
   padding: 0 0.5em;
 }
 
