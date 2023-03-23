@@ -37,6 +37,9 @@ class PlacesController < ApplicationController
     @cleanliness = @place.cleanliness
     @condition = @place.condition
     @fun_factor = @place.fun_factor
+    @myacceptedevents = myacceptedevents
+    @myhostedevents = myhostedevents
+    @my_hosted_and_accepted_events = @myacceptedevents + @myhostedevents
   end
 
   def new
@@ -106,5 +109,23 @@ class PlacesController < ApplicationController
       popular_places << Place.all.sample(5)
     end
     popular_places
+  end
+
+  def myacceptedevents
+    invites = Invite.where(status: "accepted").where(receiver: current_user)
+    events = []
+    invites.each do |invite|
+      events << invite.event
+    end
+    events
+  end
+
+  def myhostedevents
+    hosted_events = Invite.where(asker: current_user)
+    events = []
+    hosted_events.each do |hosted_event|
+      events << hosted_event.event
+    end
+    events
   end
 end
