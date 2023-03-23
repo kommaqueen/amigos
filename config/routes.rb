@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :attendances, only: [:new, :create]
   end
 
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:show, :index, :edit, :update] do
     resources :friendships, only: [:create]
   end
 
