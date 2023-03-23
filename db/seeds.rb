@@ -26,7 +26,7 @@ user1 = User.create!(
   username: "kommaqueen",
   email: "deanna@gmail.com",
   password: "123456",
-  bio: "I am super super cool and like kids." * 6,
+  bio: "I'm a parent of a child with a big heart, and I'm constantly inspired by their kindness and empathy for others. They're going to change the world someday, I just know it.",
   location: "Reinickendorf",
   avatar: Faker::Avatar.image
 )
@@ -37,7 +37,7 @@ user2 = User.create!(
   username: "coolmom",
   email: "lucy@gmail.com",
   password: "123456",
-  bio: "I am a super super cool mom and like kids." * 6,
+  bio: "I'm a mom of a toddler, and I love how my child's curiosity about the world around them makes me see things in a new light. Everything is fascinating to them, and it's contagious.",
   location: "Kreuzberg",
   avatar: Faker::Avatar.image
 )
@@ -48,12 +48,37 @@ user3 = User.create!(
   username: "oldpappa",
   email: "caio@gmail.com",
   password: "123456",
-  bio: "I am a super super cool old dad and like kids." * 6,
+  bio: "I'm a parent of a child with a great sense of humor, and I'm constantly laughing thanks to their funny comments and silly antics. Who needs stand-up comedy when you have a kid like mine?",
   location: "Charlottenburg",
   avatar: Faker::Avatar.image
 )
 
-users = [user1, user2, user3]
+user4 = User.create!(
+  first_name: "Brodie",
+  last_name: "White",
+  username: "whitepappa",
+  email: "brodie@gmail.com",
+  password: "123456",
+  bio: "I'm a dad of a toddler, and I love getting down on the floor and playing with my kid. Sure, my knees may hurt afterwards, but it's worth it to see them smile.",
+  location: "Charlottenburg",
+  avatar: Faker::Avatar.image
+)
+
+user5 = User.create!( first_name: "Aria", last_name: "Moon", username: "starrynight", email: "aria@gmail.com", password: "123456", bio: "I'm a mom of two, and I think my kids are the coolest people on the planet. I mean, they inherited my sense of humor, so they must be pretty awesome, right?", location: "Prenzlauer Berg", avatar: Faker::Avatar.image)
+
+user6 = User.create!( first_name: "Max", last_name: "Power", username: "powertothemax", email: "max@gmail.com", password: "123456", bio: "I'm a dad of three, and I love nothing more than hearing my kids' belly laughs. It's like music to my ears.", location: "Friedrichshain", avatar: Faker::Avatar.image)
+
+user7 = User.create!( first_name: "Lena", last_name: "Rose", username: "rosesinbloom", email: "lena@gmail.com", password: "123456", bio: "I'm a mom of a toddler, and I love how their little face lights up when they see me. It's like I'm a rockstar or something.", location: "Neukölln", avatar: Faker::Avatar.image)
+
+user8 = User.create!( first_name: "Oscar", last_name: "Wilde", username: "witandwhimsy", email: "oscar@gmail.com", password: "123456", bio: "I'm a parent of a pre-teen, and I'm constantly amazed by the person my child is becoming. They're smart, kind, and full of potential. I'm just here to cheer them on.", location: "Mitte", avatar: Faker::Avatar.image)
+
+user9 = User.create!( first_name: "Zara", last_name: "Khan", username: "fashionista", email: "zara@gmail.com", password: "123456", bio: "I'm a parent of a creative child, and I'm constantly blown away by their imagination and artistic talent. Maybe I'll have a famous artist in the family someday!", location: "Kreuzberg", avatar: Faker::Avatar.image)
+
+user10 = User.create!( first_name: "Javier", last_name: "Garcia", username: "foodie", email: "javier@gmail.com", password: "123456", bio: "I'm a dad of a sports-loving kid, and I've become an expert at cheering from the sidelines. I may not understand all the rules of the game, but I sure know how to clap and yell.", location: "Schöneberg", avatar: Faker::Avatar.image)
+
+user11 = User.create!( first_name: "Katie", last_name: "Smith", username: "bookworm", email: "katie@gmail.com", password: "123456", bio: "I'm a mom of two teenagers, and I'm grateful every day for the bond we share. We may not always agree on everything, but we're always there for each other. That's what family is all about.", location: "Wedding", avatar: Faker::Avatar.image)
+
+users = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11]
 # adjectives = ["Pirate", "Castle", "Kingdom", "Wonder", "Bounce"]
 # categories = ["spielplatz", "kindercafe", "museum"]
 # ages = ["1-3", "4-7", "7-10", "all"]
