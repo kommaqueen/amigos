@@ -3,7 +3,8 @@
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% else %>
-      <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
+      <% image_tag current_user.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 130px" %>
+      <%# image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% end %>
   </div>
   <div class="greeting">

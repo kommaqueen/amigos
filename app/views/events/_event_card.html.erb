@@ -1,7 +1,7 @@
 <div class="show-event-card toggler-items">
   <div class="event-image">
     <% if event.photo.attached? %>
-      <%= cl_image_tag @event.photo.key, width: 400, height: 300, crop: :fill %>
+      <%= cl_image_tag event.photo.key, width: 400, height: 300, crop: :fill %>
     <% else %>
       <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
     <% end %>
