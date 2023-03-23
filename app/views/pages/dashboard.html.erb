@@ -7,7 +7,7 @@
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
     <% if current_user.photo.attached? %>
-      <% cl_image_tag current_user.photo.key, class: 'rounded-circle avatar pink-stroke', style: "width: 130px" %>
+      <%= cl_image_tag current_user.photo.key, class: 'rounded-circle avatar pink-stroke', style: "width: 130px" %>
       <%# image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% end %>
   </div>
