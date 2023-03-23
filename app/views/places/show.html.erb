@@ -61,9 +61,11 @@
   </div>
 </div>
 
-<p class="text-center tiny">(There have been <%= @check_ins_all.count %> total check-ins here!)</p>
+<% if @check_ins_all.count > 1  %>
+  <p class="text-center tiny">(There have been <%= @check_ins_all.count %> total check-ins here!)</p>
+<% end  %>
 
-<div class="place-description">
+<div class="place-description mt-3">
   <p class="text-justify"><%= @place.description %></p>
 </div>
 
