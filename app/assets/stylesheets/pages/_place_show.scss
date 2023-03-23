@@ -3,7 +3,7 @@
   height: 5%;
   align-items: center;
   justify-content: flex-end;
-  gap: 1em;
+  gap: 1.2em;
 
   position: absolute;
   top: 10px;
@@ -16,8 +16,12 @@
   }
 
   svg {
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
+  }
+
+  .pill {
+    padding: 0.5em;
   }
 
 }
@@ -44,6 +48,7 @@
 
   h1 {
     max-width: 60%;
+    word-wrap: inherit;
   }
 }
 

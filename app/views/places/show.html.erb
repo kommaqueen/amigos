@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
       <div class="<%=current_user.favorited?(@place) ? "un" : "" %>favorite" data-controller="favorite">
         <%= link_to favoriter_place_path(@place), data: { favorite_target: "link" } do %>
-          <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart" data-action="click->favorite#toggled"></i>
+          <i class="<%=current_user.favorited?(@place) ? "fas" : "far" %> fa-heart fs-4" data-action="click->favorite#toggled"></i>
         <% end %>
       </div>
     <% end %>
@@ -19,7 +19,7 @@
     <% end %>
   </div>
 
-  <h1><%= @place.name %></h1>
+  <h1><%= @place.name.titleize %></h1>
   <div class="place-address">
     <p><%= @place.address %></p>
   </div>
