@@ -36,6 +36,7 @@
   font-size: clamp(0.9em, 1em, 1em);
   justify-content: space-around;
   flex-shrink: 0;
+  text-align: center;
 }
 
 .category-card-info a {
@@ -283,6 +284,7 @@ p.description {
   gap: 0.5em;
   overflow: scroll;
   width: 100%;
+  text-align: center;
 
   .subline {
     gap: 3px;
