@@ -169,7 +169,6 @@
           <% end %>
           <div class="category-card-info">
             <%= link_to favorite.name.titleize, place_path(favorite), class: "stretched-link" %>
-            <p class="p-1"><%= favorite.address %></p>
           </div>
           <div class="favorite-marker">
             <%= render "shared/icon", myclass: 'icon--stroke', id: Icon.library(:heart) %>
@@ -201,7 +200,6 @@
             <% end %>
             <div class="category-card-info">
               <%= link_to check_in.place.name.titleize, place_path(check_in.place), class: "stretched-link" %>
-              <p class="p-1"><%= check_in.place.address %></p>
             </div>
             <div class="pill detail bumblebee">
               <p>on <%= check_in.created_at.strftime("%d-%m-%y") %></p>
