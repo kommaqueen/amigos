@@ -17,6 +17,16 @@ class UsersController < ApplicationController
     @mypublicevents = mypublicevents
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
   private
 
   # def myacceptedevents
@@ -27,6 +37,12 @@ class UsersController < ApplicationController
   #   end
   #   events
   # end
+
+  def user_params
+    params.require(:user).permit(
+      :bio
+    )
+  end
 
   def mypublicevents
     attendances = Attendance.where(user: User.find(params[:id]))
