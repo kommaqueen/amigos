@@ -79,10 +79,9 @@
           <%= render "shared/icon", myclass: 'icon--purple', id: Icon.library(:sadface) %>
           <p>Uh-oh! This content is only viewable by an AMIGO!</p>
           <div class="links d-flex w-100 justify-content-center">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-dark" %>
-            <%= link_to "Become an Amigo!", new_user_registration_path, class: "btn btn-dark" %>
+            <%= link_to "Login", new_user_session_path, class: "btn button-small orange" %>
+            <%= link_to "Become an Amigo!", new_user_registration_path, class: "btn button-small blue" %>
           </div>
-
         </div>
     <% end %>
   </div>
