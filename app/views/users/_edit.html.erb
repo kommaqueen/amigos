@@ -1,4 +1,4 @@
 <%= simple_form_for [user] do |f| %>
-  <%= f.input :bio, label: false %>
+  <%= f.input :bio, label: false, :input_html => { :class => "h-100" } %>
   <%= f.button :submit, "Done!", :class => "submit-button-basic w-100" %>
 <% end %>
