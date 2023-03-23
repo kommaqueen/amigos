@@ -71,73 +71,86 @@
   <% end %>
 </div>
 
-<div class="dashboard-section total-space">
-  <h2>Pending Requests </h2>
+<%# PENDING REQUESTS SESSIONS INVITES AND FRIENDS %>
 
-  <%# need logic here for not displaying when empty!! %>
-  <div class="friend-request-box requests category-cards">
+<% if @friendship.any? %>
+  <div class="dashboard-section total-space">
+    <%# need logic here for not displaying when empty!! %>
+    <h2>Friend Requests </h2>
+    <div class="friend-request-box requests category-cards">
 
-    <% @friendship.each do |friend| %>
-      <div class="request-box semi-thick-border-radius friendship">
+      <% @friendship.each do |friend| %>
+        <div class="request-box semi-thick-border-radius friendship">
 
-        <div class="amigo-avatar">
-          <% if friend.asker.photo.attached? %>
-            <%= image_tag friend.asker.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
-          <% else %>
-            <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
-          <% end %>
-          <%= link_to friend.asker.username, user_path(friend.asker), class: "fw-bold" %>
+          <div class="amigo-avatar">
+            <% if friend.asker.photo.attached? %>
+              <%= image_tag friend.asker.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+            <% else %>
+              <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+            <% end %>
+            <%= link_to friend.asker.username, user_path(friend.asker), class: "fw-bold" %>
+          </div>
+
+          <div class="request-buttons">
+            <%= simple_form_for friend do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+              <%= f.submit "Accept", class: "btn button-small success"%>
+            <% end %>
+
+            <%= simple_form_for friend do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+              <%= f.submit "Deny", class: "btn button-small decline"%>
+            <% end %>
+          </div>
+
         </div>
-
-        <div class="request-buttons">
-          <%= simple_form_for friend do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-            <%= f.submit "Accept", class: "btn button-small success"%>
-          <% end %>
-
-          <%= simple_form_for friend do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-            <%= f.submit "Deny", class: "btn button-small decline"%>
-          <% end %>
-        </div>
-
-      </div>
-    <% end %>
-
-  </div>
-
-  <%# need logic here for not displaying when empty!! %>
-  <div class="event-invitation-box requests category-cards">
-
-    <% @invites.each do |invite| %>
-
-      <div class="request-box semi-thick-border-radius invite">
-        <p class="mb-0">Invitation to <span class="fw-bold"><%= invite.event.title %></span></p>
-        <p class="mb-0">on <%= invite.event.start_time.strftime("%a %b %e at %l:%M %p")%></p>
-        <p class="mb-0">from <%= link_to invite.asker.username, user_path(invite.asker), class: "fw-bold" %></p>
-        <p class="description fst-italic text-center">
-          <% words = invite.event.description.split(" ") %>
-          <% preview = words[0..9].join(" ") %>
-          <%= "#{preview}..." %>
-        </p>
-
-        <div class="request-buttons">
-          <%= simple_form_for invite do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-            <%= f.submit "Accept", class: "btn button-small success"%>
-          <% end %>
-
-          <%= simple_form_for invite do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
-            <%= f.submit "Deny", class: "btn button-small decline"%>
-          <% end %>
-        </div>
-      </div>
-
       <% end %>
+
+    </div>
+
+  </div>
+<% end %>
+
+<% if @invites.any? %>
+    <%# need logic here for not displaying when empty!! %>
+  <div class="dashboard-section total-space">
+    <h2>Invite Requests</h2>
+    <div class="event-invitation-box requests category-cards">
+
+      <% @invites.each do |invite| %>
+
+        <div class="request-box semi-thick-border-radius invite">
+          <p class="mb-0">Invitation to <span class="fw-bold"><%= invite.event.title %></span></p>
+          <p class="mb-0">on <%= invite.event.start_time.strftime("%a %b %e at %l:%M %p")%></p>
+          <p class="mb-0">from <%= link_to invite.asker.username, user_path(invite.asker), class: "fw-bold" %></p>
+          <p class="description fst-italic text-center">
+            <% words = invite.event.description.split(" ") %>
+            <% preview = words[0..9].join(" ") %>
+            <%= "#{preview}..." %>
+          </p>
+
+          <div class="request-buttons">
+            <%= simple_form_for invite do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+              <%= f.submit "Accept", class: "btn button-small success"%>
+            <% end %>
+
+            <%= simple_form_for invite do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "denied" } %>
+              <%= f.submit "Deny", class: "btn button-small decline"%>
+            <% end %>
+          </div>
+        </div>
+
+        <% end %>
+    </div>
   </div>
 
-</div>
+<% end %>
+
+
+
+
 
 <div class="dashboard-section total-space">
   <h2>Favorited Places</h2>
