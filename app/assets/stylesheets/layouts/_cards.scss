@@ -256,7 +256,8 @@ p.description {
   margin-bottom: 0;
   width: fit-content;
   height: 190px;
-  max-width: 90vw;
+  // max-width: 90vw;
+  max-width: 70vw;
 
   .event-image {
     width: 100%;
@@ -318,9 +319,7 @@ p.description {
 }
 
 .dashboard-section.attending .show-event-card {
-
   background-color: $color-pinks-pink-3;
-
 }
 
 // Favorite Cards
