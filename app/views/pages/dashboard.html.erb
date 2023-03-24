@@ -211,10 +211,9 @@
         <%= render "events/event_card", event: event %>
       <% end %>
       <% current_user.attendances.each do |attendance| %>
-        <div class="show-event-card toggler-items">
+        <div class="show-event-card toggler-items position-relative">
           <div class="event-image">
             <% if attendance.event.photo.attached? %>
-              <%# cl_image_tag attendance.event.photo.key, width: 400, height: 300, crop: :fill %>
               <%= cl_image_tag attendance.event.photo.key %>
             <% else %>
               <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
