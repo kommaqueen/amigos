@@ -7,9 +7,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_many :places, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :check_ins, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :photo
   validates :username, :bio, :location, presence: true
   validates :username, uniqueness: true
