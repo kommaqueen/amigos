@@ -218,13 +218,15 @@ p.description {
 }
 
 .event-image {
-  height: 100%;
   flex: 1;
   align-self: center;
+  height: 100%;
+  width: 100%;
 }
 
 .event-image img {
   height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
