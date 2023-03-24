@@ -80,8 +80,8 @@
         </div>
 
         <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
-      <% end %>
 
+      <% end %>
       <% @attendees.each do |attendee| %>
         <div class="amigo-avatar">
           <% if attendee.receiver.photo.attached? %>
