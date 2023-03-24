@@ -65,7 +65,7 @@
       <%= render("events/public_attendees", {attendances: @attendances}) %>
     </div>
   </div>
-
+  
 <% else %>
   <div class="event-attendees bottom-space big">
     <h2>Attendees</h2>
@@ -81,7 +81,6 @@
 
         <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
       <% end %>
-
       <% @attendees.each do |attendee| %>
         <div class="amigo-avatar">
           <% if attendee.receiver.photo.attached? %>
