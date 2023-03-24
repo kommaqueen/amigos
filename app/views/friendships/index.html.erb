@@ -13,7 +13,7 @@
           <% if chat.asker == current_user %>
 
             <% if chat.receiver.photo.attached? %>
-              <%= image_tag chat.receiver.photo, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+              <%= cl_image_tag chat.receiver.photo.key, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
             <% else %>
               <%= image_tag chat.receiver.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
             <% end %>
@@ -25,7 +25,7 @@
           <% else %>
 
             <% if chat.asker.photo.attached? %>
-              <%= image_tag chat.asker.photo, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
+              <%= cl_image_tag chat.asker.photo.key, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
             <% else %>
               <%= image_tag chat.asker.avatar, class: 'rounded-circle avatar orange-stroke mini', style: "width: 40px" %>
             <% end %>

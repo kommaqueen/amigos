@@ -27,7 +27,8 @@ html {
   position: relative;
   width: 100%;
   // height: calc(100vh - 132px);
-  height: calc(100vh - 120px);
+  // height: calc(100vh - 120px);
+  height: calc(100dvh - 120px);
 }
 
 .bottom-space {
@@ -96,10 +97,8 @@ html {
   // grid-template-rows: repeat(2, 1fr);
   grid-template-rows: auto auto;
   grid-column-gap: 0.5em;
-  grid-row-gap: 1em;
+  grid-row-gap: 1.5em;
   justify-items: center;
-  width: 95%;
-  // margin: 0 auto;
   margin: 2em auto;
 }
 

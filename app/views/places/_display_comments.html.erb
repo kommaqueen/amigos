@@ -1,7 +1,7 @@
 <div class="toggler-items mb-2 comment-box">
   <div class="amigo-avatar comment">
     <% if comment.user.photo.attached? %>
-      <%= image_tag comment.user.photo, class: 'rounded-circle avatar blue-stroke mini', style: "width: 40px" %>
+      <%= cl_image_tag comment.user.photo.key, class: 'rounded-circle avatar blue-stroke mini', style: "width: 40px" %>
     <% else %>
       <%= image_tag comment.user.avatar, class: 'rounded-circle avatar blue-stroke mini', style: "width: 40px" %>
     <% end %>

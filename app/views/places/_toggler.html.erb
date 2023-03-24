@@ -26,7 +26,7 @@
           <hr>
         <% end %>
         <div class="comment-form col-12" >
-          <p>Add your comment to the wall:</p>
+          <p class="px-1">Add your comment to the wall:</p>
           <%= render partial: "places/comment_form", locals: {place: @place, comment: @comment } %>
         </div>
       </div>
@@ -68,7 +68,7 @@
             <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
           </div>
           <% else %>
-          <p>You should at least check in once to leave a review!</p>
+          <p class="px-1 pb-3">You should at least check in once to leave a review!</p>
         <% end %>
       </div>
 

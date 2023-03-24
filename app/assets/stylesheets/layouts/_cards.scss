@@ -204,7 +204,7 @@
   font-size: .7em;
   flex: 2;
   padding: 0 0.5em;
-  position: relative;
+  // position: relative;
 }
 
 p.description {
@@ -218,13 +218,15 @@ p.description {
 }
 
 .event-image {
-  height: 100%;
   flex: 1;
   align-self: center;
+  height: 100%;
+  width: 100%;
 }
 
 .event-image img {
   height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -256,7 +258,8 @@ p.description {
   margin-bottom: 0;
   width: fit-content;
   height: 190px;
-  max-width: 90vw;
+  // max-width: 90vw;
+  max-width: 70vw;
 
   .event-image {
     width: 100%;
@@ -318,9 +321,7 @@ p.description {
 }
 
 .dashboard-section.attending .show-event-card {
-
   background-color: $color-pinks-pink-3;
-
 }
 
 // Favorite Cards

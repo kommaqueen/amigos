@@ -80,12 +80,12 @@
         </div>
 
         <%= render("events/modal_invite", {event: @event, invite: @invite}) %>
-      <% end %>
 
+      <% end %>
       <% @attendees.each do |attendee| %>
         <div class="amigo-avatar">
           <% if attendee.receiver.photo.attached? %>
-            <%= image_tag attendee.receiver.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+            <%= cl_image_tag attendee.receiver.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
           <% else %>
             <%= image_tag attendee.receiver.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
           <% end %>

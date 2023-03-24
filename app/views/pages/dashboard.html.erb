@@ -1,15 +1,8 @@
-<%# <div class="dashboard-nav"> %>
-  <%# render "shared/icon", myclass: 'icon--pink', id: Icon.library(:heart) %>
-  <%# render "shared/icon", myclass: 'icon--orange', id: Icon.library(:envelope) %>
-  <%# render "shared/icon", myclass: 'icon--yellow', id: Icon.library(:bell) %>
-<%# </div> %>
-
 <div class="profile-head text-center upper-space">
   <div class="avatar-box bottom-space-small">
     <% if current_user.photo.attached? %>
-      <%= image_tag current_user.photo, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
-    <% else %>
-      <%= image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
+      <%= cl_image_tag current_user.photo.key, class: 'rounded-circle avatar pink-stroke', style: "width: 130px" %>
+      <%# image_tag current_user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 130px" %>
     <% end %>
   </div>
   <div class="greeting">
@@ -48,7 +41,7 @@
         <% if current_user == f.asker %>
           <div class="amigo-avatar position-relative">
             <% if f.receiver.photo.attached? %>
-              <%= image_tag f.receiver.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+              <%= cl_image_tag f.receiver.photo.key, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% else %>
               <%= image_tag f.receiver.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
             <% end %>
@@ -57,7 +50,7 @@
           <% elsif current_user == f.receiver %>
             <div class="amigo-avatar position-relative">
               <% if f.asker.photo.attached? %>
-                <%= image_tag f.asker.photo, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
+                <%= cl_image_tag f.asker.photo.key, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% else %>
                 <%= image_tag f.asker.avatar, class: 'rounded-circle avatar green-stroke', style: "width: 60px" %>
               <% end %>
@@ -84,7 +77,7 @@
 
           <div class="amigo-avatar">
             <% if friend.asker.photo.attached? %>
-              <%= image_tag friend.asker.photo, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
+              <%= cl_image_tag friend.asker.photo.key, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
             <% else %>
               <%= image_tag friend.asker.avatar, class: 'rounded-circle avatar pink-stroke', style: "width: 60px" %>
             <% end %>
@@ -212,33 +205,37 @@
 <div class="dashboard-section total-space">
   <h2>Upcoming Events</h2>
 
-  <div class="dashboard-events">
-    <% @sortedevents.each do |event| %>
-      <%= render "events/event_card", event: event %>
-    <% end %>
-    <% current_user.attendances.each do |attendance| %>
-      <div class="show-event-card toggler-items">
-        <div class="event-image">
-          <% if attendance.event.photo.attached? %>
-            <%= cl_image_tag attendance.event.photo.key, width: 400, height: 300, crop: :fill %>
-          <% else %>
-            <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
-          <% end %>
-      </div>
+  <% unless @sortedevents.empty? %>
+    <div class="dashboard-events">
+      <% @sortedevents.each do |event| %>
+        <%= render "events/event_card", event: event %>
+      <% end %>
+      <% current_user.attendances.each do |attendance| %>
+        <div class="show-event-card toggler-items position-relative">
+          <div class="event-image">
+            <% if attendance.event.photo.attached? %>
+              <%= cl_image_tag attendance.event.photo.key %>
+            <% else %>
+              <%= cl_image_tag("confetti_bg_a4khq6.jpg") %>
+            <% end %>
+        </div>
 
-      <div class="event-info">
-        <div class="subline">
-          <p><%= attendance.event.start_time.strftime("%A, %b %d") %></p>
-          <p>by <%= link_to attendance.event.user.username, user_path(attendance.user) %>
+        <div class="event-info">
+          <div class="subline">
+            <p><%= attendance.event.start_time.strftime("%A, %b %d") %></p>
+            <p>by <%= link_to attendance.event.user.username, user_path(attendance.user) %>
+          </div>
+          <h2><%= link_to attendance.event.title, event_path(attendance.event) %></h2>
+            <p class="description">
+              <% words = attendance.event.description.split(" ") %>
+              <% preview = words[0..9].join(" ") %>
+              <%= "#{preview}..." %>
+            </p>
+          </div>
         </div>
-        <h2><%= link_to attendance.event.title, event_path(attendance.event) %></h2>
-          <p class="description">
-            <% words = attendance.event.description.split(" ") %>
-            <% preview = words[0..9].join(" ") %>
-            <%= "#{preview}..." %>
-          </p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+    <% else %>
+    <p>No upcoming events 😔 </p>
+  <% end %>
 </div>
