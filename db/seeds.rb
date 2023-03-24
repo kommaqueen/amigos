@@ -244,16 +244,135 @@ file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267038/m
 futurium.photos.attach(io: file, filename: "futurium_nogoxa.jpg", content_type: "image/jpg")
 futurium.save!
 
+the_playground = Place.create!(
+  name: "The Playground",
+  category: "playground",
+  address: "Schönfließer Str. 7, 10439 Berlin",
+  description: "The Playground is a large indoor play center with a variety of equipment for children to climb on, slide down and jump over. There is also a separate area for toddlers and a cafe for parents to relax and enjoy a coffee.",
+  published: true,
+  age_range: "0-12",
+  user: users.sample
+)
+
+file = URI.open("")
+the_playground.photos.attach(io: file, filename: "", content_type: "image/jpg")
+the_playground.save!
+
+little_farmers_cafe = Place.create!(
+  name: "Little Farmers Cafe",
+  category: "cafe",
+  address: "Graefestr. 87, 10967 Berlin",
+  description: "Little Farmers Cafe is a child-friendly cafe with a play area for kids. The menu offers healthy and delicious food options for both parents and children. The cafe also hosts events such as story time and crafting workshops.",
+  published: true,
+  age_range: "0-6",
+  user: users.sample
+)
+
+file = URI.open("")
+little_farmers_cafe.photos.attach(io: file, filename: "", content_type: "image/jpg")
+little_farmers_cafe.save!
+
+the_toy_box = Place.create!(
+  name: "The Toy Box",
+  category: "play area",
+  address: "Mehringdamm 34, 10961 Berlin",
+  description: "The Toy Box is a large indoor play area for children aged 0-10. It has a variety of climbing frames, ball pits, and slides for children to explore. There is also a cafe for parents to relax and watch their children play.",
+  published: true,
+  age_range: "0-10",
+  user: users.sample
+)
+
+file = URI.open("")
+the_toy_box.photos.attach(io: file, filename: "", content_type: "image/jpg")
+the_toy_box.save!
+
+little_treasure_trove = Place.create!(
+  name: "Little Treasure Trove",
+  category: "play cafe",
+  address: "Kopenhagener Str. 2, 10437 Berlin",
+  description: "Little Treasure Trove is a play cafe with a variety of toys and games for children aged 0-6. It also offers healthy and delicious food options for both parents and children. The cafe hosts events such as story time and music classes.",
+  published: true,
+  age_range: "0-6",
+  user: users.sample
+)
+
+file = URI.open("")
+little_treasure_trove.photos.attach(io: file, filename: "", content_type: "image/jpg")
+little_treasure_trove.save!
+
+friedrichshain_playground = Place.create!(
+  name: "Friedrichshain Playground",
+  category: "playground",
+  address: "Grünberger Str. 74, 10245 Berlin",
+  description: "This playground is located in the heart of Friedrichshain, and features a variety of play structures and equipment for kids of all ages.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("")
+friedrichshain_playground.photos.attach(io: file, filename: "", content_type: "image/jpg")
+friedrichshain_playground.save!
+
+mama_kalo = Place.create!(
+  name: "Mama Kalo Cafe",
+  category: "cafe",
+  address: "Kopenhagener Str. 14, 10437 Berlin",
+  description: "This cozy cafe in Prenzlauer Berg has a play area for kids and serves delicious coffee and snacks for parents.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("")
+mama_kalo.photos.attach(io: file, filename: "", content_type: "image/jpg")
+mama_kalo.save!
+
+schloss = Place.create!(
+  name: "Schlosspark Playground",
+  category: "playground",
+  address: "Schlosspark, 14059 Berlin",
+  description: "Located in the beautiful Schlosspark, this playground has a variety of structures and equipment for kids to play on.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("")
+schloss.photos.attach(io: file, filename: "", content_type: "image/jpg")
+schloss.save!
+
+hops_barley = Place.create!(
+  name: "Hops & Barley Kids Cafe",
+  category: "cafe",
+  address: "Wühlischstr. 22/23, 10245 Berlin",
+  description: "This cafe in Friedrichshain has a play area for kids and serves delicious food and drinks for parents.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("")
+hops_barley.photos.attach(io: file, filename: "", content_type: "image/jpg")
+hops_barley.save!
+
+jump_berlin = Place.create!(
+  name: "Jump Berlin Indoor Playground",
+  category: "indoor playground",
+  address: "Rudower Str. 100, 12351 Berlin",
+  description: "Jump Berlin is an indoor playground with trampolines, ball pits, slides, and other fun play areas for kids.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("")
+jump_berlin.photos.attach(io: file, filename: "jump_berlin_nogoxa.jpg", content_type: "image/jpg")
+jump_berlin.save!
+
+
 file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267038/museums/exhibition1_gwgvsu.jpg")
 futurium.photos.attach(io: file, filename: "exhibition1_gwgvsu.jpg", content_type: "image/jpg")
-futurium.save!
-
-file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267038/museums/exhibition2_tqqxij.jpg")
-futurium.photos.attach(io: file, filename: "exhibition2_tqqxij.jpg", content_type: "image/jpg")
-futurium.save!
-
-file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267039/museums/exhibition3_spsb00.jpg")
-futurium.photos.attach(io: file, filename: "exhibition3_spsb00.jpg", content_type: "image/jpg")
 futurium.save!
 
 labyrinth = Place.create!(
@@ -391,9 +510,9 @@ event = Event.create(
 )
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 6, 10, 12, 0, 0, "+02:00"),
-  end_time: Time.new(2023, 6, 10, 14, 0, 0, '+02:00') + rand(3).hour,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'picnic',
   title: "Sarah's Picnic!",
   description: 'Join us for a fun afternoon of games and food in Tiergarten!',
@@ -403,9 +522,9 @@ event = Event.create(
 # Seed for a picnic in the park
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 8, 12, 12, 0, 0, "+02:00"),
-  end_time: Time.new(2023, 8, 12, 15, 0, 0, "+02:00"),
+  place: ,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'picnic',
   title: "Ava's Picnic!",
   description: "Join us for a fun afternoon of games and food in the park!",
@@ -415,9 +534,9 @@ event = Event.create(
 # Seed for a playdate at our favourite cafe
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 7, 20, 10, 0, 0, "+02:00"),
-  end_time: Time.new(2023, 7, 20, 13, 0, 0, "+02:00"),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'playdate',
   title: "Noah's Playdate at Our Favourite Cafe",
   description: "Bring your little ones for some playtime and snacks at our favourite cafe!",
@@ -427,9 +546,9 @@ event = Event.create(
 # Seed for a birthday party at the play center
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 6, 15, 14, 0, 0, "+02:00"),
-  end_time: Time.new(2023, 6, 15, 17, 0, 0, "+02:00"),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'birthday',
   title: "Ethan's Birthday Bash at the Play Center",
   description: "Come celebrate Ethan's birthday with us at the play center! There will be plenty of fun games and activities for kids of all ages!",
@@ -437,9 +556,9 @@ event = Event.create(
 )
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 6, 3, 10),
-  end_time: Time.new(2023, 6, 3, 13),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'scavenger hunt',
   title: "Oliver's Scavenger Hunt Adventure in the City",
   description: "Join us for an exciting scavenger hunt adventure in the city! Solve clues, complete challenges, and have fun!",
@@ -449,9 +568,9 @@ event = Event.create(
   # Seed for a story time session
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 7, 12, 11, 0, 0, '+02:00'),
-  end_time: Time.new(2023, 7, 12, 12, 0, 0, '+02:00'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'story time',
   title: "Story Time with the Kids",
   description: "Let's gather at the library and enjoy some great stories together.",
@@ -461,9 +580,9 @@ event = Event.create(
 # Seed for a puppet show
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 7, 15, 14, 0, 0, '+02:00'),
-  end_time: Time.new(2023, 7, 15, 15, 0, 0, '+02:00'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'puppet show',
   title: "Puppet Show for the Kids",
   description: "Come join us for a fun puppet show at the park.",
@@ -473,19 +592,19 @@ event = Event.create(
 # Seed for a playdate at the playground
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 7, 18, 10, 0, 0, '+02:00'),
-  end_time: Time.new(2023, 7, 18, 12, 0, 0, '+02:00'),
-  category: 'play date',
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
   title: "Playdate at the Playground",
   description: "Let's meet up at our favourite playground",
   public: false
 )
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 4, 1, 14, 0, 0, '+2'),
-  end_time: Time.new(2023, 4, 1, 17, 0, 0, '+2'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'playdate',
   title: "Kids Playdate in the Park",
   description: "Join us for a fun afternoon in the park! We'll have games, snacks and lots of fun!",
@@ -494,9 +613,9 @@ event = Event.create(
 
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 4, 7, 15, 30, 0, '+2'),
-  end_time: Time.new(2023, 4, 7, 17, 30, 0, '+2'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'art',
   title: "Children's Art Workshop",
   description: "Join us for an afternoon of creativity! We'll be making art and having fun together!",
@@ -505,9 +624,9 @@ event = Event.create(
 
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: Time.new(2023, 4, 15, 10, 0, 0, '+2'),
-  end_time: Time.new(2023, 4, 15, 12, 0, 0, '+2'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'birthday',
   title: "Emily's 5th Birthday Party",
   description: "Come celebrate Emily's 5th birthday with us! We'll have cake, games and lots of fun!",
@@ -516,9 +635,9 @@ event = Event.create(
 
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: DateTime.new(2023, 4, 22, 13, 0, 0, '+2'),
-  end_time: DateTime.new(2023, 4, 22, 16, 0, 0, '+2'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'music',
   title: "Kids Music Jam Session",
   description: "Let's make some music together! Bring your instruments and join us for a fun jam session!",
@@ -527,10 +646,10 @@ event = Event.create(
 
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: DateTime.new(2023, 5, 1, 11, 0, 0, '+2'),
-  end_time: DateTime.new(2023, 5, 1, 13, 0, 0, '+2'),
-  category: 'sports',
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'sport',
   title: "Soccer Game in the Park",
   description: "Let's play some soccer together in the park! All skill levels welcome!",
   public: false
@@ -538,9 +657,9 @@ event = Event.create(
 
 event = Event.create(
   user: User.all.sample,
-  place: nil,
-  start_time: DateTime.new(2023, 5, 8, 14, 0, 0, '+2'),
-  end_time: DateTime.new(2023, 5, 8, 17, 0, 0, '+2'),
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
   category: 'playdate',
   title: "Playdate at the Indoor Playground",
   description: "Come play with us at our favourite indoor playground! We'll have fun and make new friends!",
