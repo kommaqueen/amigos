@@ -1,14 +1,18 @@
 <div data-attendances-target="attendees">
-  <div class="amigos-box">
-    <% @attendances.where(event: @event).each do |attendance| %>
-      <div class="amigo-avatar">
-        <% if attendance.user.photo.attached? %>
-          <%= cl_image_tag attendance.user.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
-        <% else %>
-          <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
-        <% end %>
-        <%= link_to attendance.user.username, user_path(attendance.user), class: "fw-bold" %>
-      </div>
-    <% end %>
-  </div>
+  <% unless @attendances.empty? %>
+    <div class="amigos-box">
+      <% @attendances.where(event: @event).each do |attendance| %>
+        <div class="amigo-avatar">
+          <% if attendance.user.photo.attached? %>
+            <%= cl_image_tag attendance.user.photo.key, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+          <% else %>
+            <%= image_tag attendance.user.avatar, class: 'rounded-circle avatar orange-stroke', style: "width: 60px" %>
+          <% end %>
+          <%= link_to attendance.user.username, user_path(attendance.user), class: "fw-bold" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+  <p>No attendees yet! 😔</p>
+  <% end  %>
 </div>
