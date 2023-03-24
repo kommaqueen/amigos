@@ -186,6 +186,90 @@ file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678265415/p
 pirate.photos.attach(io: file, filename: "pirate_pkwuiw.jpg", content_type: "image/jpg")
 pirate.save!
 
+schloss = Place.create!(
+  name: "Schlosspark Playground",
+  category: "playground",
+  address: "Schlosspark, 14059 Berlin",
+  description: "Located in the beautiful Schlosspark, this playground has a variety of structures and equipment for kids to play on.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679669778/playground/schloss_qmgmya.jpg")
+schloss.photos.attach(io: file, filename: "schloss_qmgmya.jpg", content_type: "image/jpg")
+schloss.save!
+
+arkonaplatz = Place.create!(
+  name: "Arkonaplatz",
+  category: "playground",
+  address: "Arkonaplatz 1, 10435 Berlin",
+  description: "This playground features a large sandbox, swings, climbing equipment, and a slide.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679670473/playground/arkonaplatz_wzzml8.jpg")
+arkonaplatz.photos.attach(io: file, filename: "arkonaplatz_wzzml8.jpg", content_type: "image/jpg")
+arkonaplatz.save!
+
+mauerpark = Place.create!(
+  name: "Mauerpark Spielplatz",
+  category: "playground",
+  address: "Gleimstraße 55, 10437 Berlin",
+  description: "Located within the popular Mauerpark, this playground has swings, a seesaw, a zip line, and a large climbing structure.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679670662/playground/mauerpark_jxyoch.jpg")
+mauerpark.photos.attach(io: file, filename: "mauerpark_jxyoch.jpg", content_type: "image/jpg")
+mauerpark.save!
+
+monbijur = Place.create!(
+  name: "Monbijoupark Spielplatz",
+  category: "playground",
+  address: "Monbijoustraße 3, 10117 Berlin",
+  description: "This playground features a sandbox, swings, a seesaw, and a small slide. It's located in a beautiful park that's also home to a popular outdoor swimming pool.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679670792/playground/monbijur_q8cbst.jpg")
+monbijur.photos.attach(io: file, filename: "monbijur_q8cbst.jpg", content_type: "image/jpg")
+monbijur.save!
+
+nord = Place.create!(
+  name: "Nordbahnhof Spielplatz",
+  category: "playground",
+  address: "Invalidenstraße 130, 10115 Berlin",
+  description: "This playground includes a large climbing structure, a zip line, swings, and a sandbox.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679671132/playground/nordbanhof_j5htrp.png")
+nord.photos.attach(io: file, filename: "nordbanhof_j5htrp.png", content_type: "image/jpg")
+nord.save!
+
+bunde = Place.create!(
+  name: "Spielplatz am Bundesplatz",
+  category: "playground",
+  address: "Bundesplatz 10715 Berlin",
+  description: "This playground includes a sandbox, a slide, and several climbing structures.",
+  published: true,
+  age_range: "all",
+  user: users.sample
+)
+
+file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1679671348/playground/bundesplatz_qwt485.jpg")
+bunde.photos.attach(io: file, filename: "bundesplatz_qwt485.jpg", content_type: "image/jpg")
+bunde.save!
+
 # museum category
 
 anoah = Place.create!(
@@ -243,133 +327,6 @@ futurium = Place.create!(
 file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267038/museums/futurium_nogoxa.jpg")
 futurium.photos.attach(io: file, filename: "futurium_nogoxa.jpg", content_type: "image/jpg")
 futurium.save!
-
-the_playground = Place.create!(
-  name: "The Playground",
-  category: "playground",
-  address: "Schönfließer Str. 7, 10439 Berlin",
-  description: "The Playground is a large indoor play center with a variety of equipment for children to climb on, slide down and jump over. There is also a separate area for toddlers and a cafe for parents to relax and enjoy a coffee.",
-  published: true,
-  age_range: "0-12",
-  user: users.sample
-)
-
-file = URI.open("")
-the_playground.photos.attach(io: file, filename: "", content_type: "image/jpg")
-the_playground.save!
-
-little_farmers_cafe = Place.create!(
-  name: "Little Farmers Cafe",
-  category: "cafe",
-  address: "Graefestr. 87, 10967 Berlin",
-  description: "Little Farmers Cafe is a child-friendly cafe with a play area for kids. The menu offers healthy and delicious food options for both parents and children. The cafe also hosts events such as story time and crafting workshops.",
-  published: true,
-  age_range: "0-6",
-  user: users.sample
-)
-
-file = URI.open("")
-little_farmers_cafe.photos.attach(io: file, filename: "", content_type: "image/jpg")
-little_farmers_cafe.save!
-
-the_toy_box = Place.create!(
-  name: "The Toy Box",
-  category: "play area",
-  address: "Mehringdamm 34, 10961 Berlin",
-  description: "The Toy Box is a large indoor play area for children aged 0-10. It has a variety of climbing frames, ball pits, and slides for children to explore. There is also a cafe for parents to relax and watch their children play.",
-  published: true,
-  age_range: "0-10",
-  user: users.sample
-)
-
-file = URI.open("")
-the_toy_box.photos.attach(io: file, filename: "", content_type: "image/jpg")
-the_toy_box.save!
-
-little_treasure_trove = Place.create!(
-  name: "Little Treasure Trove",
-  category: "play cafe",
-  address: "Kopenhagener Str. 2, 10437 Berlin",
-  description: "Little Treasure Trove is a play cafe with a variety of toys and games for children aged 0-6. It also offers healthy and delicious food options for both parents and children. The cafe hosts events such as story time and music classes.",
-  published: true,
-  age_range: "0-6",
-  user: users.sample
-)
-
-file = URI.open("")
-little_treasure_trove.photos.attach(io: file, filename: "", content_type: "image/jpg")
-little_treasure_trove.save!
-
-friedrichshain_playground = Place.create!(
-  name: "Friedrichshain Playground",
-  category: "playground",
-  address: "Grünberger Str. 74, 10245 Berlin",
-  description: "This playground is located in the heart of Friedrichshain, and features a variety of play structures and equipment for kids of all ages.",
-  published: true,
-  age_range: "all",
-  user: users.sample
-)
-
-file = URI.open("")
-friedrichshain_playground.photos.attach(io: file, filename: "", content_type: "image/jpg")
-friedrichshain_playground.save!
-
-mama_kalo = Place.create!(
-  name: "Mama Kalo Cafe",
-  category: "cafe",
-  address: "Kopenhagener Str. 14, 10437 Berlin",
-  description: "This cozy cafe in Prenzlauer Berg has a play area for kids and serves delicious coffee and snacks for parents.",
-  published: true,
-  age_range: "all",
-  user: users.sample
-)
-
-file = URI.open("")
-mama_kalo.photos.attach(io: file, filename: "", content_type: "image/jpg")
-mama_kalo.save!
-
-schloss = Place.create!(
-  name: "Schlosspark Playground",
-  category: "playground",
-  address: "Schlosspark, 14059 Berlin",
-  description: "Located in the beautiful Schlosspark, this playground has a variety of structures and equipment for kids to play on.",
-  published: true,
-  age_range: "all",
-  user: users.sample
-)
-
-file = URI.open("")
-schloss.photos.attach(io: file, filename: "", content_type: "image/jpg")
-schloss.save!
-
-hops_barley = Place.create!(
-  name: "Hops & Barley Kids Cafe",
-  category: "cafe",
-  address: "Wühlischstr. 22/23, 10245 Berlin",
-  description: "This cafe in Friedrichshain has a play area for kids and serves delicious food and drinks for parents.",
-  published: true,
-  age_range: "all",
-  user: users.sample
-)
-
-file = URI.open("")
-hops_barley.photos.attach(io: file, filename: "", content_type: "image/jpg")
-hops_barley.save!
-
-jump_berlin = Place.create!(
-  name: "Jump Berlin Indoor Playground",
-  category: "indoor playground",
-  address: "Rudower Str. 100, 12351 Berlin",
-  description: "Jump Berlin is an indoor playground with trampolines, ball pits, slides, and other fun play areas for kids.",
-  published: true,
-  age_range: "all",
-  user: users.sample
-)
-
-file = URI.open("")
-jump_berlin.photos.attach(io: file, filename: "jump_berlin_nogoxa.jpg", content_type: "image/jpg")
-jump_berlin.save!
-
 
 file = URI.open("https://res.cloudinary.com/doztalggg/image/upload/v1678267038/museums/exhibition1_gwgvsu.jpg")
 futurium.photos.attach(io: file, filename: "exhibition1_gwgvsu.jpg", content_type: "image/jpg")
@@ -480,34 +437,35 @@ wunderland.save!
 #create some events
 puts "creating new events"
 
-event_categories = ["birthday", "picnic", "social", "playdate", "other"]
+# event_categories = ["birthday", "picnic", "social", "playdate", "other"]
 time = Time.now + rand(5).day + rand(5).hour
 
-20.times do
-  category = event_categories.sample
-  event = Event.create(
-    user: User.all.sample,
-    place: Place.all.sample,
-    start_time: time,
-    end_time: time + rand(3).hour,
-    category: category,
-    title: "#{Faker::FunnyName.name}'s #{category.capitalize}",
-    description: Faker::Hipster.sentence * 5,
-    public: true
-  )
-  puts "added new event named #{event.title}"
-end
+# 20.times do
+#   category = event_categories.sample
+#   event = Event.create(
+#     user: User.all.sample,
+#     place: Place.all.sample,
+#     start_time: time,
+#     end_time: time + rand(3).hour,
+#     category: category,
+#     title: "#{Faker::FunnyName.name}'s #{category.capitalize}",
+#     description: Faker::Hipster.sentence * 5,
+#     public: true
+#   )
+#   puts "added new event named #{event.title}"
+# end
 
-event = Event.create(
-  user: User.all.sample,
-  place: Place.all.sample,
-  start_time: time,
-  end_time: time + rand(3).hour,
-  category: 'picnic',
-  title: "#{Faker::FunnyName.name}'s Picnic!",
-  description: Faker::Hipster.sentence * 5,
-  public: false
-)
+# event = Event.create(
+#   user: User.all.sample,
+#   place: Place.all.sample,
+#   start_time: time,
+#   end_time: time + rand(3).hour,
+#   category: 'picnic',
+#   title: "#{Faker::FunnyName.name}'s Picnic!",
+#   description: Faker::Hipster.sentence * 5,
+#   public: false
+# )
+
 event = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
@@ -515,14 +473,16 @@ event = Event.create(
   end_time: time + rand(3).hour,
   category: 'picnic',
   title: "Sarah's Picnic!",
-  description: 'Join us for a fun afternoon of games and food in Tiergarten!',
+  description: 'Join us for a fun afternoon of games and food!',
   public: true
 )
 
+puts "added new event named #{event.title}"
+
 # Seed for a picnic in the park
-event = Event.create(
+event1 = Event.create(
   user: User.all.sample,
-  place: ,
+  place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'picnic',
@@ -530,99 +490,120 @@ event = Event.create(
   description: "Join us for a fun afternoon of games and food in the park!",
   public: true
 )
+puts "added new event named #{event1.title}"
 
-# Seed for a playdate at our favourite cafe
-event = Event.create(
+# # Seed for a playdate at our favourite cafe
+event2 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'playdate',
-  title: "Noah's Playdate at Our Favourite Cafe",
-  description: "Bring your little ones for some playtime and snacks at our favourite cafe!",
+  title: "Noah's Playdate",
+  description: "Bring your little ones for some playtime and snacks at our favourite place!",
   public: true
 )
+puts "added new event named #{event2.title}"
 
-# Seed for a birthday party at the play center
-event = Event.create(
+
+
+# # Seed for a birthday party at the play center
+event3 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'birthday',
-  title: "Ethan's Birthday Bash at the Play Center",
+  title: "Ethan's Birthday",
   description: "Come celebrate Ethan's birthday with us at the play center! There will be plenty of fun games and activities for kids of all ages!",
-  public: true
+  public: false
 )
-event = Event.create(
+
+puts "added new event named #{event3.title}"
+
+event4 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
-  category: 'scavenger hunt',
-  title: "Oliver's Scavenger Hunt Adventure in the City",
+  category: "other",
+  title: "Oliver's Scavenger Hunt ",
   description: "Join us for an exciting scavenger hunt adventure in the city! Solve clues, complete challenges, and have fun!",
   public: false
 )
 
-  # Seed for a story time session
-event = Event.create(
+puts "added new event named #{event4.title}"
+
+#   # Seed for a story time session
+event5 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
-  category: 'story time',
+  category: 'other',
   title: "Story Time with the Kids",
   description: "Let's gather at the library and enjoy some great stories together.",
   public: false
 )
 
-# Seed for a puppet show
-event = Event.create(
+puts "added new event named #{event5.title}"
+
+# # Seed for a puppet show
+event6 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
-  category: 'puppet show',
+  category: 'other',
   title: "Puppet Show for the Kids",
-  description: "Come join us for a fun puppet show at the park.",
+  description: "Come join us for a fun puppet show! I am pretty sure you will enjoy!",
   public: true
 )
 
-# Seed for a playdate at the playground
-event = Event.create(
+puts "added new event named #{event6.title}"
+
+# # Seed for a playdate at the playground
+event7 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'playdate',
-  title: "Playdate at the Playground",
-  description: "Let's meet up at our favourite playground",
+  title: "Playdate time!!",
+  description: "Let's meet up at our favourite playarea! We will have a lot o fun and food! ",
   public: false
 )
-event = Event.create(
+
+puts "added new event named #{event7.title}"
+
+
+event8 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'playdate',
-  title: "Kids Playdate in the Park",
+  title: "Kids Playdate",
   description: "Join us for a fun afternoon in the park! We'll have games, snacks and lots of fun!",
   public: true
 )
 
-event = Event.create(
+puts "added new event named #{event8.title}"
+
+event9 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
-  category: 'art',
+  category: 'playdate',
   title: "Children's Art Workshop",
   description: "Join us for an afternoon of creativity! We'll be making art and having fun together!",
   public: false
 )
 
-event = Event.create(
+puts "added new event named #{event9.title}"
+
+event10 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
@@ -632,39 +613,48 @@ event = Event.create(
   description: "Come celebrate Emily's 5th birthday with us! We'll have cake, games and lots of fun!",
   public: true
 )
+puts "added new event named #{event10.title}"
 
-event = Event.create(
+event11 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
-  category: 'music',
+  category: 'other',
   title: "Kids Music Jam Session",
   description: "Let's make some music together! Bring your instruments and join us for a fun jam session!",
   public: false
   )
 
-event = Event.create(
-  user: User.all.sample,
-  place: Place.all.sample,
-  start_time: time,
-  end_time: time + rand(3).hour,
-  category: 'sport',
-  title: "Soccer Game in the Park",
-  description: "Let's play some soccer together in the park! All skill levels welcome!",
-  public: false
-  )
+puts "added new event named #{event11.title}"
 
-event = Event.create(
+
+event12 = Event.create(
   user: User.all.sample,
   place: Place.all.sample,
   start_time: time,
   end_time: time + rand(3).hour,
   category: 'playdate',
-  title: "Playdate at the Indoor Playground",
+  title: "Soccer Game in the Park",
+  description: "Let's play some soccer together in the park! All skill levels welcome!",
+  public: false
+  )
+
+puts "added new event named #{event12.title}"
+
+
+event13 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Time for play!",
   description: "Come play with us at our favourite indoor playground! We'll have fun and make new friends!",
   public: false
   )
+
+puts "added new event named #{event13.title}"
 
 
   # user: User.all.sample,
@@ -675,4 +665,3 @@ event = Event.create(
   # title: "#{Faker::FunnyName.name}'s Picnic!",
   # description: Faker::Hipster.sentence * 5,
   # public: false
-puts "added new event named #{event.title}"
