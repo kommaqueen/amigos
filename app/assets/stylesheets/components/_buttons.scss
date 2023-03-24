@@ -39,7 +39,7 @@
   border: 2px solid black;
   font-family: Dosis;
   font-weight: bolder;
-  max-width: 175px;
+  // max-width: 175px;
 }
 
 .button-basic-blue {
@@ -94,11 +94,15 @@
 }
 
 .button-box {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  // grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    // width: 90px;
+    max-width: 100px;
+    min-width: fit-content;
+    min-width: 80px;
+  }
 }
 
 .cta-big {
