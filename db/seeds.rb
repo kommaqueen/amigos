@@ -480,151 +480,181 @@ event = Event.create(
 puts "added new event named #{event.title}"
 
 # Seed for a picnic in the park
-# event = Event.create(
-#   user: User.all.sample,
-#   place: ,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'picnic',
-#   title: "Ava's Picnic!",
-#   description: "Join us for a fun afternoon of games and food in the park!",
-#   public: true
-# )
+event1 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'picnic',
+  title: "Ava's Picnic!",
+  description: "Join us for a fun afternoon of games and food in the park!",
+  public: true
+)
+puts "added new event named #{event1.title}"
 
 # # Seed for a playdate at our favourite cafe
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'playdate',
-#   title: "Noah's Playdate at Our Favourite Cafe",
-#   description: "Bring your little ones for some playtime and snacks at our favourite cafe!",
-#   public: true
-# )
+event2 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Noah's Playdate",
+  description: "Bring your little ones for some playtime and snacks at our favourite place!",
+  public: true
+)
+puts "added new event named #{event2.title}"
+
+
 
 # # Seed for a birthday party at the play center
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'birthday',
-#   title: "Ethan's Birthday Bash at the Play Center",
-#   description: "Come celebrate Ethan's birthday with us at the play center! There will be plenty of fun games and activities for kids of all ages!",
-#   public: true
-# )
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'scavenger hunt',
-#   title: "Oliver's Scavenger Hunt Adventure in the City",
-#   description: "Join us for an exciting scavenger hunt adventure in the city! Solve clues, complete challenges, and have fun!",
-#   public: false
-# )
+event3 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'birthday',
+  title: "Ethan's Birthday",
+  description: "Come celebrate Ethan's birthday with us at the play center! There will be plenty of fun games and activities for kids of all ages!",
+  public: false
+)
+
+puts "added new event named #{event3.title}"
+
+event4 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: "other",
+  title: "Oliver's Scavenger Hunt ",
+  description: "Join us for an exciting scavenger hunt adventure in the city! Solve clues, complete challenges, and have fun!",
+  public: false
+)
+
+puts "added new event named #{event4.title}"
 
 #   # Seed for a story time session
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'story time',
-#   title: "Story Time with the Kids",
-#   description: "Let's gather at the library and enjoy some great stories together.",
-#   public: false
-# )
+event5 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'other',
+  title: "Story Time with the Kids",
+  description: "Let's gather at the library and enjoy some great stories together.",
+  public: false
+)
+
+puts "added new event named #{event5.title}"
 
 # # Seed for a puppet show
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'puppet show',
-#   title: "Puppet Show for the Kids",
-#   description: "Come join us for a fun puppet show at the park.",
-#   public: true
-# )
+event6 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'other',
+  title: "Puppet Show for the Kids",
+  description: "Come join us for a fun puppet show! I am pretty sure you will enjoy!",
+  public: true
+)
+
+puts "added new event named #{event6.title}"
 
 # # Seed for a playdate at the playground
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'playdate',
-#   title: "Playdate at the Playground",
-#   description: "Let's meet up at our favourite playground",
-#   public: false
-# )
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'playdate',
-#   title: "Kids Playdate in the Park",
-#   description: "Join us for a fun afternoon in the park! We'll have games, snacks and lots of fun!",
-#   public: true
-# )
+event7 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Playdate time!!",
+  description: "Let's meet up at our favourite playarea! We will have a lot o fun and food! ",
+  public: false
+)
 
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'art',
-#   title: "Children's Art Workshop",
-#   description: "Join us for an afternoon of creativity! We'll be making art and having fun together!",
-#   public: false
-# )
+puts "added new event named #{event7.title}"
 
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'birthday',
-#   title: "Emily's 5th Birthday Party",
-#   description: "Come celebrate Emily's 5th birthday with us! We'll have cake, games and lots of fun!",
-#   public: true
-# )
 
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'music',
-#   title: "Kids Music Jam Session",
-#   description: "Let's make some music together! Bring your instruments and join us for a fun jam session!",
-#   public: false
-#   )
+event8 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Kids Playdate",
+  description: "Join us for a fun afternoon in the park! We'll have games, snacks and lots of fun!",
+  public: true
+)
 
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'sport',
-#   title: "Soccer Game in the Park",
-#   description: "Let's play some soccer together in the park! All skill levels welcome!",
-#   public: false
-#   )
+puts "added new event named #{event8.title}"
 
-# event = Event.create(
-#   user: User.all.sample,
-#   place: Place.all.sample,
-#   start_time: time,
-#   end_time: time + rand(3).hour,
-#   category: 'playdate',
-#   title: "Playdate at the Indoor Playground",
-#   description: "Come play with us at our favourite indoor playground! We'll have fun and make new friends!",
-#   public: false
-#   )
+event9 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Children's Art Workshop",
+  description: "Join us for an afternoon of creativity! We'll be making art and having fun together!",
+  public: false
+)
+
+puts "added new event named #{event9.title}"
+
+event10 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'birthday',
+  title: "Emily's 5th Birthday Party",
+  description: "Come celebrate Emily's 5th birthday with us! We'll have cake, games and lots of fun!",
+  public: true
+)
+puts "added new event named #{event10.title}"
+
+event11 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'other',
+  title: "Kids Music Jam Session",
+  description: "Let's make some music together! Bring your instruments and join us for a fun jam session!",
+  public: false
+  )
+
+puts "added new event named #{event11.title}"
+
+
+event12 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Soccer Game in the Park",
+  description: "Let's play some soccer together in the park! All skill levels welcome!",
+  public: false
+  )
+
+puts "added new event named #{event12.title}"
+
+
+event13 = Event.create(
+  user: User.all.sample,
+  place: Place.all.sample,
+  start_time: time,
+  end_time: time + rand(3).hour,
+  category: 'playdate',
+  title: "Time for play!",
+  description: "Come play with us at our favourite indoor playground! We'll have fun and make new friends!",
+  public: false
+  )
+
+puts "added new event named #{event13.title}"
 
 
   # user: User.all.sample,
@@ -635,4 +665,3 @@ puts "added new event named #{event.title}"
   # title: "#{Faker::FunnyName.name}'s Picnic!",
   # description: Faker::Hipster.sentence * 5,
   # public: false
-
