@@ -34,25 +34,30 @@
 
         <% end %>
       </div>
+      <% if chat.messages.any? %>
 
-      <div class="chat-preview flex-grow-1 pe-3">
+        <div class="chat-preview flex-grow-1 pe-3">
+          <div class="meta">
+            <p class="small"><%= chat.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+          </div>
 
-        <div class="meta">
-          <p class="small"><%= chat.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+          <div class="last-message">
+            <p class="fw-bold">
+              <% if chat.messages.last.user == current_user %>
+              You:
+              <% else %>
+              Them:
+              <% end %>
+              <%= chat.messages.last.content %>
+            </p>
+          </div>
+
         </div>
-
-        <div class="last-message">
-          <p class="fw-bold">
-            <% if chat.messages.last.user == current_user %>
-            You:
-            <% else %>
-            Them:
-            <% end %>
-            <%= chat.messages.last.content %>
-          </p>
+        <% else %>
+        <div class="chat-preview flex-grow-1 pe-3">
+          <p>No messages yet</p>
         </div>
-
-      </div>
+      <% end %>
 
     </div>
     <% end %>
