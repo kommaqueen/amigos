@@ -75,3 +75,14 @@
     font-family: 'Paytone One';
     text-decoration-color: orange;
   }
+
+.chatroom-box {
+  .amigo-avatar {
+    flex: inherit;
+  }
+
+  .chat-preview {
+    flex: 3;
+  }
+
+}
