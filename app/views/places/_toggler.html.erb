@@ -50,26 +50,26 @@
         <%# <% if @place.reviews.blank? %>
           <%# <p>No reviews yet 😔</p> %>
         <%# <% end %>
-        <% unless @place.reviews.blank? %>
-          <div class="reviews-display col-12">
-            <div data-reviews-target="items">
-              <% if @place.reviews.any?%>
-                <% @place.reviews.each do |r| %>
-                  <%= render partial: "places/display_reviews", locals: {r: r } %>
+        <div data-reviews-target="items">
+          <% unless @place.reviews.blank? %>
+            <div class="reviews-display col-12">
+              <div class="">
+
+                <% if @place.reviews.any?%>
+                  <% @place.reviews.each do |r| %>
+                    <%= render partial: "places/display_reviews", locals: {r: r } %>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
-          </div>
-          <hr>
-        <% end %>
-        <% if @check_in_current_user.exists? %>
-          <div class="form-review col-12">
-            <h2 class="toggler-header">Leave a review!</h2>
-            <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
-          </div>
-          <% else %>
-          <p class="px-1 pb-3">You should at least check in once to leave a review!</p>
-        <% end %>
+            <hr>
+          <% end %>
+            <div class="form-review col-12 <%= "d-none" unless @check_in_current_user.exists? %>">
+              <h2 class="toggler-header">Leave a review!</h2>
+              <%= render partial: "places/review_form", locals: {place: @place, review: @review } %>
+            </div>
+            <p class="px-1 pb-3 <%= "d-none" if @check_in_current_user.exists? %> ">You should at least check in once to leave a review!</p>
+        </div>
       </div>
 
 
